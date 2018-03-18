@@ -1,0 +1,83 @@
+.card {height:300px; border-radius:0; border:0;}
+
+.card .image {overflow:hidden;}
+.card .image,
+.card .image * {height:100%;}
+
+.card .card-body {width:100%;}
+.card .card-body .title,
+.card .card-body .date,
+.card .card-body .group {margin-bottom:5px; padding:5px 10px; color:#999; background:rgba(255, 255, 255, 0.5);}
+.card .title {}
+.card .title h3 {margin-bottom:0;}
+
+
+
+
+
+
+/* |||||||||| BOOTSTRAP 4 |||||||||| */
+
+/* Add-on: Bootstrap 4, hidden-{breakpoint}-{up/down} */
+/* taken from Bootstrap 4, alpha 6 */
+.hidden-xs-up {display:none!important;}
+@media (max-width:575px)	{ .hidden-xs-down {display:none!important;}	}
+@media (min-width:576px)	{ .hidden-sm-up {display:none!important;}	}
+@media (max-width:767px)	{ .hidden-sm-down {display:none!important;}	}
+@media (min-width:768px)	{ .hidden-md-up {display:none!important;}	}
+@media (max-width:991px)	{ .hidden-md-down {display:none!important;}	}
+@media (min-width:992px)	{ .hidden-lg-up {display:none!important;}	}
+@media (max-width:1199px)	{ .hidden-lg-down {display:none!important;}	}
+@media (min-width:1200px)	{ .hidden-xl-up {display:none!important;}	}
+.hidden-xl-down {display:none!important;}
+
+
+/* Add-on: Bootstrap 4, hidden-{breakpoint} */
+/* taken from Bootstrap 3.3.6, converted to Bootstrap 4 */
+@media (max-width:575px)	{ .hidden-xs {display:none!important;} }
+@media (min-width:576px) and (max-width:767px)	{ .hidden-sm {display:none!important;} }
+@media (min-width:768px) and (max-width:991px)	{ .hidden-sm {display:none!important;} }
+@media (min-width:992px) and (max-width:1199px)	{ .hidden-md {display:none!important;} }
+@media (min-width:1200px)	{ .hidden-lg {display:none!important;} }
+
+
+
+
+/* Not Bootstrap dependant, using Bootstrap 4's grid breakpoints */
+html > body:before {
+	content: "Extra small (xs) | (<576px)"; /* Extra Small - xs */
+	position:fixed;
+	bottom:5px;
+	left:5px;
+	z-index:99999999;
+	width:auto;
+	height:auto;
+	padding:5px;
+	color:#fff;
+	font-size:12px;
+	font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;
+	background:rgba(255, 0, 255, 0.50);
+	letter-spacing:1px;
+}
+
+@media (min-width: 576px) { html > body:before {content: "Small (sm) | (\2265 576px)";} }			/* Small - sm */
+@media (min-width: 768px) { html > body:before {content: "Medium (md) | (\2265 768px)";} }			/* Medium - md */
+@media (min-width: 992px) { html > body:before {content: "Large (lg) | (\2265 992px)";} }			/* Large - lg */
+@media (min-width: 1200px) { html > body:before {content: "Extra Large (xl) | (\2265 1200px)";} }	/* Extra Large - xl */
+
+
+
+
+
+a						{outline:1px dotted #D68A85!important;}
+h1, h2, h3, h4, h5, h6	{outline:1px dotted #E7912D!important;}
+span					{outline:1px dotted #F0F!important;}
+div						{outline:1px dotted #3AB6F1!important;}
+ul, ol					{outline:1px dotted #8684D8!important;}
+li						{outline:1px dotted #DD67AE!important;}
+td						{outline:1px dotted lightblue!important;}
+i						{outline:1px dotted gray!important;}
+
+
+
+
