@@ -17,89 +17,72 @@
 	</head>
 	<body>
 
-
-
 <div class="container">
 
+	<!-- Navbar-->
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<a class="navbar-brand site-logo" href="/">
+			<img src="http://placehold.it/250x75" alt="Baton Rouge Dev Meetups">
+		</a>
 
+		<button class="toggle-menu menu-left">Toggle Left Menu</button>
 
+		<!-- Left menu element-->
+		<nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left">
+			<h3>Menu</h3>
+			<a href="#">Celery seakale</a>
+			<a href="#">Dulse daikon</a>
+			<a href="#">Zucchini garlic</a>
+			<a href="#">Catsear azuki bean</a>
+			<a href="#">Dandelion bunya</a>
+			<a href="#">Rutabaga</a>
+		</nav>
 
+		<button class="navbar-toggler toggle-menu menu-left bg-danger jPushMenuBtn" type="button" data-toggle="collapse" data-target="#navbar-collapse-grid" aria-controls="navbar-collapse-grid" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
 
-<!-- Navbar-->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-	<a class="navbar-brand site-logo" href="/">
-		<img src="http://placehold.it/250x75" alt="Baton Rouge Dev Meetups">
-	</a>
+		<div class="navbar-collapse collapse" id="navbar-collapse-grid">
+			<ul class="nav navbar-nav ml-auto navigation">
 
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				          Dropdown link
+				        </a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+						<a class="dropdown-item" href="#">Action</a>
+						<a class="dropdown-item" href="#">Another action</a>
+						<a class="dropdown-item" href="#">Something else here</a>
+					</div>
+				</li>
 
-<button class="toggle-menu menu-left">Toggle Left Menu</button>
-
-
-
-
-<!-- Left menu element-->
-<nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left">
-	<h3>Menu</h3>
-	<a href="#">Celery seakale</a>
-	<a href="#">Dulse daikon</a>
-	<a href="#">Zucchini garlic</a>
-	<a href="#">Catsear azuki bean</a>
-	<a href="#">Dandelion bunya</a>
-	<a href="#">Rutabaga</a>
-</nav>
-
-
-	<button class="navbar-toggler toggle-menu menu-left bg-danger jPushMenuBtn" type="button" data-toggle="collapse" data-target="#navbar-collapse-grid" aria-controls="navbar-collapse-grid" aria-expanded="false" aria-label="Toggle navigation">
-		<span class="navbar-toggler-icon"></span>
-	</button>
-
-	<div class="navbar-collapse collapse" id="navbar-collapse-grid">
-		<ul class="nav navbar-nav ml-auto navigation">
-
-			<li class="nav-item dropdown">
-				<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-			          Dropdown link
-			        </a>
-				<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-					<a class="dropdown-item" href="#">Action</a>
-					<a class="dropdown-item" href="#">Another action</a>
-					<a class="dropdown-item" href="#">Something else here</a>
-				</div>
-			</li>
-
-		</ul>
-	</div>
-</nav>
+			</ul>
+		</div>
+	</nav>
 
 </div>
 
-<div class="container2">
-	<div class="row">
-		<!-- ko foreach: eventData -->
-		<div class="col-12 col-sm-6 col-lg-4 p-0">
-			<div class="card" data-bind="
-					style: {
-						background: Hex != '' ? Hex : '#ddd'
-					}
-				">
-				<div class="card-body">
-					<h2 class="title pull-left" data-bind="text: GroupName"></h2>
-					<div class="pull-right" data-bind="text: Location"></div>
+<div class="row">
+	<!-- ko foreach: eventData -->
+	<div class="col-12 col-sm-6 col-lg-4 p-0">
+		<div class="card" data-bind="
+				style: {
+					background: Hex != '' ? Hex : '#ddd'
+				}
+			">
+			<div class="card-body">
+				<h2 class="title pull-left" data-bind="text: GroupName"></h2>
+				<div class="pull-right" data-bind="text: Location"></div>
 
-					<div class="background">
-						<div class="icon" data-bind="html: FontIcon"></div>
-					</div>
+				<div class="background">
+					<div class="icon" data-bind="html: FontIcon"></div>
 				</div>
 			</div>
 		</div>
-		<!-- /ko -->
 	</div>
+	<!-- /ko -->
 </div>
 
-
-
-
-		
 		<script src="./assets/js/jquery.min.js"></script>
 		<script src="./assets/js/knockout.min.js"></script>
 		<script src="./assets/js/bootstrap.min.js"></script>
