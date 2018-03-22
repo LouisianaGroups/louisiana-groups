@@ -5,6 +5,7 @@
     "Location": "Baton Rouge, LA",
     "Website": "",
     "Hex": "#ff4444",
+    "RGB": "255,68,68",
     "Icon": "<>",
     "FontIcon": "<i class=\"fa fa-chevron-left\" aria-hidden=\"true\"></i>\n<i class=\"fa fa-chevron-right\" aria-hidden=\"true\"></i>"
   },
@@ -13,7 +14,8 @@
     "GroupName": "BR Hack Night",
     "Location": "Baton Rouge, LA",
     "Website": "",
-    "Hex": "#fbbf42",
+    "Hex": "#363636",
+    "RGB": "",
     "Icon": "moon",
     "FontIcon": "<i class=\"fa fa-moon-o\" aria-hidden=\"true\"></i>"
   },
@@ -23,6 +25,7 @@
     "Location": "New Orleans, LA",
     "Website": "http://www.frontendparty.com",
     "Hex": "#a86cc8",
+    "RGB": "",
     "Icon": "hash",
     "FontIcon": "<i class=\"fa fa-hashtag\" aria-hidden=\"true\"></i>"
   },
@@ -31,7 +34,8 @@
     "GroupName": "Baton Rouge Drink & Draw",
     "Location": "Baton Rouge, LA",
     "Website": "",
-    "Hex": "#ffbb33",
+    "Hex": "#fad659",
+    "RGB": "",
     "Icon": "beer + pencil",
     "FontIcon": "<i class=\"fa fa-beer\" aria-hidden=\"true\"></i>\n<i class=\"fa fa-pencil\" aria-hidden=\"true\"></i>"
   },
@@ -40,7 +44,8 @@
     "GroupName": "Docker Louisiana",
     "Location": "Baton Rouge, LA",
     "Website": "https://www.meetup.com/Docker-Louisiana/",
-    "Hex": "#a86cc8",
+    "Hex": "#3abae6",
+    "RGB": "",
     "Icon": "boxes",
     "FontIcon": "<i class=\"fa fa-th\" aria-hidden=\"true\"></i>"
   },
@@ -50,6 +55,7 @@
     "Location": "New Orleans, LA",
     "Website": "http://nolahacknight.com",
     "Hex": "#4f9df3",
+    "RGB": "",
     "Icon": "moon",
     "FontIcon": "<i class=\"fa fa-moon-o\" aria-hidden=\"true\"></i>"
   },
@@ -59,6 +65,7 @@
     "Location": "Baton Rouge, LA",
     "Website": "",
     "Hex": "#ec1928",
+    "RGB": "",
     "Icon": "database",
     "FontIcon": "<i class=\"fa fa-database\" aria-hidden=\"true\"></i>"
   },
@@ -68,6 +75,7 @@
     "Location": "",
     "Website": "",
     "Hex": "",
+    "RGB": "",
     "Icon": "female",
     "FontIcon": "<i class=\"fa fa-venus\" aria-hidden=\"true\"></i>"
   },
@@ -77,6 +85,7 @@
     "Location": "",
     "Website": "",
     "Hex": "",
+    "RGB": "",
     "Icon": "",
     "FontIcon": "<i class=\"fa fa-windows\" aria-hidden=\"true\"></i>"
   },
@@ -86,6 +95,7 @@
     "Location": "New Orleans, LA",
     "Website": "",
     "Hex": "",
+    "RGB": "",
     "Icon": "",
     "FontIcon": "<i class=\"fa fa-windows\" aria-hidden=\"true\"></i>"
   },
@@ -95,6 +105,7 @@
     "Location": "Hammond, LA",
     "Website": "",
     "Hex": "",
+    "RGB": "",
     "Icon": "",
     "FontIcon": "<i class=\"fa fa-windows\" aria-hidden=\"true\"></i>"
   },
@@ -104,6 +115,7 @@
     "Location": "Baton Rouge, LA",
     "Website": "",
     "Hex": "",
+    "RGB": "",
     "Icon": "",
     "FontIcon": "<i class=\"fa fa-windows\" aria-hidden=\"true\"></i>"
   },
@@ -113,6 +125,7 @@
     "Location": "Baton Rouge, LA",
     "Website": "",
     "Hex": "",
+    "RGB": "",
     "Icon": "",
     "FontIcon": "<i class=\"fa fa-laptop\" aria-hidden=\"true\"></i>"
   },
@@ -122,6 +135,7 @@
     "Location": "Baton Rouge, LA",
     "Website": "",
     "Hex": "",
+    "RGB": "",
     "Icon": "",
     "FontIcon": "<i class=\"fa fa-commenting-o\" aria-hidden=\"true\"></i>"
   },
@@ -131,6 +145,7 @@
     "Location": "Baton Rouge, LA",
     "Website": "",
     "Hex": "",
+    "RGB": "",
     "Icon": "",
     "FontIcon": "<i class=\"fa fa-windows\" aria-hidden=\"true\"></i>"
   },
@@ -140,6 +155,7 @@
     "Location": "",
     "Website": "",
     "Hex": "",
+    "RGB": "",
     "Icon": "",
     "FontIcon": "<i class=\"fa fa-windows\" aria-hidden=\"true\"></i>"
   },
@@ -149,6 +165,7 @@
     "Location": "Baton Rouge, LA",
     "Website": "https://www.meetup.com/techtuesdayBTR/",
     "Hex": "",
+    "RGB": "",
     "Icon": "",
     "FontIcon": "<i class=\"fa fa-laptop\" aria-hidden=\"true\"></i>"
   }

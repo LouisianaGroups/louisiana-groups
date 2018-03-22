@@ -73,18 +73,35 @@
 
 </div>
 
-<div class="container">
+<div class="container2">
 	<div class="row">
+		<!-- ko foreach: eventData -->
+		<div class="col-12 col-sm-6 col-lg-4 p-0">
+			<div class="card" data-bind="
+					style: {
+						background: Hex != '' ? Hex : '#ddd'
+					}
+				">
+				<div class="card-body">
+					<h2 class="title" data-bind="text: GroupName"></h2>
+					<div data-bind="text: Location"></div>
 
+					<div class="background">
+						<div class="icon" data-bind="html: FontIcon"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /ko -->
 	</div>
 </div>
 
-		<div id="output">
-			<!-- temp element for rapid prototyping -->
-			<div class="row m-0"></div>
-		</div>
+
+
+
 		
 		<script src="./assets/js/jquery.min.js"></script>
+		<script src="./assets/js/knockout.min.js"></script>
 		<script src="./assets/js/bootstrap.min.js"></script>
 		<script src="./assets/js/jpushmenu.js"></script>
 		<script src="./assets/js/scripts.js"></script>
