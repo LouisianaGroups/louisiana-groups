@@ -4,6 +4,7 @@
     "Group Name": "Refresh Baton Rouge",
     "Location": "Baton Rouge, LA",
     "Website": "",
+    "Hex": "#ff4444",
     "Icon": "<>",
     "Font Icon": "<i class=\"fa fa-chevron-left\" aria-hidden=\"true\"></i>\n<i class=\"fa fa-chevron-right\" aria-hidden=\"true\"></i>"
   },
@@ -12,7 +13,44 @@
     "Group Name": "BR Hack Night",
     "Location": "Baton Rouge, LA",
     "Website": "",
+    "Hex": "#fbbf42",
     "Icon": "moon",
+    "Font Icon": "<i class=\"fa fa-moon-o\" aria-hidden=\"true\"></i>"
+  },
+  {
+    "ID": 4,
+    "Group Name": "Front-End Party",
+    "Location": "New Orleans, LA",
+    "Website": "http://www.frontendparty.com",
+    "Hex": "#a86cc8",
+    "Icon": "hash",
+    "Font Icon": "<i class=\"fa fa-hashtag\" aria-hidden=\"true\"></i>"
+  },
+  {
+    "ID": 13,
+    "Group Name": "Baton Rouge Drink & Draw",
+    "Location": "Baton Rouge, LA",
+    "Website": "",
+    "Hex": "#ffbb33",
+    "Icon": "",
+    "Font Icon": "<i class=\"fa fa-beer\" aria-hidden=\"true\"></i>\n<i class=\"fa fa-pencil\" aria-hidden=\"true\"></i>"
+  },
+  {
+    "ID": 15,
+    "Group Name": "Docker Louisiana",
+    "Location": "Baton Rouge, LA",
+    "Website": "https://www.meetup.com/Docker-Louisiana/",
+    "Hex": "#a86cc8",
+    "Icon": "boxes",
+    "Font Icon": "<i class=\"fa fa-th\" aria-hidden=\"true\"></i>"
+  },
+  {
+    "ID": 17,
+    "Group Name": "Nola Hack Night",
+    "Location": "New Orleans, LA",
+    "Website": "http://nolahacknight.com",
+    "Hex": "#4f9df3",
+    "Icon": "",
     "Font Icon": "<i class=\"fa fa-moon-o\" aria-hidden=\"true\"></i>"
   },
   {
@@ -20,22 +58,16 @@
     "Group Name": "Baton Rouge SQL Server User Group",
     "Location": "Baton Rouge, LA",
     "Website": "",
+    "Hex": "#ec1928",
     "Icon": "database",
     "Font Icon": "<i class=\"fa fa-database\" aria-hidden=\"true\"></i>"
-  },
-  {
-    "ID": 4,
-    "Group Name": "Front-End Party",
-    "Location": "New Orleans, LA",
-    "Website": "http://www.frontendparty.com",
-    "Icon": "hash",
-    "Font Icon": "<i class=\"fa fa-hashtag\" aria-hidden=\"true\"></i>"
   },
   {
     "ID": 5,
     "Group Name": "Women In Technology User Group",
     "Location": "",
     "Website": "",
+    "Hex": "",
     "Icon": "female",
     "Font Icon": "<i class=\"fa fa-venus\" aria-hidden=\"true\"></i>"
   },
@@ -44,14 +76,7 @@
     "Group Name": "Acadiana .NET User Group",
     "Location": "",
     "Website": "",
-    "Icon": "",
-    "Font Icon": "<i class=\"fa fa-windows\" aria-hidden=\"true\"></i>"
-  },
-  {
-    "ID": 7,
-    "Group Name": "Baton Rouge SharePoint User Group",
-    "Location": "Baton Rouge, LA",
-    "Website": "",
+    "Hex": "",
     "Icon": "",
     "Font Icon": "<i class=\"fa fa-windows\" aria-hidden=\"true\"></i>"
   },
@@ -60,6 +85,7 @@
     "Group Name": "Greater New Orleans .NET User Group",
     "Location": "New Orleans, LA",
     "Website": "",
+    "Hex": "",
     "Icon": "",
     "Font Icon": "<i class=\"fa fa-windows\" aria-hidden=\"true\"></i>"
   },
@@ -68,6 +94,7 @@
     "Group Name": "Hammond .NET User Group",
     "Location": "Hammond, LA",
     "Website": "",
+    "Hex": "",
     "Icon": "",
     "Font Icon": "<i class=\"fa fa-windows\" aria-hidden=\"true\"></i>"
   },
@@ -76,6 +103,7 @@
     "Group Name": "Baton Rouge XAML User Group",
     "Location": "Baton Rouge, LA",
     "Website": "",
+    "Hex": "",
     "Icon": "",
     "Font Icon": "<i class=\"fa fa-windows\" aria-hidden=\"true\"></i>"
   },
@@ -84,6 +112,7 @@
     "Group Name": "Baton Rouge IT Pro User Group",
     "Location": "Baton Rouge, LA",
     "Website": "",
+    "Hex": "",
     "Icon": "",
     "Font Icon": "<i class=\"fa fa-laptop\" aria-hidden=\"true\"></i>"
   },
@@ -92,47 +121,35 @@
     "Group Name": "Baton Rouge Architecture Group",
     "Location": "Baton Rouge, LA",
     "Website": "",
+    "Hex": "",
     "Icon": "",
     "Font Icon": "<i class=\"fa fa-commenting-o\" aria-hidden=\"true\"></i>"
   },
   {
-    "ID": 13,
-    "Group Name": "Baton Rouge Drink & Draw",
+    "ID": 7,
+    "Group Name": "Baton Rouge SharePoint User Group",
     "Location": "Baton Rouge, LA",
     "Website": "",
+    "Hex": "",
     "Icon": "",
-    "Font Icon": "<i class=\"fa fa-beer\" aria-hidden=\"true\"></i>\n<i class=\"fa fa-pencil\" aria-hidden=\"true\"></i>"
+    "Font Icon": "<i class=\"fa fa-windows\" aria-hidden=\"true\"></i>"
   },
   {
     "ID": 14,
     "Group Name": "Houma-Thibodaux .NET User Group",
     "Location": "",
     "Website": "",
+    "Hex": "",
     "Icon": "",
     "Font Icon": "<i class=\"fa fa-windows\" aria-hidden=\"true\"></i>"
-  },
-  {
-    "ID": 15,
-    "Group Name": "Docker Louisiana",
-    "Location": "Baton Rouge, LA",
-    "Website": "https://www.meetup.com/Docker-Louisiana/",
-    "Icon": "boxes",
-    "Font Icon": "<i class=\"fa fa-th\" aria-hidden=\"true\"></i>"
   },
   {
     "ID": 16,
     "Group Name": "Baton Rouge's Tech Tuesday",
     "Location": "Baton Rouge, LA",
     "Website": "https://www.meetup.com/techtuesdayBTR/",
+    "Hex": "",
     "Icon": "",
     "Font Icon": "<i class=\"fa fa-laptop\" aria-hidden=\"true\"></i>"
-  },
-  {
-    "ID": 17,
-    "Group Name": "Nola Hack Night",
-    "Location": "New Orleans, LA",
-    "Website": "https://www.meetup.com/nolahacknight",
-    "Icon": "",
-    "Font Icon": "<i class=\"fa fa-moon-o\" aria-hidden=\"true\"></i>"
   }
 ]
