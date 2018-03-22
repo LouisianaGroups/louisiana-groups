@@ -16,7 +16,7 @@ $(function() {
 
 	$.ajax({
 		type: 'GET',
-		url: 'http://louisianagroups.com/events.json',
+		url: 'http://louisianagroups.com/groups.json',
 		success: function(data) {
 			eventData(data);
 			console.table(eventData);

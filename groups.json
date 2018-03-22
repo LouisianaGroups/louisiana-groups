@@ -17,7 +17,7 @@
     "Hex": "#363636",
     "RGB": "",
     "Icon": "moon",
-    "FontIcon": "<i class=\"fa fa-moon-o\" aria-hidden=\"true\"></i>"
+    "FontIcon": "<i class=\"fas fa-moon-o\" aria-hidden=\"true\"></i>"
   },
   {
     "ID": "",
@@ -37,7 +37,7 @@
     "Hex": "#fad659",
     "RGB": "",
     "Icon": "beer + pencil",
-    "FontIcon": "<i class=\"fa fa-beer\" aria-hidden=\"true\"></i>\n<i class=\"fa fa-pencil-alt\" aria-hidden=\"true\"></i>"
+    "FontIcon": "<i class=\"fa fa-beer\" aria-hidden=\"true\"></i>\n<i class=\"fa fa-plus half\" aria-hidden=\"true\"></i>\n<i class=\"fa fa-pencil-alt\" aria-hidden=\"true\"></i>"
   },
   {
     "ID": 17,
@@ -47,7 +47,7 @@
     "Hex": "#f0f",
     "RGB": "",
     "Icon": "wordpress logo",
-    "FontIcon": "<i class=\"fa fa-wordpress\" aria-hidden=\"true\"></i>"
+    "FontIcon": "<i class=\"fa fab-wordpress\" aria-hidden=\"true\"></i>"
   },
   {
     "ID": 4,
@@ -67,7 +67,7 @@
     "Hex": "#3abae6",
     "RGB": "",
     "Icon": "boxes",
-    "FontIcon": "<i class=\"fa fa-docker\" aria-hidden=\"true\"></i>"
+    "FontIcon": "<i class=\"fab fa-docker\" aria-hidden=\"true\"></i>"
   },
   {
     "ID": 17,
@@ -77,7 +77,7 @@
     "Hex": "#4f9df3",
     "RGB": "",
     "Icon": "moon",
-    "FontIcon": "<i class=\"fa fa-moon-o\" aria-hidden=\"true\"></i>"
+    "FontIcon": "<i class=\"fas fa-moon-o\" aria-hidden=\"true\"></i>"
   },
   {
     "ID": 3,
@@ -107,7 +107,7 @@
     "Hex": "",
     "RGB": "",
     "Icon": "",
-    "FontIcon": "<i class=\"fa fa-windows\" aria-hidden=\"true\"></i>"
+    "FontIcon": "<i class=\"fab fa-windows\" aria-hidden=\"true\"></i>"
   },
   {
     "ID": 8,
@@ -117,7 +117,7 @@
     "Hex": "",
     "RGB": "",
     "Icon": "",
-    "FontIcon": "<i class=\"fa fa-windows\" aria-hidden=\"true\"></i>"
+    "FontIcon": "<i class=\"fab fa-windows\" aria-hidden=\"true\"></i>"
   },
   {
     "ID": 9,
@@ -127,7 +127,7 @@
     "Hex": "",
     "RGB": "",
     "Icon": "",
-    "FontIcon": "<i class=\"fa fa-windows\" aria-hidden=\"true\"></i>"
+    "FontIcon": "<i class=\"fab fa-windows\" aria-hidden=\"true\"></i>"
   },
   {
     "ID": 10,
@@ -137,7 +137,7 @@
     "Hex": "",
     "RGB": "",
     "Icon": "",
-    "FontIcon": "<i class=\"fa fa-windows\" aria-hidden=\"true\"></i>"
+    "FontIcon": "<i class=\"fab fa-windows\" aria-hidden=\"true\"></i>"
   },
   {
     "ID": 11,
@@ -167,7 +167,7 @@
     "Hex": "",
     "RGB": "",
     "Icon": "",
-    "FontIcon": "<i class=\"fa fa-windows\" aria-hidden=\"true\"></i>"
+    "FontIcon": "<i class=\"fab fa-windows\" aria-hidden=\"true\"></i>"
   },
   {
     "ID": 14,
@@ -177,7 +177,7 @@
     "Hex": "",
     "RGB": "",
     "Icon": "",
-    "FontIcon": "<i class=\"fa fa-windows\" aria-hidden=\"true\"></i>"
+    "FontIcon": "<i class=\"fab fa-windows\" aria-hidden=\"true\"></i>"
   },
   {
     "ID": 16,
