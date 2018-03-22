@@ -1,155 +1,155 @@
 [
   {
     "ID": 1,
-    "Group Name": "Refresh Baton Rouge",
+    "GroupName": "Refresh Baton Rouge",
     "Location": "Baton Rouge, LA",
     "Website": "",
     "Hex": "#ff4444",
     "Icon": "<>",
-    "Font Icon": "<i class=\"fa fa-chevron-left\" aria-hidden=\"true\"></i>\n<i class=\"fa fa-chevron-right\" aria-hidden=\"true\"></i>"
+    "FontIcon": "<i class=\"fa fa-chevron-left\" aria-hidden=\"true\"></i>\n<i class=\"fa fa-chevron-right\" aria-hidden=\"true\"></i>"
   },
   {
     "ID": 2,
-    "Group Name": "BR Hack Night",
+    "GroupName": "BR Hack Night",
     "Location": "Baton Rouge, LA",
     "Website": "",
     "Hex": "#fbbf42",
     "Icon": "moon",
-    "Font Icon": "<i class=\"fa fa-moon-o\" aria-hidden=\"true\"></i>"
+    "FontIcon": "<i class=\"fa fa-moon-o\" aria-hidden=\"true\"></i>"
   },
   {
     "ID": 4,
-    "Group Name": "Front-End Party",
+    "GroupName": "Front-End Party",
     "Location": "New Orleans, LA",
     "Website": "http://www.frontendparty.com",
     "Hex": "#a86cc8",
     "Icon": "hash",
-    "Font Icon": "<i class=\"fa fa-hashtag\" aria-hidden=\"true\"></i>"
+    "FontIcon": "<i class=\"fa fa-hashtag\" aria-hidden=\"true\"></i>"
   },
   {
     "ID": 13,
-    "Group Name": "Baton Rouge Drink & Draw",
+    "GroupName": "Baton Rouge Drink & Draw",
     "Location": "Baton Rouge, LA",
     "Website": "",
     "Hex": "#ffbb33",
-    "Icon": "",
-    "Font Icon": "<i class=\"fa fa-beer\" aria-hidden=\"true\"></i>\n<i class=\"fa fa-pencil\" aria-hidden=\"true\"></i>"
+    "Icon": "beer + pencil",
+    "FontIcon": "<i class=\"fa fa-beer\" aria-hidden=\"true\"></i>\n<i class=\"fa fa-pencil\" aria-hidden=\"true\"></i>"
   },
   {
     "ID": 15,
-    "Group Name": "Docker Louisiana",
+    "GroupName": "Docker Louisiana",
     "Location": "Baton Rouge, LA",
     "Website": "https://www.meetup.com/Docker-Louisiana/",
     "Hex": "#a86cc8",
     "Icon": "boxes",
-    "Font Icon": "<i class=\"fa fa-th\" aria-hidden=\"true\"></i>"
+    "FontIcon": "<i class=\"fa fa-th\" aria-hidden=\"true\"></i>"
   },
   {
     "ID": 17,
-    "Group Name": "Nola Hack Night",
+    "GroupName": "Nola Hack Night",
     "Location": "New Orleans, LA",
     "Website": "http://nolahacknight.com",
     "Hex": "#4f9df3",
-    "Icon": "",
-    "Font Icon": "<i class=\"fa fa-moon-o\" aria-hidden=\"true\"></i>"
+    "Icon": "moon",
+    "FontIcon": "<i class=\"fa fa-moon-o\" aria-hidden=\"true\"></i>"
   },
   {
     "ID": 3,
-    "Group Name": "Baton Rouge SQL Server User Group",
+    "GroupName": "Baton Rouge SQL Server User Group",
     "Location": "Baton Rouge, LA",
     "Website": "",
     "Hex": "#ec1928",
     "Icon": "database",
-    "Font Icon": "<i class=\"fa fa-database\" aria-hidden=\"true\"></i>"
+    "FontIcon": "<i class=\"fa fa-database\" aria-hidden=\"true\"></i>"
   },
   {
     "ID": 5,
-    "Group Name": "Women In Technology User Group",
+    "GroupName": "Women In Technology User Group",
     "Location": "",
     "Website": "",
     "Hex": "",
     "Icon": "female",
-    "Font Icon": "<i class=\"fa fa-venus\" aria-hidden=\"true\"></i>"
+    "FontIcon": "<i class=\"fa fa-venus\" aria-hidden=\"true\"></i>"
   },
   {
     "ID": 6,
-    "Group Name": "Acadiana .NET User Group",
+    "GroupName": "Acadiana .NET User Group",
     "Location": "",
     "Website": "",
     "Hex": "",
     "Icon": "",
-    "Font Icon": "<i class=\"fa fa-windows\" aria-hidden=\"true\"></i>"
+    "FontIcon": "<i class=\"fa fa-windows\" aria-hidden=\"true\"></i>"
   },
   {
     "ID": 8,
-    "Group Name": "Greater New Orleans .NET User Group",
+    "GroupName": "Greater New Orleans .NET User Group",
     "Location": "New Orleans, LA",
     "Website": "",
     "Hex": "",
     "Icon": "",
-    "Font Icon": "<i class=\"fa fa-windows\" aria-hidden=\"true\"></i>"
+    "FontIcon": "<i class=\"fa fa-windows\" aria-hidden=\"true\"></i>"
   },
   {
     "ID": 9,
-    "Group Name": "Hammond .NET User Group",
+    "GroupName": "Hammond .NET User Group",
     "Location": "Hammond, LA",
     "Website": "",
     "Hex": "",
     "Icon": "",
-    "Font Icon": "<i class=\"fa fa-windows\" aria-hidden=\"true\"></i>"
+    "FontIcon": "<i class=\"fa fa-windows\" aria-hidden=\"true\"></i>"
   },
   {
     "ID": 10,
-    "Group Name": "Baton Rouge XAML User Group",
+    "GroupName": "Baton Rouge XAML User Group",
     "Location": "Baton Rouge, LA",
     "Website": "",
     "Hex": "",
     "Icon": "",
-    "Font Icon": "<i class=\"fa fa-windows\" aria-hidden=\"true\"></i>"
+    "FontIcon": "<i class=\"fa fa-windows\" aria-hidden=\"true\"></i>"
   },
   {
     "ID": 11,
-    "Group Name": "Baton Rouge IT Pro User Group",
+    "GroupName": "Baton Rouge IT Pro User Group",
     "Location": "Baton Rouge, LA",
     "Website": "",
     "Hex": "",
     "Icon": "",
-    "Font Icon": "<i class=\"fa fa-laptop\" aria-hidden=\"true\"></i>"
+    "FontIcon": "<i class=\"fa fa-laptop\" aria-hidden=\"true\"></i>"
   },
   {
     "ID": 12,
-    "Group Name": "Baton Rouge Architecture Group",
+    "GroupName": "Baton Rouge Architecture Group",
     "Location": "Baton Rouge, LA",
     "Website": "",
     "Hex": "",
     "Icon": "",
-    "Font Icon": "<i class=\"fa fa-commenting-o\" aria-hidden=\"true\"></i>"
+    "FontIcon": "<i class=\"fa fa-commenting-o\" aria-hidden=\"true\"></i>"
   },
   {
     "ID": 7,
-    "Group Name": "Baton Rouge SharePoint User Group",
+    "GroupName": "Baton Rouge SharePoint User Group",
     "Location": "Baton Rouge, LA",
     "Website": "",
     "Hex": "",
     "Icon": "",
-    "Font Icon": "<i class=\"fa fa-windows\" aria-hidden=\"true\"></i>"
+    "FontIcon": "<i class=\"fa fa-windows\" aria-hidden=\"true\"></i>"
   },
   {
     "ID": 14,
-    "Group Name": "Houma-Thibodaux .NET User Group",
+    "GroupName": "Houma-Thibodaux .NET User Group",
     "Location": "",
     "Website": "",
     "Hex": "",
     "Icon": "",
-    "Font Icon": "<i class=\"fa fa-windows\" aria-hidden=\"true\"></i>"
+    "FontIcon": "<i class=\"fa fa-windows\" aria-hidden=\"true\"></i>"
   },
   {
     "ID": 16,
-    "Group Name": "Baton Rouge's Tech Tuesday",
+    "GroupName": "Baton Rouge's Tech Tuesday",
     "Location": "Baton Rouge, LA",
     "Website": "https://www.meetup.com/techtuesdayBTR/",
     "Hex": "",
     "Icon": "",
-    "Font Icon": "<i class=\"fa fa-laptop\" aria-hidden=\"true\"></i>"
+    "FontIcon": "<i class=\"fa fa-laptop\" aria-hidden=\"true\"></i>"
   }
 ]
