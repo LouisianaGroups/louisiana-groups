@@ -5,6 +5,12 @@ body {font-family: 'Roboto', sans-serif;}
 .card {height:300px; border-radius:0; border:0; position:relative;}
 
 .card .card-body .background {display:flex; justify-content:center; align-items:center; position:absolute; width:100%; height:100%; bottom:0; left:0; font-size:100px;}
+.card .card-body .background .icon {position:absolute; bottom:20px; right:20px;}
+.card .card-body .background .fa.half {font-size:50px;}
+
+.card .card-body .icon i {margin:0 20px;}
+.card .card-body .icon i:first-of-type,
+.card .card-body .icon i:last-of-type {margin:0;}
 
 .card .card-body {width:100%;}
 .card .card-body .title,
@@ -12,8 +18,6 @@ body {font-family: 'Roboto', sans-serif;}
 .card .card-body .group {font-weight:900; margin-bottom:5px; padding:5px 10px; color:#333; background:rgba(255, 255, 255, 0.1);}
 .card .title {}
 .card .title h3 {margin-bottom:0;}
-
-
 
 
 
@@ -68,18 +72,13 @@ html > body:before {
 
 
 
-
-/*
-a						{outline:1px dotted #D68A85!important;}
-h1, h2, h3, h4, h5, h6	{outline:1px dotted #E7912D!important;}
-span					{outline:1px dotted #F0F!important;}
-div						{outline:1px dotted #3AB6F1!important;}
-ul, ol					{outline:1px dotted #8684D8!important;}
-li						{outline:1px dotted #DD67AE!important;}
-td						{outline:1px dotted lightblue!important;}
-i						{outline:1px dotted gray!important;}
-*/
-
-
+.dev-outlines a						{outline:1px dotted #D68A85!important;}
+.dev-outlines h1, h2, h3, h4, h5, h6	{outline:1px dotted #E7912D!important;}
+.dev-outlines span					{outline:1px dotted #F0F!important;}
+.dev-outlines div						{outline:1px dotted #3AB6F1!important;}
+.dev-outlines ul, ol					{outline:1px dotted #8684D8!important;}
+.dev-outlines li						{outline:1px dotted #DD67AE!important;}
+.dev-outlines td						{outline:1px dotted lightblue!important;}
+.dev-outlines i						{outline:1px dotted gray!important;}
 
 
