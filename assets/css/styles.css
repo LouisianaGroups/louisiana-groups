@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,900');
 
-body {font-family: 'Roboto', sans-serif;}
+body {font-family: 'Roboto', sans-serif; background:url('../img/transparent-grid.png');}
 
 .card {height:300px; border-radius:0; border:0;}
 .card a {text-decoration:none; transition:all 0.50s;}
