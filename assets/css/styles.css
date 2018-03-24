@@ -8,8 +8,8 @@ body {font-family: 'Roboto', sans-serif; background:url('../img/transparent-grid
 .card a {color:#333;}
 
 .card .card-body {position:relative;}
-.card-body > * {display:block; margin-bottom:5px;}
-.card-body > * > span {display:inline-block; font-weight:900; padding:5px 10px; background:rgba(255, 255, 255, 0.1);}
+.card .card-body > * {display:block; margin-bottom:5px;}
+.card .card-body > * > span {display:inline-block; font-weight:900; padding:5px 10px; background:rgba(255, 255, 255, 0.1);}
 
 .card .card-body .icon {position:absolute; bottom:20px; right:20px;}
 .card .card-body .icon i {margin:0 10px; opacity:0.7; font-size:75px;}
@@ -22,7 +22,7 @@ body {font-family: 'Roboto', sans-serif; background:url('../img/transparent-grid
 .card .card-body .links a:hover {color:#000; background:rgba(255, 255, 255, 0.3);}
 .card .card-body .links a:last-of-type {margin-right:0;}
 
-.card .card-body .title h2 {margin-bottom:0;}
+.card .card-body .title h2 {margin-bottom:0; font-weight:bold;}
 
 
 
