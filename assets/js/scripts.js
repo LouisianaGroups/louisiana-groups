@@ -26,7 +26,7 @@ $(function() {
 		}
 	});
 
-	$('.toggle-menu').jPushMenu();
+	//$('.toggle-menu').jPushMenu();
 
 });
 

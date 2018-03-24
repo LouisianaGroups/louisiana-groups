@@ -66,14 +66,25 @@
 	<!-- ko foreach: eventData -->
 	<div class="col-12 col-sm-6 col-lg-4 p-0">
 		<div class="card" data-bind="
-				style: {
-					background: Hex != '' ? Hex : '#ddd'
-				}
-			">
+			style: {
+				background: Hex != '' ? Hex : '#ddd'
+			}
+		">
 			<div class="card-body">
-				<h2 class="title pull-left" data-bind="text: GroupName"></h2>
-				<div class="pull-right" data-bind="text: Location"></div>
-
+				<div class="title">
+					<span>
+						<h2 data-opacity="0.9" data-bind="text: GroupName"></h2>
+					</span>
+				</div>
+				<div class="location">
+					<span>
+						<i class="fas fa-map-marker-alt mr-1"></i>
+						<span data-bind="text: Location"></span>
+					</span>
+				</div>
+				<div class="next-event">
+					<span>Next meetup: 3/12 @ 6:00pm</span>
+				</div>
 				<div class="background">
 					<div class="icon d-flex align-items-center" data-bind="html: FontIcon"></div>
 				</div>
@@ -81,6 +92,10 @@
 		</div>
 	</div>
 	<!-- /ko -->
+</div>
+
+<div class="row p-3 bg-secondary">
+	<div class="col-12">footer</div>
 </div>
 
 		<script src="./assets/js/jquery.min.js"></script>
