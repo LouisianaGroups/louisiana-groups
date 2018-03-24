@@ -73,7 +73,7 @@
 			<div class="card-body">
 				<div class="title">
 					<span>
-						<h2 data-opacity="0.9" data-bind="text: GroupName"></h2>
+						<h2 data-bind="text: GroupName"></h2>
 					</span>
 				</div>
 				<div class="location">
@@ -85,9 +85,13 @@
 				<div class="next-event">
 					<span>Next meetup: 3/12 @ 6:00pm</span>
 				</div>
-				<div class="background">
-					<div class="icon d-flex align-items-center" data-bind="html: FontIcon"></div>
+				<div class="links">
+					<a class="fa fa-link" data-bind="visible:Website != '', attr: {'href': Website}"></a>
+					<a class="fab fa-facebook" data-bind="visible:Facebook != '', attr: {'href': Facebook}"></a>
+					<a class="fab fa-twitter" data-bind="visible:Twitter != '', attr: {'href': Twitter}"></a>
+					<a class="fab fa-meetup" data-bind="visible:Meetup != '', attr: {'href': Meetup}"></a>
 				</div>
+				<div class="icon d-flex align-items-center" data-bind="html: FontIcon"></div>
 			</div>
 		</div>
 	</div>
