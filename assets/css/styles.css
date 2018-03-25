@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,900');
 
+/* Globals */
 body {
+	color:#222;
 	font-family: 'Roboto', sans-serif;
 	/* grid background, modified version of http://lea.verou.me/css3patterns/#checkerboard */
 	background-color:#f9f9f9;
@@ -10,9 +12,13 @@ body {
 	background-position:0 0, 10px 10px;
 }
 body.loading > * {display:none;}
+a {transition:all 0.50s;}
+a:hover {text-decoration:none;}
 
+/* ------------------------------ */
+
+/* Bootstrap Resets */
 .card {height:300px; border-radius:0; border:0;}
-.card a {text-decoration:none; transition:all 0.50s;}
 .card,
 .card a {color:#333;}
 
@@ -33,10 +39,16 @@ body.loading > * {display:none;}
 
 .card .card-body .title h2 {margin-bottom:0; font-weight:bold;}
 
+/* ------------------------------ */
 
+/* Content Styles */
+footer {background:#c0f;}
+footer a {color:#222; border-bottom:1px dotted rgba(255, 255, 255, 0.5); padding-bottom:2px;}
+footer a:hover {color:#333; background:rgba(255, 255, 255, 0.2);}
 
+/* ------------------------------ */
 
-/* |||||||||| BOOTSTRAP 4 |||||||||| */
+/* Helper Styles */
 
 /* Add-on: Bootstrap 4, hidden-{breakpoint}-{up/down} */
 /* taken from Bootstrap 4, alpha 6 */
@@ -51,7 +63,6 @@ body.loading > * {display:none;}
 @media (min-width:1200px)	{ .hidden-xl-up {display:none!important;}	}
 .hidden-xl-down {display:none!important;}
 
-
 /* Add-on: Bootstrap 4, hidden-{breakpoint} */
 /* taken from Bootstrap 3.3.6, converted to Bootstrap 4 */
 @media (max-width:575px)	{ .hidden-xs {display:none!important;} }
@@ -60,10 +71,7 @@ body.loading > * {display:none;}
 @media (min-width:992px) and (max-width:1199px)	{ .hidden-md {display:none!important;} }
 @media (min-width:1200px)	{ .hidden-lg {display:none!important;} }
 
-
-
-
-/* Not Bootstrap dependant, using Bootstrap 4's grid breakpoints */
+/* Add-on: Display current breakpoint, grids defined in Bootstrap 4 (Not Bootstrap dependant) */
 html > body.dev:before {
 	content: "Extra small (xs) | (<576px)"; /* Extra Small - xs */
 	position:fixed;
@@ -79,27 +87,25 @@ html > body.dev:before {
 	background:rgba(255, 0, 255, 0.50);
 	letter-spacing:1px;
 }
-
 @media (min-width: 576px) { html > body.dev:before {content: "Small (sm) | (\2265 576px)";} }			/* Small - sm */
 @media (min-width: 768px) { html > body.dev:before {content: "Medium (md) | (\2265 768px)";} }			/* Medium - md */
 @media (min-width: 992px) { html > body.dev:before {content: "Large (lg) | (\2265 992px)";} }			/* Large - lg */
 @media (min-width: 1200px) { html > body.dev:before {content: "Extra Large (xl) | (\2265 1200px)";} }	/* Extra Large - xl */
 
+/* ------------------------------ */
 
-
+/* Add lines to dev to see where each element's boundries better */
 .dev a		{outline:1px dotted #D68A85!important;}
 .dev h1,
 .dev h2,
 .dev h3,
 .dev h4,
 .dev h5,
-.dev h6	{outline:1px dotted #E7912D!important;}
+.dev h6		{outline:1px dotted #E7912D!important;}
 .dev span	{outline:1px dotted #F0F!important;}
 .dev div	{outline:1px dotted #3AB6F1!important;}
 .dev ul,
-.dev ol	{outline:1px dotted #8684D8!important;}
-.dev li	{outline:1px dotted #DD67AE!important;}
-.dev td	{outline:1px dotted lightblue!important;}
+.dev ol		{outline:1px dotted #8684D8!important;}
+.dev li		{outline:1px dotted #DD67AE!important;}
+.dev td		{outline:1px dotted lightblue!important;}
 .dev i		{outline:1px dotted gray!important;}
-
-
