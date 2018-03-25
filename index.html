@@ -76,7 +76,7 @@
 						<h2 data-bind="text: GroupName"></h2>
 					</span>
 				</div>
-				<div class="location">
+				<div class="location" data-bind="visible:Location != ''">
 					<span>
 						<i class="fas fa-map-marker-alt mr-1"></i>
 						<span data-bind="text: Location"></span>
@@ -101,9 +101,14 @@
 <footer>
 	<div class="row p-3">
 		<div class="col-12">
-			<i class="fas fa-code"></i> with <i class="fas fa-heart"></i> by <a class="ml-1" target="_blank" href="http://adamculpepper.net"><img class="rounded-circle" src="https://avatars0.githubusercontent.com/u/3942126?s=30"></a>
-			<span class="ml-5"></span>
-			edit this page: <a target="_blank" href="https://github.com/adamculpepper/louisiana-groups"><i class="fab fa-github"></i></a>
+			<div class="d-flex justify-content-between">
+			<div>
+				<a href="/">Louisiana Groups</a> is <i class="fas fa-code"></i> with <i class="fas fa-heart"></i> by <a class="ml-1" target="_blank" href="http://adamculpepper.net"><img class="rounded-circle" src="https://avatars0.githubusercontent.com/u/3942126?s=30"></a>
+			</div>
+			<div>
+				edit this page: <a target="_blank" href="https://github.com/adamculpepper/louisiana-groups"><i class="fab fa-github"></i></a>
+			</div>
+		</div>
 		</div>
 	</div>
 </footer>

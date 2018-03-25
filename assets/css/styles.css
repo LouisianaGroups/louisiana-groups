@@ -27,10 +27,10 @@ a:hover {text-decoration:none;}
 .card .card-body > * > span {display:inline-block; font-weight:900; padding:5px 10px; background:rgba(255, 255, 255, 0.1);}
 
 .card .card-body .icon {position:absolute; bottom:20px; right:20px;}
-.card .card-body .icon i {margin:0 10px; opacity:0.7; font-size:75px;}
+.card .card-body .icon i {margin:0 20px; opacity:0.7; font-size:75px;}
 .card .card-body .icon i:first-of-type,
 .card .card-body .icon i:last-of-type {margin:0;}
-.card .card-body .icon i.fa.half {font-size:40px;}
+.card .card-body .icon i.fa.half {font-size:30px;}
 
 .card .card-body .links {position:absolute; bottom:20px; left:20px;}
 .card .card-body .links a {float:left; margin-right:5px; font-size:30px; padding:10px; background:rgba(255, 255, 255, 0.1);}
@@ -42,11 +42,11 @@ a:hover {text-decoration:none;}
 /* ------------------------------ */
 
 /* Content Styles */
-footer {background:#c0f; font-size:20px;}
+footer {background:#c0f; font-size:25px;}
 footer,
 footer a {color:rgba(0, 0, 0, 0.5);}
-footer a {display:inline-block; padding:5px 10px; background:rgba(255, 255, 255, 0.2);}
-footer a:hover {color:#222;}
+footer a {display:inline-block; padding:5px 10px; background:rgba(255, 255, 255, 0.1);}
+footer a:hover {color:#222; background:rgba(255, 255, 255, 0.3);}
 
 /* ------------------------------ */
 
