@@ -26,7 +26,10 @@ $(function() {
 		}
 	});
 
-	//$('.toggle-menu').jPushMenu();
+	// fix for the Knockout loop from loading before the content is loaded in
+	setTimeout(function() {
+		$('body').removeClass('loading');
+	}, 0);
 
 });
 
