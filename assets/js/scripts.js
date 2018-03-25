@@ -22,8 +22,9 @@ $(function() {
 			console.table(eventData);
 
 			// fix: KO loop loading before the content loaded
-			$('body').removeClass('loading');
-		},
+			setTimeout(function() {
+				$('body').removeClass('loading');
+			}, 0);		},
 		error: function() {
 			alert('error!');
 		}
