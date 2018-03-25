@@ -2,7 +2,7 @@
 Description needed here
 
 
-### Todo Tasks
+## Todo Tasks
 - ~~upgrade to FontAwesome5 + brands~~
 - ~~add website and social links to cards~~
 - add React routing for pages
@@ -10,7 +10,7 @@ Description needed here
 - add isotope for toggle and search filtering (https://codepen.io/desandro/pen/wfaGu)
 
 
-### Tech Used
+## Tech Used
 | Needed | Used |
 | ------ | ------ |
 | CSS Grid System, etc. | [Bootstrap 4](http://getbootstrap.com)
@@ -21,13 +21,13 @@ Description needed here
 | Tracking | [Google Analytics](https://google.com/analytics)
 
 
-### Contributors
+## Contributors
 - [Adam Culpepper](https://github.com/adamculpepper)
 
 
-### Notes
+## Notes
 - Since this is a personal project, I'm not screwing with browser compatibility. Use a real browser. :)
 
 
-### Development
+## Development
 Want to contribute? Get in touch with one of the contributors!
