@@ -20,16 +20,14 @@ $(function() {
 		success: function(data) {
 			eventData(data);
 			console.table(eventData);
+
+			// fix: KO loop loading before the content loaded
+			$('body').removeClass('loading');
 		},
 		error: function() {
 			alert('error!');
 		}
 	});
-
-	// fix for the Knockout loop from loading before the content is loaded in
-	setTimeout(function() {
-		$('body').removeClass('loading');
-	}, 0);
 
 });
 
