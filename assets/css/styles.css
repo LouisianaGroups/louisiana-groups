@@ -42,9 +42,11 @@ a:hover {text-decoration:none;}
 /* ------------------------------ */
 
 /* Content Styles */
-footer {background:#c0f;}
-footer a {color:#222; border-bottom:1px dotted rgba(255, 255, 255, 0.5); padding-bottom:2px;}
-footer a:hover {color:#333; background:rgba(255, 255, 255, 0.2);}
+footer {background:#c0f; font-size:20px;}
+footer,
+footer a {color:rgba(0, 0, 0, 0.5);}
+footer a {display:inline-block; padding:5px 10px; background:rgba(255, 255, 255, 0.2);}
+footer a:hover {color:#222;}
 
 /* ------------------------------ */
 
