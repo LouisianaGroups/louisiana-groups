@@ -22,7 +22,7 @@ Description needed here
 
 
 ### Contributors
-- [Adam Culpepper]
+- [Adam Culpepper]@adamculpepper
 
 
 ### Notes
