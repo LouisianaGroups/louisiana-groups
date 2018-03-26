@@ -19,6 +19,7 @@ Description needed here
 | Font Icons | [Font Awesome 5](https://fontawesome.com) + [brands](https://fontawesome.com/icons?d=brands)
 | Database | [Google Spreadsheets](https://google.com/sheets)
 | Tracking | [Google Analytics](https://google.com/analytics)
+| CRON triggers | [Dead Man's Snitch](https://deadmanssnitch.com/r/b2746d2af7)
 
 
 ## Contributors
