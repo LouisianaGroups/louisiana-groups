@@ -37,7 +37,15 @@ a:hover {text-decoration:none;}
 .card .card-body .links a:hover {color:#000; background:rgba(255, 255, 255, 0.3);}
 .card .card-body .links a:last-of-type {margin-right:0;}
 
-.card .card-body .title h2 {margin-bottom:0; font-weight:bold;}
+.card .card-body .title span {background:none; padding:0; padding-left:10px;}
+.card .card-body .title h2 {
+	display:inline;
+	padding:5px 0;
+	font-weight:bold;
+	line-height:48px;
+	background:rgba(255, 255, 255, 0.1);
+	box-shadow: 10px 0 0 rgba(255, 255, 255, 0.1), -10px 0 0 rgba(255, 255, 255, 0.1);
+}
 
 /* ------------------------------ */
 
