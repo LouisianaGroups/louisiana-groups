@@ -18,14 +18,12 @@ Description needed here
 | Tracking | [Google Analytics](https://google.com/analytics)
 | CRON triggers | [Dead Man's Snitch](https://deadmanssnitch.com/r/b2746d2af7)
 
-
 ## Contributors
 - [Adam Culpepper](https://github.com/adamculpepper)
-
+- [N. G. Scheurich](https://nick.scheurich.me)
 
 ## Notes
 - Since this is a personal project, I'm not screwing with browser compatibility. Use a real browser. :)
-
 
 ## Development
 Want to contribute? Get in touch with one of the contributors!
