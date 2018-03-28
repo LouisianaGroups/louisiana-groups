@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,900');
+
+/* Globals */
+body {
+	font-family: 'Roboto', sans-serif;
+	color:#222;
+	/* grid background, modified version of http://lea.verou.me/css3patterns/#checkerboard */
+	background-color:#f9f9f9;
+	background-image:linear-gradient(45deg, #fff 25%, transparent 25%, transparent 75%, #fff 75%, #fff), 
+	linear-gradient(45deg, #fff 25%, transparent 25%, transparent 75%, #fff 75%, #fff);
+	background-size:20px 20px;
+	background-position:0 0, 10px 10px;
+}
+body.loading > * {display:none;}
+a {transition:all 0.50s;}
+a:hover {text-decoration:none;}
+
+/* ------------------------------ */
+
+/* Bootstrap Resets */
+.card {height:300px; border-radius:0; border:0;}
+.card,
+.card a {color:#333;}
+
+.card .card-body {position:relative;}
+.card .card-body > * {display:block; margin-bottom:5px;}
+.card .card-body > * > span {display:inline-block; font-weight:900; padding:5px 10px; background:rgba(255, 255, 255, 0.1);}
+
+.card .card-body .icon {position:absolute; bottom:20px; right:20px;}
+.card .card-body .icon i {margin:0 20px; opacity:0.7; font-size:75px;}
+.card .card-body .icon i:first-of-type,
+.card .card-body .icon i:last-of-type {margin:0;}
+.card .card-body .icon i.fa.half {font-size:30px;}
+
+.card .card-body .links {position:absolute; bottom:20px; left:20px;}
+.card .card-body .links a {float:left; margin-right:5px; font-size:30px; padding:10px; background:rgba(255, 255, 255, 0.1);}
+.card .card-body .links a:hover {color:#000; background:rgba(255, 255, 255, 0.3);}
+.card .card-body .links a:last-of-type {margin-right:0;}
+
+.card .card-body .title span {background:none; padding:0; padding-left:10px;}
+.card .card-body .title h2 {
+	display:inline;
+	padding:5px 0;
+	font-weight:bold;
+	line-height:48px;
+	background:rgba(255, 255, 255, 0.1);
+	box-shadow: 10px 0 0 rgba(255, 255, 255, 0.1), -10px 0 0 rgba(255, 255, 255, 0.1);
+}
+
+/* ------------------------------ */
+
+/* Content Styles */
+footer {background:#c0f; font-size:25px;}
+footer,
+footer a {color:rgba(0, 0, 0, 0.5);}
+footer a {display:inline-block; padding:5px 10px; background:rgba(255, 255, 255, 0.2);}
+footer a:hover {color:#222; background:rgba(255, 255, 255, 0.3);}
+
+/* ------------------------------ */
+
+/* Helper Styles */
+
+/* Add-on: Bootstrap 4, hidden-{breakpoint}-{up/down} */
+/* taken from Bootstrap 4, alpha 6 */
+.hidden-xs-up {display:none!important;}
+@media (max-width:575px)	{ .hidden-xs-down {display:none!important;}	}
+@media (min-width:576px)	{ .hidden-sm-up {display:none!important;}	}
+@media (max-width:767px)	{ .hidden-sm-down {display:none!important;}	}
+@media (min-width:768px)	{ .hidden-md-up {display:none!important;}	}
+@media (max-width:991px)	{ .hidden-md-down {display:none!important;}	}
+@media (min-width:992px)	{ .hidden-lg-up {display:none!important;}	}
+@media (max-width:1199px)	{ .hidden-lg-down {display:none!important;}	}
+@media (min-width:1200px)	{ .hidden-xl-up {display:none!important;}	}
+.hidden-xl-down {display:none!important;}
+
+/* Add-on: Bootstrap 4, hidden-{breakpoint} */
+/* taken from Bootstrap 3.3.6, converted to Bootstrap 4 */
+@media (max-width:575px)	{ .hidden-xs {display:none!important;} }
+@media (min-width:576px) and (max-width:767px)	{ .hidden-sm {display:none!important;} }
+@media (min-width:768px) and (max-width:991px)	{ .hidden-sm {display:none!important;} }
+@media (min-width:992px) and (max-width:1199px)	{ .hidden-md {display:none!important;} }
+@media (min-width:1200px)	{ .hidden-lg {display:none!important;} }
+
+/* Add-on: Display current breakpoint, grids defined in Bootstrap 4 (Not Bootstrap dependant) */
+html > body.dev:before {
+	content: "Extra small (xs) | (<576px)"; /* Extra Small - xs */
+	position:fixed;
+	bottom:5px;
+	left:5px;
+	z-index:99999999;
+	width:auto;
+	height:auto;
+	padding:5px;
+	color:#fff;
+	font-size:12px;
+	font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;
+	background:rgba(255, 0, 255, 0.50);
+	letter-spacing:1px;
+}
+@media (min-width: 576px) { html > body.dev:before {content: "Small (sm) | (\2265 576px)";} }			/* Small - sm */
+@media (min-width: 768px) { html > body.dev:before {content: "Medium (md) | (\2265 768px)";} }			/* Medium - md */
+@media (min-width: 992px) { html > body.dev:before {content: "Large (lg) | (\2265 992px)";} }			/* Large - lg */
+@media (min-width: 1200px) { html > body.dev:before {content: "Extra Large (xl) | (\2265 1200px)";} }	/* Extra Large - xl */
+
+/* ------------------------------ */
+
+/* Add lines to dev to see where each element's boundries better */
+.dev a		{outline:1px dotted #D68A85!important;}
+.dev h1,
+.dev h2,
+.dev h3,
+.dev h4,
+.dev h5,
+.dev h6		{outline:1px dotted #E7912D!important;}
+.dev span	{outline:1px dotted #F0F!important;}
+.dev div	{outline:1px dotted #3AB6F1!important;}
+.dev ul,
+.dev ol		{outline:1px dotted #8684D8!important;}
+.dev li		{outline:1px dotted #DD67AE!important;}
+.dev td		{outline:1px dotted lightblue!important;}
+.dev i		{outline:1px dotted gray!important;}
