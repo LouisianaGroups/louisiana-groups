@@ -11,9 +11,8 @@ Description needed here
 ## Tech Used
 | Needed | Used |
 | ------ | ------ |
+| UI architecture | [React](https://github.com/facebook/react)
 | CSS Grid System, etc. | [Bootstrap 4](http://getbootstrap.com)
-| JavaScript magic | [jQuery](https://jquery.com)
-| Data Templating | [Knockout](http://knockoutjs.com)
 | Font Icons | [Font Awesome 5](https://fontawesome.com) + [brands](https://fontawesome.com/icons?d=brands)
 | Database | [Google Spreadsheets](https://google.com/sheets)
 | Tracking | [Google Analytics](https://google.com/analytics)
