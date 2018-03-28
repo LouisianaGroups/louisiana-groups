@@ -1,14 +1,12 @@
 # Louisiana Groups
 Description needed here
 
-
-## Todo Tasks
-- ~~upgrade to FontAwesome5 + brands~~
-- ~~add website and social links to cards~~
-- add React routing for pages
-- add "next meetup" to group cards
-- add isotope for toggle and search filtering (https://codepen.io/desandro/pen/wfaGu)
-
+## Roadmap
+- [x] Upgrade to FontAwesome5 + brands
+- [x] Add website and social links to cards
+- [ ] Add React routing for pages
+- [ ] Add "next meetup" to group cards
+- [ ] Add isotope for toggle and search filtering (https://codepen.io/desandro/pen/wfaGu)
 
 ## Tech Used
 | Needed | Used |
