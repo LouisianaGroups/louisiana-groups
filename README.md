@@ -34,8 +34,9 @@ Description needed here
 ## Notes
 - Since this is a personal project, I'm not screwing with browser compatibility. Use a real browser. :)
 
-## Development
-Want to contribute? Get in touch with one of the contributors!
+## Contributing
+Want to contribute? Awesome! Contributions are always welcome—just be sure to
+read and follow the [code of conduct](https://github.com/babel/babel/blob/master/CODE_OF_CONDUCT.md).
 
 ## License
 This project is released under the [MIT license](https://github.com/LouisianaGroups/louisiana-groups/blob/master/LICENSE).
