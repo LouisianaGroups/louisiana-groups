@@ -30,6 +30,7 @@ Description needed here
 ## Contributors
 - [Adam Culpepper](https://github.com/adamculpepper)
 - [N. G. Scheurich](https://nick.scheurich.me)
+- [James Alt](https://github.com/james-alt)
 
 ## Notes
 - Since this is a personal project, I'm not screwing with browser compatibility. Use a real browser. :)
