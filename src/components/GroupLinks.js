@@ -4,7 +4,11 @@ import PropTypes from "prop-types";
 const GroupLinks = ({ Website, Facebook, Twitter, Meetup }) => (
   <div className="links">
     {Website && (
-      <a href={Website} target="group" rel="nofollow" className="fas fa-link" />
+      <a href={Website}
+        target="group"
+        rel="nofollow"
+        className="fas fa-link"
+      />
     )}
 
     {Facebook && (
