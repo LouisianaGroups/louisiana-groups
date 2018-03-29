@@ -1,41 +1,31 @@
 import React from "react";
 import PropTypes from "prop-types";
+import GroupLink from "./GroupLink";
 
 const GroupLinks = ({ Website, Facebook, Twitter, Meetup }) => (
   <div className="links">
     {Website && (
-      <a href={Website}
-        target="group"
-        rel="nofollow"
-        className="fas fa-link"
-      />
+      <GroupLink url={Website} description="website" icon="fas fa-link" />
     )}
 
     {Facebook && (
-      <a
-        href={Facebook}
-        target="group"
-        rel="nofollow"
-        className="fab fa-facebook"
+      <GroupLink
+        url={Facebook}
+        description="Facebook page"
+        icon="fab fa-facebook"
       />
     )}
 
     {Twitter && (
-      <a
-        href={Twitter}
-        target="group"
-        rel="nofollow"
-        className="fab fa-twitter"
+      <GroupLink
+        url={Twitter}
+        description="Twitter account"
+        icon="fab fa-twitter"
       />
     )}
 
     {Meetup && (
-      <a
-        href={Meetup}
-        target="group"
-        rel="nofollow"
-        className="fab fa-meetup"
-      />
+      <GroupLink url={Meetup} description="Meetup page" icon="fab fa-meetup" />
     )}
   </div>
 );
