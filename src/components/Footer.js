@@ -10,10 +10,16 @@ const Footer = () => (
               <a href="/">Louisiana Groups</a> is{" "}
             </span>
             <i className="fas fa-code" /> with <i className="fas fa-heart" /> by{" "}
-            <a className="ml-1" target="_blank" href="http://adamculpepper.net">
+            <a
+              className="ml-1"
+              target="_blank"
+              rel="noopener noreferrer"
+              href="http://adamculpepper.net"
+            >
               <img
                 className="rounded-circle"
                 src="https://avatars0.githubusercontent.com/u/3942126?s=30"
+                alt="GitHub profile pic of @adamculpepper"
               />
             </a>
           </div>
@@ -21,6 +27,7 @@ const Footer = () => (
             edit this page:{" "}
             <a
               target="_blank"
+              rel="noopener noreferrer"
               href="https://github.com/adamculpepper/louisiana-groups"
             >
               <i className="fab fa-github" />
