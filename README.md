@@ -8,6 +8,7 @@ Description needed here
   * [Contributors](#contributors)
   * [Notes](#notes)
   * [Development](#development)
+  * [License](#license)
 
 ## Roadmap
 - [x] Upgrade to FontAwesome5 + brands
@@ -35,3 +36,6 @@ Description needed here
 
 ## Development
 Want to contribute? Get in touch with one of the contributors!
+
+## License
+This project is released under the [MIT license](https://github.com/LouisianaGroups/louisiana-groups/blob/master/LICENSE).
