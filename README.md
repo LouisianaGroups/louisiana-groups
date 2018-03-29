@@ -8,6 +8,7 @@ Description needed here
   * [Contributors](#contributors)
   * [Notes](#notes)
   * [Development](#development)
+  * [License](#license)
 
 ## Roadmap
 - [x] Upgrade to FontAwesome5 + brands
@@ -36,3 +37,6 @@ Description needed here
 ## Contributing
 Want to contribute? Awesome! Contributions are always welcome—just be sure to
 read and follow the [code of conduct](https://github.com/babel/babel/blob/master/CODE_OF_CONDUCT.md).
+
+## License
+This project is released under the [MIT license](https://github.com/LouisianaGroups/louisiana-groups/blob/master/LICENSE).
