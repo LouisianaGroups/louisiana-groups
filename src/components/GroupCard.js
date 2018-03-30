@@ -1,49 +1,51 @@
 import React from "react";
 import PropTypes from "prop-types";
+import FormattedDateTime from "./FormattedDateTime";
 import GroupLinks from "./GroupLinks";
 
 const GroupCard = ({
-  Hex,
-  GroupName,
-  Location,
-  Website,
-  Facebook,
-  Twitter,
-  Meetup,
-  FontIcon
+  hex,
+  name,
+  location,
+  website,
+  facebook,
+  twitter,
+  meetup,
+  fontIcon,
+  events
 }) => (
   <div className="col-12 col-sm-6 col-lg-4 p-0">
-    <div className="card" style={{ backgroundColor: Hex }}>
+    <div className="card" style={{ backgroundColor: hex }}>
       <div className="card-body">
         <div className="title">
           <span>
-            <h2>{GroupName}</h2>
+            <h2>{name}</h2>
           </span>
         </div>
 
-        {Location && (
+        {location && (
           <div className="location">
             <span>
               <i className="fas fa-map-marker-alt mr-1" />{" "}
-              <span>{Location}</span>
+              <span>{location}</span>
             </span>
           </div>
         )}
 
-        <div className="next-event">
-          <span>Next meetup: 3/12 @ 6:00pm</span>
-        </div>
+        {events.length > 0 && (
+          <FormattedDateTime dateString={events[0].dateTime} />
+        )}
 
         <GroupLinks
-          Website={Website}
-          Facebook={Facebook}
-          Twitter={Twitter}
-          Meetup={Meetup}
+          Website={website}
+          Facebook={facebook}
+          Twitter={twitter}
+          Meetup={meetup}
         />
 
         <div
           className="icon d-flex align-items-center"
-          dangerouslySetInnerHTML={{ __html: FontIcon }}
+          dangerouslySetInnerHTML={{ __html: fontIcon }}
         />
       </div>
     </div>
@@ -51,14 +53,14 @@ const GroupCard = ({
 );
 
 GroupCard.propTypes = {
-  Hex: PropTypes.string,
-  GroupName: PropTypes.string.isRequired,
-  Location: PropTypes.string,
-  Website: PropTypes.string,
-  Facebook: PropTypes.string,
-  Twitter: PropTypes.string,
-  Meetup: PropTypes.string,
-  FontIcon: PropTypes.string
+  hex: PropTypes.string,
+  name: PropTypes.string.isRequired,
+  location: PropTypes.string,
+  website: PropTypes.string,
+  facebook: PropTypes.string,
+  twitter: PropTypes.string,
+  meetup: PropTypes.string,
+  fontIcon: PropTypes.string
 };
 
 GroupCard.defaultProps = {
