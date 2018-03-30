@@ -2,11 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const GroupLink = ({ url, description, icon }) => (
-  <a href={url} target="group" rel="nofollow" className={icon}>
-    <span style={{ display: "inline-block", textIndent: "-9999em" }}>
-      This group’s {description}
-    </span>
-  </a>
+  <a href={url} target="group" rel="nofollow" className={icon} title="This group’s {description}"></a>
 );
 
 GroupLink.propTypes = {
