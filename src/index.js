@@ -13,7 +13,7 @@ import "./styles";
 
 const httpUri =
   process.env.NODE_ENV === "production"
-    ? "https://elex.herokuapp.com/graphiql"
+    ? "https://pelican.freighter.cloud/graphiql"
     : "http://localhost:4000/graphql";
 
 const client = new ApolloClient({
