@@ -4,10 +4,11 @@ Description needed here
 ## Table of Contents
 * [Louisiana Groups](#louisiana-groups)
   * [Roadmap](#roadmap)
+  * [Development](#development)
   * [Tech Used](#tech-used)
   * [Contributors](#contributors)
   * [Notes](#notes)
-  * [Development](#development)
+  * [Contributing](#contributing)
   * [License](#license)
 
 ## Roadmap
