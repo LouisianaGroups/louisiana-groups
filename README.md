@@ -17,6 +17,36 @@ Description needed here
 - [ ] Add "next meetup" to group cards
 - [ ] Add isotope for toggle and search filtering (https://codepen.io/desandro/pen/wfaGu)
 
+## Development
+
+Before you get started hacking on this project, you’ll need [Node.js](https://nodejs.org/en/)
+installed on your machine. You’ll also need a package manager; we like [Yarn](https://yarnpkg.com/en/)
+but [NPM](https://github.com/npm/npm) also works fine—just follow your heart.
+
+When you’re ready to rock, clone the project:
+
+```sh
+$ git clone https://github.com/LouisianaGroups/louisiana-groups.git
+```
+
+Next, you’ll need to install the project’s dependencies, which are defined in `package.json`.
+Change to the project directory and kick off the install process (if you chose NPM, replace
+`yarn` with `npm` henceforth):
+
+```sh
+$ yarn install
+```
+
+You’re all set! That was it! To run the project, just:
+
+```sh
+$ yarn start
+```
+
+If all went well, you should be able to access a development server at http://localhost:3000/.
+Happy hacking!
+
+
 ## Tech Used
 | Needed | Used |
 | ------ | ------ |
