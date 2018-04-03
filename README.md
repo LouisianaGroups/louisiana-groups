@@ -46,7 +46,6 @@ $ yarn start
 If all went well, you should be able to access a development server at http://localhost:3000/.
 Happy hacking!
 
-
 ## Tech Used
 | Needed | Used |
 | ------ | ------ |
