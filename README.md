@@ -15,7 +15,7 @@ Description needed here
 - [x] Upgrade to FontAwesome5 + brands
 - [x] Add website and social links to cards
 - [ ] Add React routing for pages
-- [ ] Add "next meetup" to group cards
+- [x] Add "next meetup" to group cards
 - [ ] Add isotope for toggle and search filtering (https://codepen.io/desandro/pen/wfaGu)
 
 ## Development
