@@ -10,10 +10,7 @@ import registerServiceWorker from "./registerServiceWorker";
 
 import "./styles";
 
-const httpUri =
-  process.env.NODE_ENV === "production"
-    ? "https://pelican.freighter.cloud/graphiql"
-    : "http://localhost:4000/graphql";
+const httpUri = "https://pelican.freighter.cloud/graphql";
 
 const client = new ApolloClient({
   link: createHttpLink({ uri: httpUri }),
