@@ -22,6 +22,31 @@ const Footer = () => (
                 alt="GitHub profile pic of @adamculpepper"
               />
             </a>
+            <a
+              className="ml-1"
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://nick.scheurich.me"
+            >
+              <img
+                className="rounded-circle"
+                src="https://avatars0.githubusercontent.com/u/423798?s=30"
+                alt="GitHub profile pic of @ngscheurich"
+              />
+            </a>
+            <a
+              className="ml-1"
+              target="_blank"
+              rel="noopener noreferrer"
+              href="http://alterityllc.com"
+            >
+              <img
+                className="rounded-circle"
+                src="https://avatars0.githubusercontent.com/u/6201892?s=30"
+                alt="GitHub profile pic of @james-alt"
+              />
+            </a>
+
           </div>
           <div className="hidden-sm-down">
             edit this page:{" "}
