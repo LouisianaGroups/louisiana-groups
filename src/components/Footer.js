@@ -28,7 +28,7 @@ const Footer = () => (
             <a
               target="_blank"
               rel="noopener noreferrer"
-              href="https://github.com/adamculpepper/louisiana-groups"
+              href="https://github.com/LouisianaGroups/louisiana-groups"
             >
               <i className="fab fa-github" />
             </a>
