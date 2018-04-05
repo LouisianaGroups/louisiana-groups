@@ -17,6 +17,7 @@ Description needed here
 - [ ] Add React routing for pages
 - [x] Add "next meetup" to group cards
 - [ ] Add isotope for toggle and search filtering (https://codepen.io/desandro/pen/wfaGu)
+- [ ] Design logo for header, social media, favicon, et al.
 
 ## Development
 
