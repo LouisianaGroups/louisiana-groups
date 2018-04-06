@@ -1,5 +1,9 @@
 import React from "react";
 
+import JamesPic from "../images/james.jpg";
+import AdamPic from "../images/adam.jpg";
+import NickPic from "../images/nick.jpg";
+
 const Footer = () => (
   <footer>
     <div className="row p-3">
@@ -18,7 +22,7 @@ const Footer = () => (
             >
               <img
                 className="rounded-circle"
-                src="adam.jpg"
+                src={AdamPic}
                 alt="GitHub profile pic of @adamculpepper"
               />
             </a>
@@ -30,7 +34,7 @@ const Footer = () => (
             >
               <img
                 className="rounded-circle"
-                src="nick.jpg"
+                src={NickPic}
                 alt="GitHub profile pic of @ngscheurich"
               />
             </a>
@@ -42,7 +46,7 @@ const Footer = () => (
             >
               <img
                 className="rounded-circle"
-                src="james.jpg"
+                src={JamesPic}
                 alt="GitHub profile pic of @james-alt"
               />
             </a>
