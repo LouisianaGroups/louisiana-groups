@@ -18,7 +18,7 @@ const Footer = () => (
             >
               <img
                 className="rounded-circle"
-                src="https://avatars0.githubusercontent.com/u/3942126?s=30"
+                src="adam.jpg"
                 alt="GitHub profile pic of @adamculpepper"
               />
             </a>
@@ -30,7 +30,7 @@ const Footer = () => (
             >
               <img
                 className="rounded-circle"
-                src="https://avatars0.githubusercontent.com/u/423798?s=30"
+                src="nick.jpg"
                 alt="GitHub profile pic of @ngscheurich"
               />
             </a>
@@ -38,11 +38,11 @@ const Footer = () => (
               className="ml-1"
               target="_blank"
               rel="noopener noreferrer"
-              href="http://alterityllc.com"
+              href="https://github.com/james-alt"
             >
               <img
                 className="rounded-circle"
-                src="https://avatars0.githubusercontent.com/u/6201892?s=30"
+                src="james.jpg"
                 alt="GitHub profile pic of @james-alt"
               />
             </a>
