@@ -1,7 +1,9 @@
 # Louisiana Groups
+
 Description needed here
 
 ## Table of Contents
+
 * [Louisiana Groups](#louisiana-groups)
   * [Roadmap](#roadmap)
   * [Development](#development)
@@ -12,12 +14,13 @@ Description needed here
   * [License](#license)
 
 ## Roadmap
-- [x] Upgrade to FontAwesome5 + brands
-- [x] Add website and social links to cards
-- [ ] Add React routing for pages
-- [x] Add "next meetup" to group cards
-- [ ] Add isotope for toggle and search filtering (https://codepen.io/desandro/pen/wfaGu)
-- [ ] Design logo for header, social media, favicon, et al.
+
+* [x] Upgrade to FontAwesome5 + brands
+* [x] Add website and social links to cards
+* [ ] Add React routing for pages
+* [x] Add "next meetup" to group cards
+* [ ] Add isotope for toggle and search filtering [Isotope Codepen](https://codepen.io/desandro/pen/wfaGu)
+* [ ] Design logo for header, social media, favicon, et al.
 
 ## Development
 
@@ -27,28 +30,29 @@ but [NPM](https://github.com/npm/npm) also works fine—just follow your heart.
 
 When you’re ready to rock, clone the project:
 
-```sh
-$ git clone https://github.com/LouisianaGroups/louisiana-groups.git
+```shell
+git clone https://github.com/LouisianaGroups/louisiana-groups.git
 ```
 
 Next, you’ll need to install the project’s dependencies, which are defined in `package.json`.
 Change to the project directory and kick off the install process (if you chose NPM, replace
 `yarn` with `npm` henceforth):
 
-```sh
-$ yarn install
+```shell
+yarn install
 ```
 
 You’re all set! That was it! To run the project, just:
 
-```sh
-$ yarn start
+```shell
+yarn start
 ```
 
 If all went well, you should be able to access a development server at http://localhost:3000/.
 Happy hacking!
 
 ## Tech Used
+
 | Needed | Used |
 | ------ | ------ |
 | UI architecture | [React](https://github.com/facebook/react)
@@ -59,16 +63,20 @@ Happy hacking!
 | CRON triggers | [Dead Man's Snitch](https://deadmanssnitch.com/r/b2746d2af7)
 
 ## Contributors
-- [Adam Culpepper](https://github.com/adamculpepper)
-- [N. G. Scheurich](https://nick.scheurich.me)
-- [James Alt](https://github.com/james-alt)
+
+* [Adam Culpepper](https://github.com/adamculpepper)
+* [N. G. Scheurich](https://nick.scheurich.me)
+* [James Alt](https://github.com/james-alt)
 
 ## Notes
-- Since this is a personal project, I'm not screwing with browser compatibility. Use a real browser. :)
+
+Since this is a personal project, I'm not screwing with browser compatibility. Use a real browser. :smiley:
 
 ## Contributing
+
 Want to contribute? Awesome! Contributions are always welcome—just be sure to
 read and follow the [code of conduct](https://github.com/babel/babel/blob/master/CODE_OF_CONDUCT.md).
 
 ## License
+
 This project is released under the [MIT license](https://github.com/LouisianaGroups/louisiana-groups/blob/master/LICENSE).
