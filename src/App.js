@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import GroupCard from "./components/GroupCard";
 import Footer from "./components/Footer";
+// import Header from "./components/Header";
 import "./styles/header.css";
 
 export default class App extends Component {
@@ -30,7 +31,6 @@ export default class App extends Component {
     });
   };
   updateSearch = e => {
-    console.log(e.target.value);
     this.setState({
       search: e.target.value.substr(0, 50)
     });
