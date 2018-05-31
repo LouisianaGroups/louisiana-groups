@@ -10,7 +10,7 @@ import registerServiceWorker from "./registerServiceWorker";
 
 import "./styles";
 
-const httpUri = "https://pelican.freighter.cloud/graphql";
+const httpUri = "https://pelican.herokuapp.com/graphql";
 
 const client = new ApolloClient({
   link: createHttpLink({ uri: httpUri }),
