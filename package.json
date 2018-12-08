@@ -8,15 +8,18 @@
     "moment-timezone": "^0.5.14",
     "react": "^16.2.0",
     "react-apollo": "^2.1.1",
-    "react-dom": "^16.2.0",
+    "react-dom": "^16.2.1",
     "react-ga": "^2.4.1",
-    "react-scripts": "1.1.1"
+    "react-scripts": "1.1.1",
+    "snyk": "^1.116.2"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "devDependencies": {
     "eslint-friendly-formatter": "^4.0.0",
@@ -25,5 +28,6 @@
     "eslint-plugin-node": "^6.0.1",
     "eslint-plugin-prettier": "^2.6.0",
     "prettier": "^1.11.1"
-  }
+  },
+  "snyk": true
 }
