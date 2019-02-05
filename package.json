@@ -7,7 +7,7 @@
     "graphql": "^0.13.2",
     "moment-timezone": "^0.5.14",
     "react": "^16.2.0",
-    "react-apollo": "^2.1.1",
+    "react-apollo": "^2.1.7",
     "react-dom": "^16.2.0",
     "react-ga": "^2.4.1",
     "react-scripts": "1.1.1"
