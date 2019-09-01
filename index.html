@@ -11,112 +11,71 @@
 		<!-- <link href="/favicon.png" rel="apple-touch-icon-precomposed"> -->
 		<link rel="stylesheet" href="./assets/css/bootstrap.min.css">
 		<link rel="stylesheet" href="./assets/css/fontawesome-all.min.css">
-		<link rel="stylesheet" href="./assets/css/colofilter.css">
-		<link rel="stylesheet" href="./assets/css/jpushmenu.css">
+		<!-- <link rel="stylesheet" href="./assets/css/colofilter.css"> -->
+		<!-- <link rel="stylesheet" href="./assets/css/jpushmenu.css"> -->
 		<link rel="stylesheet" href="./assets/css/styles.css">
 	</head>
-	<body class="loading">
+	<body class="loading2">
 
-<!--
-<div class="container">
-
-	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-		<a class="navbar-brand site-logo" href="/">
-			<img src="http://placehold.it/250x75" alt="Baton Rouge Dev Meetups">
-		</a>
-
-		<button class="toggle-menu menu-left">Toggle Left Menu</button>
-
-		<nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left">
-			<h3>Menu</h3>
-			<a href="#">Celery seakale</a>
-			<a href="#">Dulse daikon</a>
-			<a href="#">Zucchini garlic</a>
-			<a href="#">Catsear azuki bean</a>
-			<a href="#">Dandelion bunya</a>
-			<a href="#">Rutabaga</a>
-		</nav>
-
-		<button class="navbar-toggler toggle-menu menu-left bg-danger jPushMenuBtn" type="button" data-toggle="collapse" data-target="#navbar-collapse-grid" aria-controls="navbar-collapse-grid" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-
-		<div class="navbar-collapse collapse" id="navbar-collapse-grid">
-			<ul class="nav navbar-nav ml-auto navigation">
-
-				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				          Dropdown link
-				        </a>
-					<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-						<a class="dropdown-item" href="#">Action</a>
-						<a class="dropdown-item" href="#">Another action</a>
-						<a class="dropdown-item" href="#">Something else here</a>
+		<div id="groups-list" class="row m-0">
+			<script id="groups-template" type="text/x-handlebars-template">
+				<div class="col-12 col-sm-6 col-lg-4 p-0">
+					<div class="card" style="background:{{cells.Hex}}">
+						<div class="card-body">
+							<div class="title">
+								<span>
+									<h2>{{cells.GroupName}}</h2>
+								</span>
+							</div>
+							{{#if cells.Location}}
+							<div class="location">
+								<span>
+									<i class="fas fa-map-marker-alt mr-1"></i>
+									<span>{{cells.Location}}</span>
+								</span>
+							</div>
+							{{/if}}
+							<div class="next-event">
+								<span>Next meetup: 3/12 @ 6:00pm</span>
+							</div>
+							<div class="links">
+								<a target="group" rel="nofollow" class="fa fa-link" data-bind="visible:Website != '', attr: {'href': Website}"></a>
+								<a target="group" rel="nofollow" class="fab fa-facebook" data-bind="visible:Facebook != '', attr: {'href': Facebook}"></a>
+								<a target="group" rel="nofollow" class="fab fa-twitter" data-bind="visible:Twitter != '', attr: {'href': Twitter}"></a>
+								<a target="group" rel="nofollow" class="fab fa-meetup" data-bind="visible:Meetup != '', attr: {'href': Meetup}"></a>
+							</div>
+							<div class="icon d-flex align-items-center" data-bind="html: FontIcon"></div>
+						</div>
 					</div>
-				</li>
-
-			</ul>
+				</div>
+			</script>
 		</div>
-	</nav>
 
-</div>
--->
-
-<div class="row m-0">
-	<!-- ko foreach: eventData -->
-	<div class="col-12 col-sm-6 col-lg-4 p-0">
-		<div class="card" data-bind="
-			style: {
-				background: Hex != '' ? Hex : '#ddd'
-			}
-		">
-			<div class="card-body">
-				<div class="title">
-					<span>
-						<h2 data-bind="text: GroupName"></h2>
-					</span>
+		<footer>
+			<div class="row p-3">
+				<div class="col-12">
+					<div class="d-flex justify-content-between">
+					<div>
+						<span class="hidden-xs-down"><a href="/">Louisiana Groups</a> is </span><i class="fas fa-code"></i> with <i class="fas fa-heart"></i> by <a class="ml-1" target="_blank" href="http://adamculpepper.net"><img class="rounded-circle" src="https://avatars0.githubusercontent.com/u/3942126?s=30"></a>
+					</div>
+					<div class="hidden-sm-down">
+						edit this page: <a target="_blank" href="https://github.com/adamculpepper/louisiana-groups"><i class="fab fa-github"></i></a>
+					</div>
 				</div>
-				<div class="location" data-bind="visible:Location != ''">
-					<span>
-						<i class="fas fa-map-marker-alt mr-1"></i>
-						<span data-bind="text: Location"></span>
-					</span>
 				</div>
-				<div class="next-event">
-					<span>Next meetup: 3/12 @ 6:00pm</span>
-				</div>
-				<div class="links">
-					<a target="group" rel="nofollow" class="fa fa-link" data-bind="visible:Website != '', attr: {'href': Website}"></a>
-					<a target="group" rel="nofollow" class="fab fa-facebook" data-bind="visible:Facebook != '', attr: {'href': Facebook}"></a>
-					<a target="group" rel="nofollow" class="fab fa-twitter" data-bind="visible:Twitter != '', attr: {'href': Twitter}"></a>
-					<a target="group" rel="nofollow" class="fab fa-meetup" data-bind="visible:Meetup != '', attr: {'href': Meetup}"></a>
-				</div>
-				<div class="icon d-flex align-items-center" data-bind="html: FontIcon"></div>
 			</div>
-		</div>
-	</div>
-	<!-- /ko -->
-</div>
-
-<footer>
-	<div class="row p-3">
-		<div class="col-12">
-			<div class="d-flex justify-content-between">
-			<div>
-				<span class="hidden-xs-down"><a href="/">Louisiana Groups</a> is </span><i class="fas fa-code"></i> with <i class="fas fa-heart"></i> by <a class="ml-1" target="_blank" href="http://adamculpepper.net"><img class="rounded-circle" src="https://avatars0.githubusercontent.com/u/3942126?s=30"></a>
-			</div>
-			<div class="hidden-sm-down">
-				edit this page: <a target="_blank" href="https://github.com/adamculpepper/louisiana-groups"><i class="fab fa-github"></i></a>
-			</div>
-		</div>
-		</div>
-	</div>
-</footer>
+		</footer>
 
 		<script src="./assets/js/jquery.min.js"></script>
-		<script src="./assets/js/knockout.min.js"></script>
-		<script src="./assets/js/bootstrap.min.js"></script>
+		<!-- <script src="./assets/js/knockout.min.js"></script> -->
+		<!-- <script src="./assets/js/bootstrap.min.js"></script> -->
 		<!-- <script src="./assets/js/jpushmenu.js"></script> -->
+		<script src="./assets/js/handlebars.min.js"></script>
+		<script src="./assets/js/sheetrock.min.js"></script>
+
+
+
+
 		<script src="./assets/js/scripts.js"></script>
 		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-116383596-1"></script>
 		<script>
