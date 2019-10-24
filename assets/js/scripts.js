@@ -4,35 +4,42 @@
 
 $(function() {
 	var sheetGroups = 'https://docs.google.com/spreadsheets/d/12zkNdCEEyFeUlIj7Lw_v5-krx3YRws1olJ12N0e8XSU/edit#gid=1511071343';
-	var sheetEvents = 'https://docs.google.com/spreadsheets/d/12zkNdCEEyFeUlIj7Lw_v5-krx3YRws1olJ12N0e8XSU/edit#gid=1511071343';
+	var sheetEvents = 'https://docs.google.com/spreadsheets/d/12zkNdCEEyFeUlIj7Lw_v5-krx3YRws1olJ12N0e8XSU/edit#gid=0';
+	var arrayGroups = [];
+	var arrayEvents = [];
 
 	var getGroups = function() {
 		var groupsTemplate = Handlebars.compile($('#groups-template').html());
 
-		$('#groups-list').sheetrock({
+		$('#list-groups').sheetrock({
 			url: sheetGroups,
-			//query: "select A,B,C,AQ,AR",
-			query: "select B,C,D,E,F,G,H,I,J,K",
-			fetchSize: 10,
+			query: "select A,B,C,D,E,F,G,H,I,J,K",
+			fetchSize: 20,
 			rowTemplate: groupsTemplate,
-			callback: drawGroups
+			callback: callbackGroups
 		});
 	}
-	getGroups();
 
+	var getEvents = function() {
+		$('#list-events').sheetrock({
+			url: sheetEvents,
+			query: "select B,C,D,E",
+			//fetchSize: 10,
+			callback: callbackGroups
+		});
+	}
 
-	function drawGroups(error, options, response) {
-		// if (error) {
-		// 	console.log('error!');
-		// } else {
-		// 	console.log(response.html);
-		// }
-		
-		// console.table(response);
-		// console.table(response.rows);
+	var callbackGroups = function(error, options, response) {
+		cleanJsonData(response, 'groups');
+	}
 
-		var rows = response.rows;
-		var groupsArray = [];		
+	var callbackEvents = function(error, options, response) {
+		cleanJsonData(response, 'events');
+	}
+
+	var cleanJsonData = function(data, type) {
+		var rows = data.rows;
+		var array = [];
 
 		for (var i = 1; i < rows.length; i++) {
 			var tempArray = [];
@@ -43,29 +50,38 @@ $(function() {
 				tempArray[label[x]] = value[x];
 			}
 
-			groupsArray.push(tempArray);
+			array.push(tempArray);
 		}
 
-		console.warn('groupsArray');
-		console.table(groupsArray);
+		if (type == 'groups') {
+			arrayGroups.push(array);
+		} else if (type == 'events') {
+			arrayEvents.push(array);
+		}
+
+		console.warn('array');
+		console.table(array);
 	}
 
+	getGroups();
+	getEvents();
 
-	// Compile the Handlebars template for HR leaders.
-	// var HRTemplate = Handlebars.compile($('#hr-template').html());
+	$.when(function() {
+		//getGroups();
+		console.warn('trigger 1');
+	}).then(function() {
+		//getEvents();
+		console.warn('trigger 2');
+	}).then(function() {
+		// console.warn('finished - merge!');
 
-	// $('#list').sheetrock({
-	// 	url: mySpreadsheet,
-	// 	//query: "select A,C,D,I order by I desc",
-	// 	query: "select A,B,C,AQ,AR",
-	// 	fetchSize: 50,
-	// 	rowTemplate: HRTemplate
-	// });
+		// var arrayToRuleThemAll = Object.assign({}, arrayGroups, arrayEvents);
+		// console.warn('arrayToRuleThemAll');
+		// console.table(arrayToRuleThemAll);
+		console.warn('trigger 3');
+	});
 
 });
-
-
-
 
 function randomNumber(min, max) {
 	return Math.round(Math.random() * (max - min) + min);

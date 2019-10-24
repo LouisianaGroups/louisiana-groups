@@ -14,6 +14,7 @@ body {
 body.loading > * {display:none;}
 a {transition:all 0.50s;}
 a:hover {text-decoration:none;}
+.hidden {display:none;}
 
 /* ------------------------------ */
 
