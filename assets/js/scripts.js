@@ -7,6 +7,9 @@ $(function() {
 	var sheetEvents = 'https://docs.google.com/spreadsheets/d/12zkNdCEEyFeUlIj7Lw_v5-krx3YRws1olJ12N0e8XSU/edit#gid=0';
 	var arrayGroups = [];
 	var arrayEvents = [];
+	var arrayMerged = [];
+	var completeGroups = false;
+	var completeEvents = false;
 
 	var getGroups = function() {
 		var groupsTemplate = Handlebars.compile($('#groups-template').html());
@@ -25,7 +28,7 @@ $(function() {
 			url: sheetEvents,
 			query: "select B,C,D,E",
 			//fetchSize: 10,
-			callback: callbackGroups
+			callback: callbackEvents
 		});
 	}
 
@@ -55,8 +58,10 @@ $(function() {
 
 		if (type == 'groups') {
 			arrayGroups.push(array);
+			completeGroups = true;
 		} else if (type == 'events') {
 			arrayEvents.push(array);
+			completeEvents = true;
 		}
 
 		console.warn('array');
@@ -66,23 +71,20 @@ $(function() {
 	getGroups();
 	getEvents();
 
-	$.when(function() {
-		//getGroups();
-		console.warn('trigger 1');
-	}).then(function() {
-		//getEvents();
-		console.warn('trigger 2');
-	}).then(function() {
-		// console.warn('finished - merge!');
+	var dataWatcher = setInterval(function() {
+		var dataComplete = false;
 
-		// var arrayToRuleThemAll = Object.assign({}, arrayGroups, arrayEvents);
-		// console.warn('arrayToRuleThemAll');
-		// console.table(arrayToRuleThemAll);
-		console.warn('trigger 3');
-	});
+		if (completeGroups == true && completeEvents == true) {
+			dataComplete = true;
+		}
+
+		if (dataComplete) {
+			clearInterval(dataWatcher);
+
+			$.extend(true, arrayMerged, arrayGroups, arrayEvents);
+
+			console.table(arrayMerged);
+		}
+	}, 100);
 
 });
-
-function randomNumber(min, max) {
-	return Math.round(Math.random() * (max - min) + min);
-}
