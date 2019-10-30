@@ -2,23 +2,25 @@
 // https://louisianagroups.com
 // https://github.com/LouisianaGroups/louisiana-groups
 
+var vm = function() {}; // data model
+var groupsData = ko.observableArray();
+
 $(function() {
+	ko.applyBindings(new vm()); // This makes Knockout get to work
 	var sheetGroups = 'https://docs.google.com/spreadsheets/d/12zkNdCEEyFeUlIj7Lw_v5-krx3YRws1olJ12N0e8XSU/edit#gid=1511071343';
 	var sheetEvents = 'https://docs.google.com/spreadsheets/d/12zkNdCEEyFeUlIj7Lw_v5-krx3YRws1olJ12N0e8XSU/edit#gid=0';
 	var arrayGroups = [];
 	var arrayEvents = [];
 	var arrayMerged = [];
-	var completeGroups = false;
-	var completeEvents = false;
+	var dataCompleteGroups = false;
+	var dataCompleteEvents = false;
 
 	var getGroups = function() {
-		var groupsTemplate = Handlebars.compile($('#groups-template').html());
-
 		$('#list-groups').sheetrock({
 			url: sheetGroups,
 			query: "select A,B,C,D,E,F,G,H,I,J,K",
-			fetchSize: 20,
-			rowTemplate: groupsTemplate,
+			//fetchSize: 20,
+			//rowTemplate: groupsTemplate,
 			callback: callbackGroups
 		});
 	}
@@ -58,33 +60,93 @@ $(function() {
 
 		if (type == 'groups') {
 			arrayGroups.push(array);
-			completeGroups = true;
+			dataCompleteGroups = true;
 		} else if (type == 'events') {
 			arrayEvents.push(array);
-			completeEvents = true;
+			dataCompleteEvents = true;
 		}
 
-		console.warn('array');
+		console.warn(type + ' array');
 		console.table(array);
 	}
-
-	getGroups();
-	getEvents();
 
 	var dataWatcher = setInterval(function() {
 		var dataComplete = false;
 
-		if (completeGroups == true && completeEvents == true) {
+		if (dataCompleteGroups == true && dataCompleteEvents == true) {
 			dataComplete = true;
 		}
 
 		if (dataComplete) {
 			clearInterval(dataWatcher);
 
+			//why is the array getting wrapped, requiring this?
+			arrayEvents = arrayEvents.pop();
+			arrayGroups = arrayGroups.pop();
+
+			//sort events array by next event date (for better data massaging)
+			console.warn('sort - before');
+			console.table(arrayEvents);
+			sortArray(arrayEvents, 'NextMeetupDateTime');
+			console.warn('sort - after');
+			console.table(arrayEvents);
+
+			//remove past events from events array
+			arrayEvents = removePastDatesFromArrayByProperty(arrayEvents, 'NextMeetupDateTime');
+			console.warn('remove past events');
+			console.table(arrayEvents);
+			
+			//remove duplicates and only show upcoming event per group
+			arrayEvents = removeDuplicates(arrayEvents, 'GroupID');
+			console.warn('duplicates removed');
+			console.table(arrayEvents);
+
+			//merge the groups and events objects together (deep merge)
 			$.extend(true, arrayMerged, arrayGroups, arrayEvents);
 
+			console.warn('merged array');
 			console.table(arrayMerged);
+
+			groupsData(arrayMerged);
 		}
 	}, 100);
+
+	var removeDuplicates = function(array, prop) {
+		var newArray = [];
+		var lookupObject = {};
+
+		for (var i in array) {
+			lookupObject[array[i][prop]] = array[i];
+		}
+
+		for (i in lookupObject) {
+			newArray.push(lookupObject[i]);
+		}
+		return newArray;
+	}
+
+	var sortArray = function(array, prop) {
+		array.sort(function(a, b){
+			return new Date(b[prop]) - new Date(a[prop]);
+		});
+	};
+
+	var removePastDatesFromArrayByProperty = function(array, prop) {
+		return $.grep(array, function (item) {
+			var today = moment();
+			var value = moment(item[prop], 'mm/dd/yyyy HH:mm:ss');
+			var diff = today.diff(value, 'days');
+
+			if (diff <= 0) {
+				//console.warn('OLDER | today: ' + today + ' | value: ' + value + ' | diff: ' + today.diff(item[prop], 'days', true));
+				return item;
+			} else {
+				//console.warn('CURRENT | today: ' + today + ' | value: ' + value + ' | diff: ' + today.diff(item[prop], 'days', true));
+			}
+		});
+	}
+
+	getGroups();
+	getEvents();
 
 });

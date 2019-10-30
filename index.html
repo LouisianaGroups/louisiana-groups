@@ -17,39 +17,57 @@
 	</head>
 	<body class="loading2">
 
-		<div id="list-groups" class="row m-0">
-			<script id="groups-template" type="text/x-handlebars-template">
-				<div class="col-12 col-sm-6 col-lg-4 p-0">
-					<div class="card" style="background:{{cells.Hex}}">
-						<div class="card-body">
-							<div class="title">
-								<span>
-									<h2>{{cells.GroupName}}</h2>
-								</span>
-							</div>
-							{{#if cells.Location}}
-							<div class="location">
-								<span>
-									<i class="fas fa-map-marker-alt mr-1"></i>
-									<span>{{cells.Location}}</span>
-								</span>
-							</div>
-							{{/if}}
-							<div class="next-event">
-								<span>Next meetup: 3/12 @ 6:00pm</span>
-							</div>
-							<div class="links">
-								<a target="group" rel="nofollow" class="fa fa-link" data-bind="visible:Website != '', attr: {'href': Website}"></a>
-								<a target="group" rel="nofollow" class="fab fa-facebook" data-bind="visible:Facebook != '', attr: {'href': Facebook}"></a>
-								<a target="group" rel="nofollow" class="fab fa-twitter" data-bind="visible:Twitter != '', attr: {'href': Twitter}"></a>
-								<a target="group" rel="nofollow" class="fab fa-meetup" data-bind="visible:Meetup != '', attr: {'href': Meetup}"></a>
-							</div>
-							<div class="icon d-flex align-items-center" data-bind="html: FontIcon"></div>
-						</div>
-					</div>
+
+
+
+
+
+
+<div class="row m-0">
+	<!-- ko foreach: groupsData -->
+	<div class="col-12 col-sm-6 col-lg-4 p-0">
+		<div class="card" data-bind="
+			style: {
+				background: Hex != '' ? Hex : '#ddd'
+			}
+		">
+			<div class="card-body">
+				<div class="title">
+					<span>
+						<h2 data-bind="text: GroupName"></h2>
+					</span>
 				</div>
-			</script>
+				<div class="location" data-bind="visible:Location != ''">
+					<span>
+						<i class="fas fa-map-marker-alt mr-1"></i>
+						<span data-bind="text: Location"></span>
+					</span>
+				</div>
+				<!-- ko if: NextMeetupDateTime -->
+				<div class="next-event">
+					<!-- <span>Next meetup: 3/12 @ 6:00pm</span> -->
+					<span data-bind="text: 'Next meetup: ' + moment(NextMeetupDateTime).format('MM/DD @ hh:mma') "></span>
+				</div>
+				<!-- /ko -->
+				<div class="links">
+					<a target="group" rel="nofollow" class="fa fa-link" data-bind="visible:Website != '', attr: {'href': Website}"></a>
+					<a target="group" rel="nofollow" class="fab fa-facebook" data-bind="visible:Facebook != '', attr: {'href': Facebook}"></a>
+					<a target="group" rel="nofollow" class="fab fa-twitter" data-bind="visible:Twitter != '', attr: {'href': Twitter}"></a>
+					<a target="group" rel="nofollow" class="fab fa-meetup" data-bind="visible:Meetup != '', attr: {'href': Meetup}"></a>
+				</div>
+				<div class="icon d-flex align-items-center" data-bind="html: FontIcon"></div>
+			</div>
 		</div>
+	</div>
+	<!-- /ko -->
+</div>
+
+
+
+
+
+
+		<div id="list-groups" class="hidden"></div>
 		<div id="list-events" class="hidden"></div>
 
 		<footer>
@@ -68,11 +86,12 @@
 		</footer>
 
 		<script src="./assets/js/jquery.min.js"></script>
-		<!-- <script src="./assets/js/knockout.min.js"></script> -->
+		<script src="./assets/js/knockout.min.js"></script>
 		<!-- <script src="./assets/js/bootstrap.min.js"></script> -->
 		<!-- <script src="./assets/js/jpushmenu.js"></script> -->
-		<script src="./assets/js/handlebars.min.js"></script>
+		<!-- <script src="./assets/js/handlebars.min.js"></script> -->
 		<script src="./assets/js/sheetrock.min.js"></script>
+		<script src="./assets/js/moment.min.js"></script>
 		<script src="./assets/js/scripts.js"></script>
 		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-116383596-1"></script>
 		<script>
