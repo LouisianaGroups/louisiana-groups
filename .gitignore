@@ -1,2 +1,7 @@
-
+# OS Artifacts
 .DS_Store
+
+# Node modules
+node_modules
+
+
