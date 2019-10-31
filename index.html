@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<title></title>
+		<!-- <link href="/favicon.ico" rel="shortcut icon"> -->
+		<!-- <link href="/favicon.png" rel="apple-touch-icon-precomposed"> -->
+		<link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+		<link rel="stylesheet" href="./assets/css/fontawesome-all.min.css">
+		<!-- <link rel="stylesheet" href="./assets/css/colofilter.css"> -->
+		<!-- <link rel="stylesheet" href="./assets/css/jpushmenu.css"> -->
+		<link rel="stylesheet" href="./assets/css/styles.css">
+	</head>
+	<body class="loading content-loading center-to-window loading-inverted">
+
+		<div id="content" class="row m-0">
+			<!-- ko foreach: groupsData -->
+			<div class="col-12 col-sm-6 col-lg-4 p-0">
+				<div class="card" data-bind="
+					style: {
+						background: Hex != '' ? Hex : '#ddd'
+					}
+				">
+					<div class="card-body">
+						<div class="title mb-1">
+							<span>
+								<h2 data-bind="text: GroupName"></h2>
+							</span>
+						</div>
+						<div class="location mb-1" data-bind="visible:Location != ''">
+							<span>
+								<i class="fas fa-map-marker-alt mr-1"></i>
+								<span data-bind="text: Location"></span>
+							</span>
+						</div>
+						<!-- ko if: $data.NextMeetupDateTime -->
+						<div class="next-event">
+							<span class="event-date" data-bind="text: 'Next meetup: ' + moment(NextMeetupDateTime, 'MM/DD/YYYY @ HH:mm:SS').format('MM/DD @ hh:mma') "></span>
+							<!-- ko if: EventLink -->
+							<a target="group" rel="nofollow" class="fa fa-link" data-bind="attr: {'href': EventLink}"></a>
+							<!-- /ko -->
+						</div>
+						<!-- /ko -->
+						<div class="links">
+							<a target="group" rel="nofollow" class="fa fa-link" data-bind="visible:Website != '', attr: {'href': Website}"></a>
+							<a target="group" rel="nofollow" class="fab fa-facebook" data-bind="visible:Facebook != '', attr: {'href': Facebook}"></a>
+							<a target="group" rel="nofollow" class="fab fa-twitter" data-bind="visible:Twitter != '', attr: {'href': Twitter}"></a>
+							<a target="group" rel="nofollow" class="fab fa-meetup" data-bind="visible:Meetup != '', attr: {'href': Meetup}"></a>
+						</div>
+						<div class="icon d-flex align-items-center" data-bind="html: FontIcon"></div>
+					</div>
+				</div>
+			</div>
+			<!-- /ko -->
+		</div>
+
+		<footer>
+			<div class="d-flex justify-content-between p-3">
+				<div>
+					<span class="hidden-xs-down"><a href="/">Louisiana Groups</a> is </span><i class="fas fa-code"></i> with <i class="fas fa-heart"></i> by
+					<a class="ml-1" target="_blank" href="http://adamculpepper.net"><img class="rounded-circle" src="https://avatars0.githubusercontent.com/u/3942126?s=30"></a>
+					<a class="ml-1" target="_blank" href="https://nick.scheurich.me"><img class="rounded-circle" src="https://avatars0.githubusercontent.com/u/423798?s=30"></a>
+					<a class="ml-1" target="_blank" href="https://github.com/james-alt"><img class="rounded-circle" src="https://avatars0.githubusercontent.com/u/6201892?s=30"></a>
+				</div>
+				<div class="hidden-sm-down">
+					edit this page: <a target="_blank" href="https://github.com/LouisianaGroups"><i class="fab fa-github"></i></a>
+				</div>
+			</div>
+		</footer>
+
+		<script src="./assets/js/jquery.min.js"></script>
+		<script src="./assets/js/knockout.min.js"></script>
+		<!-- <script src="./assets/js/bootstrap.min.js"></script> -->
+		<!-- <script src="./assets/js/jpushmenu.js"></script> -->
+		<!-- <script src="./assets/js/handlebars.min.js"></script> -->
+		<script src="./assets/js/sheetrock.min.js"></script>
+		<script src="./assets/js/moment.min.js"></script>
+		<script src="./assets/js/scripts.js"></script>
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-116383596-1"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+			gtag('config', 'UA-116383596-1');
+		</script>
+	</body>
+</html>

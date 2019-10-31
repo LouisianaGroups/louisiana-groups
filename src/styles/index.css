@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,900');
 
 /* Globals */
+html, body {height:100%;}
 body {
 	font-family: 'Roboto', sans-serif;
 	color:#222;
@@ -12,9 +13,11 @@ body {
 	background-position:0 0, 10px 10px;
 	overflow-x:hidden;
 }
-body.loading > * {display:none;}
+body.loading #content,
+body.loading footer {display:none;}
 a {transition:all 0.50s;}
 a:hover {text-decoration:none;}
+.hidden {display:none;}
 
 /* ------------------------------ */
 
@@ -23,9 +26,13 @@ a:hover {text-decoration:none;}
 .card,
 .card a {color:#333;}
 
-.card .card-body {position:relative;}
-.card .card-body > * {display:block; margin-bottom:5px;}
-.card .card-body > * > span {display:inline-block; font-weight:900; padding:5px 10px; background:rgba(255, 255, 255, 0.1);}
+.card .card-body {position:relative; font-weight:900;}
+
+
+.card .card-body a {padding:10px; background:rgba(255, 255, 255, 0.1);}
+.card .card-body a:hover {background:rgba(255, 255, 255, 0.3); color:#000;}
+.card .card-body a i,
+.card .card-body a.fa {font-size: 14px;}
 
 .card .card-body .icon {position:absolute; bottom:20px; right:20px;}
 .card .card-body .icon i {margin:0 20px; opacity:0.7; font-size:75px;}
@@ -34,11 +41,12 @@ a:hover {text-decoration:none;}
 .card .card-body .icon i.fa.half {font-size:30px;}
 
 .card .card-body .links {position:absolute; bottom:20px; left:20px;}
-.card .card-body .links a {float:left; margin-right:5px; font-size:30px; padding:10px; background:rgba(255, 255, 255, 0.1);}
-.card .card-body .links a:hover {color:#000; background:rgba(255, 255, 255, 0.3);}
+
+.card .card-body .links a {float:left; font-size:30px; margin-right:5px;}
 .card .card-body .links a:last-of-type {margin-right:0;}
 
-.card .card-body .title span {background:none; padding:0; padding-left:10px;}
+.card .card-body .title {margin-left:10px;}
+.card .card-body .title span {background:none; padding:0;}
 .card .card-body .title h2 {
 	display:inline;
 	padding:5px 0;
@@ -48,6 +56,10 @@ a:hover {text-decoration:none;}
 	box-shadow: 10px 0 0 rgba(255, 255, 255, 0.1), -10px 0 0 rgba(255, 255, 255, 0.1);
 }
 
+
+.card .card-body .location > span,
+.card .card-body .next-event .event-date {display:inline-block; padding:5px 10px; background:rgba(255, 255, 255, 0.1);}
+
 /* ------------------------------ */
 
 /* Content Styles */
@@ -56,6 +68,7 @@ footer,
 footer a {color:rgba(0, 0, 0, 0.5);}
 footer a {display:inline-block; padding:5px 10px; background:rgba(255, 255, 255, 0.2);}
 footer a:hover {color:#222; background:rgba(255, 255, 255, 0.3);}
+footer .row {width:100%;}
 
 /* ------------------------------ */
 
@@ -82,41 +95,84 @@ footer a:hover {color:#222; background:rgba(255, 255, 255, 0.3);}
 @media (min-width:992px) and (max-width:1199px)	{ .hidden-md {display:none!important;} }
 @media (min-width:1200px)	{ .hidden-lg {display:none!important;} }
 
-/* Add-on: Display current breakpoint, grids defined in Bootstrap 4 (Not Bootstrap dependant) */
-html > body.dev:before {
-	content: "Extra small (xs) | (<576px)"; /* Extra Small - xs */
-	position:fixed;
-	bottom:5px;
-	left:5px;
-	z-index:99999999;
-	width:auto;
-	height:auto;
-	padding:5px;
-	color:#fff;
-	font-size:12px;
-	font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;
-	background:rgba(255, 0, 255, 0.50);
-	letter-spacing:1px;
-}
-@media (min-width: 576px) { html > body.dev:before {content: "Small (sm) | (\2265 576px)";} }			/* Small - sm */
-@media (min-width: 768px) { html > body.dev:before {content: "Medium (md) | (\2265 768px)";} }			/* Medium - md */
-@media (min-width: 992px) { html > body.dev:before {content: "Large (lg) | (\2265 992px)";} }			/* Large - lg */
-@media (min-width: 1200px) { html > body.dev:before {content: "Extra Large (xl) | (\2265 1200px)";} }	/* Extra Large - xl */
-
 /* ------------------------------ */
 
-/* Add lines to dev to see where each element's boundries better */
-.dev a		{outline:1px dotted #D68A85!important;}
-.dev h1,
-.dev h2,
-.dev h3,
-.dev h4,
-.dev h5,
-.dev h6		{outline:1px dotted #E7912D!important;}
-.dev span	{outline:1px dotted #F0F!important;}
-.dev div	{outline:1px dotted #3AB6F1!important;}
-.dev ul,
-.dev ol		{outline:1px dotted #8684D8!important;}
-.dev li		{outline:1px dotted #DD67AE!important;}
-.dev td		{outline:1px dotted lightblue!important;}
-.dev i		{outline:1px dotted gray!important;}
+/* Animated Content Loader */
+.loading {
+	pointer-events:none;
+	position:relative;
+	cursor:default;
+	-webkit-user-select:none;
+		-ms-user-select:none;
+			user-select:none;
+}
+
+.loading:after,
+.loading:before {
+	position:absolute;
+	display:block;
+	content:'';
+}
+
+.loading:before {
+	z-index:1000;
+	top:0;
+	right:0;
+	bottom:0;
+	left:0;
+	background:rgba(255,255,255,.8);
+}
+
+.loading:after {
+	z-index:1001;
+	top:150px;
+	left:50%;
+	width:100px;
+	height:100px;
+	margin:-50px 0 0 -50px;
+	-webkit-animation:form-spin .6s linear;
+	animation:form-spin .6s linear;
+	-webkit-animation-iteration-count:infinite;
+	animation-iteration-count:infinite;
+	border-width:20px;
+	border-style:solid;
+	border-color:#767676 rgba(0,0,0,.1) rgba(0,0,0,.1);
+	border-radius:999px;
+}
+
+.loading.center-to-window:after {
+	position:fixed;
+	top:50%;
+	left:50%;
+	transform:translate(-50%, -50%);
+}
+
+.loading-inverted:before {
+	background:rgba(0,0,0,.45);
+}
+
+.loading-inverted:after {
+	border-color:#ccc rgba(255,255,255,.2) rgba(255,255,255,.2);
+}
+
+@-webkit-keyframes form-spin{
+	from{
+		-webkit-transform:rotate(0);
+		transform:rotate(0)
+	}
+	to{
+		-webkit-transform:rotate(360deg);
+		transform:rotate(360deg)
+	}
+}
+
+@keyframes form-spin{
+	from{
+		-webkit-transform:rotate(0);
+		transform:rotate(0)
+	}
+	to{
+		-webkit-transform:rotate(360deg);
+		transform:rotate(360deg)
+	}
+}
