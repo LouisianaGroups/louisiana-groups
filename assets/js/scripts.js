@@ -20,7 +20,7 @@ $(function() {
 	var getGroups = function() {
 		sheetrock({
 			url: sheetGroups,
-			query: "select A,B,C,D,E,F,G,H,I,J,K",
+			query: "select A,B,C,D,E,F,G,H,I,J where K = true",
 			callback: callbackGroups
 		});
 	}
@@ -99,6 +99,14 @@ $(function() {
 		});
 	}
 
+	var displayCards = function() {
+		var totalCards = $('#content .card').length;
+
+		for (var i = 0; i < totalCards; i++) {
+			$('#content .card').delay(50).eq(i).animate({'opacity': 1});
+		}
+	}
+
 	new Promise(function(resolve, reject) {
 		setTimeout(() => resolve(1), 1000);
 		getGroups();
@@ -132,7 +140,9 @@ $(function() {
 		// console.table(arrayMerged);
 		groupsData(arrayMerged); //dump final array into observable to be used in the Knockout loop in the HTML
 	}).then(function(result) {
+		$('#content .card').css({'opacity': 0});
 		$('body').removeClass('loading');
+		displayCards();
 	});
 
 });
