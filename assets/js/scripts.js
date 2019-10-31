@@ -63,8 +63,8 @@ $(function() {
 			arrayEvents.push(array);
 		}
 
-		console.warn(type + ' array');
-		console.table(array);
+		// console.warn(type + ' array');
+		// console.table(array);
 	}
 
 	var removeDuplicates = function(array, prop) {
@@ -104,32 +104,32 @@ $(function() {
 		getGroups();
 		getEvents();		
 	}).then(function(result) {
-		//why is the array getting wrapped, requiring this?
+		// why is the array getting wrapped, requiring this?
 		arrayEvents = arrayEvents.pop();
 		arrayGroups = arrayGroups.pop();
 	}).then(function(result) {
-		//sort events array by next event date (for better data massaging)
-		console.warn('sort - before');
-		console.table(arrayEvents);
+		// sort events array by next event date (for better data massaging)
+		// console.warn('sort - before');
+		// console.table(arrayEvents);
 		sortArray(arrayEvents, 'NextMeetupDateTime');
-		console.warn('sort - after');
-		console.table(arrayEvents);
+		// console.warn('sort - after');
+		// console.table(arrayEvents);
 	}).then(function(result) {
-		//remove past events from events array
+		// remove past events from events array
 		arrayEvents = removePastDatesFromArrayByProperty(arrayEvents, 'NextMeetupDateTime');
-		console.warn('remove past events');
-		console.table(arrayEvents);
+		// console.warn('remove past events');
+		// console.table(arrayEvents);
 	}).then(function(result) {
-		//remove duplicates and only show upcoming event per group
+		// remove duplicates and only show upcoming event per group
 		arrayEvents = removeDuplicates(arrayEvents, 'GroupID');
-		console.warn('duplicates removed');
-		console.table(arrayEvents);
+		// console.warn('duplicates removed');
+		// console.table(arrayEvents);
 	}).then(function(result) {
-		//merge the groups and events objects together (deep merge)
+		// merge the groups and events objects together (deep merge)
 		$.extend(true, arrayMerged, arrayGroups, arrayEvents);
 	}).then(function(result) {
-		console.warn('merged array');
-		console.table(arrayMerged);
+		// console.warn('merged array');
+		// console.table(arrayMerged);
 		groupsData(arrayMerged); //dump final array into observable to be used in the Knockout loop in the HTML
 	}).then(function(result) {
 		$('body').removeClass('loading');
