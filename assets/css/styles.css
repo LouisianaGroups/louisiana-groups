@@ -27,7 +27,6 @@ a:hover {text-decoration:none;}
 
 .card .card-body {position:relative; font-weight:900;}
 
-
 .card .card-body a {padding:10px; background:rgba(255, 255, 255, 0.1);}
 .card .card-body a:hover {background:rgba(255, 255, 255, 0.3); color:#000;}
 .card .card-body a i,
@@ -40,7 +39,6 @@ a:hover {text-decoration:none;}
 .card .card-body .icon i.fa.half {font-size:30px;}
 
 .card .card-body .links {position:absolute; bottom:20px; left:20px;}
-
 .card .card-body .links a {float:left; font-size:30px; margin-right:5px;}
 .card .card-body .links a:last-of-type {margin-right:0;}
 
@@ -55,7 +53,7 @@ a:hover {text-decoration:none;}
 	box-shadow: 10px 0 0 rgba(255, 255, 255, 0.1), -10px 0 0 rgba(255, 255, 255, 0.1);
 }
 
-
+/* white blocks inside the card */
 .card .card-body .location > span,
 .card .card-body .next-event .event-date {display:inline-block; padding:5px 10px; background:rgba(255, 255, 255, 0.1);}
 
