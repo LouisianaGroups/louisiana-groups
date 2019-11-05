@@ -1,6 +1,6 @@
 # Louisiana Groups
 
-Aggregate list of tech groups in Louisiana.
+👥 Public list of Louisiana tech and creative groups.
 
 ## Table of Contents
 
