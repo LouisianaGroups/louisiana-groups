@@ -39,8 +39,8 @@ Happy hacking!
 | ------ | ------ |
 | CSS Grid System, etc. | [Bootstrap 4](http://getbootstrap.com)
 | Font Icons | [Font Awesome 5](https://fontawesome.com) + [brands](https://fontawesome.com/icons?d=brands)
-| Database | [Google Spreadsheets](https://google.com/sheets)
-| Google Sheets quering | [Sheetrock.js](https://chriszarate.github.io/sheetrock)
+| Database | [Google Sheets](https://google.com/sheets)
+| Google Sheets querying | [Sheetrock.js](https://chriszarate.github.io/sheetrock)
 | Analytics Tracking | [Google Analytics](https://google.com/analytics)
 | CRON triggers | [Dead Man's Snitch](https://deadmanssnitch.com/r/b2746d2af7)
 
