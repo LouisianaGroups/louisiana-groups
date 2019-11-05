@@ -1,6 +1,6 @@
 # Louisiana Groups
 
-Description needed here
+Aggregate list of tech groups in Louisiana.
 
 ## Table of Contents
 
