@@ -130,11 +130,35 @@ $(function() {
 	}
 
 	var displayCards = function() {
+		var cards = $('#content .card');
 		var totalCards = $('#content .card').length;
 
 		for (var i = 0; i < totalCards; i++) {
 			$('#content .card').delay(50).eq(i).animate({'opacity': 1});
+
+			var sel = $('#content .card').eq(i);
+			var background = sel.data('background');
+			var location = sel.data('location');
+			location = location.toLowerCase().replace(/, /g, '|').replace(/ /g , '-').replace(/\|/g, ' ');
+			sel.addClass(location);
+			sel.css({'background-color': background});
 		}
+
+		cards.removeAttr('data-bind');
+		cards.removeAttr('data-background');
+		cards.removeAttr('data-location');
+	}
+
+	var init = function() {
+		$('#content').isotope({
+			itemSelector: '.card',
+		});
+
+		$('#location-selector').on('change', function(e) {
+			var selected = '.' + $(this).val();
+			$('#content').isotope({ filter: selected })
+		});
+
 	}
 
 	new Promise(function(resolve, reject) {
@@ -191,6 +215,7 @@ $(function() {
 		$('#content .card').css({'opacity': 0});
 		$('body').removeClass('loading');
 		displayCards();
+		init();
 	});
 
 });

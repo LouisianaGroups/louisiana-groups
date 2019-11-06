@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,900');
 
 /* Globals */
+html {overflow-y:scroll;}
 html, body {height:100%;}
 body {
 	font-family: 'Roboto', sans-serif;

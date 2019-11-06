@@ -11,9 +11,9 @@
 		<!-- <link href="/favicon.png" rel="apple-touch-icon-precomposed"> -->
 
 		<!-- styles -->
-		<link rel="stylesheet" href="https://cdn.louisianagroups.com/assets/css/bootstrap.min.css">
-		<link rel="stylesheet" href="https://cdn.louisianagroups.com/assets/css/fontawesome-all.min.css">
-		<link rel="stylesheet" href="https://cdn.louisianagroups.com/assets/css/styles.css">
+		<link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+		<link rel="stylesheet" href="./assets/css/fontawesome-all.min.css">
+		<link rel="stylesheet" href="./assets/css/styles.css">
 
 		<!-- open graph meta -->
 		<meta property="og:title" content="Louisiana Groups">
@@ -25,14 +25,23 @@
 	</head>
 	<body class="loading content-loading center-to-window loading-inverted">
 
+		<header class="hidden">
+			<div class="d-flex p-3">
+				<a class="logo mr-5" href="/">Louisiana Groups</a>
+
+				<select id="location-selector">
+					<option value="baton-rouge">Baton Rouge</option>
+					<option value="new-orleans">New Orleans</option>
+					<option value="hammond">Hammond</option>
+					<option value="lafayette">Lafayette</option>
+				</select>
+
+			</div>
+		</header>
+
 		<div id="content" class="row m-0">
 			<!-- ko foreach: groupsData -->
-			<div class="col-12 col-sm-6 col-lg-4 p-0">
-				<div class="card" data-bind="
-					style: {
-						background: Hex != '' ? Hex : '#ddd'
-					}
-				">
+				<div class="card col-12 col-sm-6 col-lg-4 p-0" data-bind="attr: {'data-background': (Hex != '' ? Hex : '#ddd'), 'data-location': Location}">
 					<div class="card-body">
 						<div class="title mb-1">
 							<span>
@@ -62,7 +71,6 @@
 						<div class="icon d-flex align-items-center" data-bind="html: FontIcon"></div>
 					</div>
 				</div>
-			</div>
 			<!-- /ko -->
 		</div>
 
@@ -80,11 +88,12 @@
 			</div>
 		</footer>
 
-		<script src="https://cdn.louisianagroups.com/assets/js/jquery.min.js"></script>
-		<script src="https://cdn.louisianagroups.com/assets/js/knockout.min.js"></script>
-		<script src="https://cdn.louisianagroups.com/assets/js/sheetrock.min.js"></script>
-		<script src="https://cdn.louisianagroups.com/assets/js/moment.min.js"></script>
-		<script src="https://cdn.louisianagroups.com/assets/js/scripts.js"></script>
+		<script src="./assets/js/jquery.min.js"></script>
+		<script src="./assets/js/knockout.min.js"></script>
+		<script src="./assets/js/sheetrock.min.js"></script>
+		<script src="./assets/js/moment.min.js"></script>
+		<script src="./assets/js/isotope.min.js"></script>
+		<script src="./assets/js/scripts.js"></script>
 		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-116383596-1"></script>
 		<script>
 			window.dataLayer = window.dataLayer || [];
