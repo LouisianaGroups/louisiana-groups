@@ -177,24 +177,24 @@ $(function() {
 
 
 
-	}).then(function(result) {
-		// var testArray = Object.assign({}, arrayEventGroupIDs, arrayGroups);
-		var testArray = $.extend(true, {}, arrayGroups, arrayEventGroupIDs);
-		console.warn('testArray - merge in Last Group Event');
-		console.table(testArray);
+	// }).then(function(result) {
+	// 	// var testArray = Object.assign({}, arrayEventGroupIDs, arrayGroups);
+	// 	var testArray = $.extend(true, {}, arrayGroups, arrayEventGroupIDs);
+	// 	console.warn('testArray - merge in Last Group Event');
+	// 	console.table(testArray);
 
 
 
 
 
-	}).then(function(result) {
-		// merge the groups and events objects together (deep merge)
-		$.extend(true, arrayMerged, arrayGroups, arrayEvents);
+	// }).then(function(result) {
+	// 	// merge the groups and events objects together (deep merge)
+	// 	$.extend(true, arrayMerged, arrayGroups, arrayEvents);
 	}).then(function(result) {
 		//dump final array into observable to be used in the Knockout loop in the HTML
-		groupsData(arrayMerged);
-		console.warn('merged array');
-		console.table(arrayMerged);
+		groupsData(arrayGroups);
+		// console.warn('merged array');
+		// console.table(arrayMerged);
 	}).then(function(result) {
 		$('#content .card').css({'opacity': 0});
 		$('body').removeClass('loading');
