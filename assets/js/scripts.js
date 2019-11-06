@@ -13,10 +13,10 @@ $(function() {
 	ko.applyBindings(new vm()); // init knockout
 	var sheetGroups = 'https://docs.google.com/spreadsheets/d/12zkNdCEEyFeUlIj7Lw_v5-krx3YRws1olJ12N0e8XSU/edit#gid=1511071343';
 	var sheetEvents = 'https://docs.google.com/spreadsheets/d/12zkNdCEEyFeUlIj7Lw_v5-krx3YRws1olJ12N0e8XSU/edit#gid=0';
+	var today = moment();
 	var arrayGroups = [];
 	var arrayEvents = [];
 	var arrayMerged = [];
-	var arrayLastGroupEvent = [];
 	var arrayEventGroupIDs = [];
 
 	var getGroups = function() {
@@ -91,8 +91,7 @@ $(function() {
 
 	var removePastDatesFromArrayByProperty = function(array, prop) {
 		return $.grep(array, function (item) {
-			var today = moment();
-			var value = moment(item[prop], 'mm/dd/yyyy HH:mm:ss');
+			var value = moment(item[prop], 'MM/DD/YYYY HH:mm:ss');
 			var diff = today.diff(item[prop], 'days');
 
 			if (diff <= 0) {
@@ -104,84 +103,30 @@ $(function() {
 	var getEventGroupIDs = function() {
 		for (var i = 0; i < arrayEvents.length; i++) {
 			var groupID = arrayEvents[i].GroupID;
-			arrayEventGroupIDs.push({GroupID: groupID, LastEventDate: ''});
+			var groupName = arrayEvents[i].GroupName;
+			arrayEventGroupIDs.push({GroupID: groupID, GroupName: groupName, LastEventDate: ''});
 		}
 
 		return removeDuplicates(arrayEventGroupIDs, 'GroupID');
 	}
 
 	var getLastEventDatePerGroup = function(array) {
-		var output = [];
-
 		$.grep(array, function (item) {
-			var x = item;
-			var y = array;
-
-
 			var id = item.GroupID;
 			var index = arrayEventGroupIDs.map(function(e) { return e.GroupID; }).indexOf(id);
-			//debugger;
 			var newDate = item.NextMeetupDateTime;
 			var oldDate = arrayEventGroupIDs[index].LastEventDate || '';
+			var newDateMoment = moment(newDate, 'MM/DD/YYYY HH:mm:ss');
+			var oldDateMoment = moment(oldDate, 'MM/DD/YYYY HH:mm:ss');
+			var newDateDaysAgo = today.diff(newDateMoment, 'days');
+			var oldDateDaysAgo = today.diff(oldDateMoment, 'days');
 
-			// for (var moo = 0; moo < arrayEventGroupIDs.length; moo++) {
-			// 	if (arrayEventGroupIDs[moo].GroupID == id) {
-			// 		oldDate = arrayEventGroupIDs[moo].NextMeetupDateTime || '';
-			// 	}
-			// }
-
-
-			//debugger;
-			//date = (moment(oldDate, 'mm/dd/yyyy HH:mm:ss').unix() > moment(newDate, 'mm/dd/yyyy HH:mm:ss').unix() ? newDate : oldDate);
-
-
-			var newDateUnix = moment(newDate, 'mm/dd/yyyy HH:mm:ss').unix();
-			var oldDateUnix = moment(oldDate, 'mm/dd/yyyy HH:mm:ss').unix();
-			var todayUnix = moment().unix();
-			var today = moment();
-
-			var date = '';
-
-			if (newDateUnix < todayUnix) {
-
-
-
-
-				if (oldDate == '') {
+			if (newDateDaysAgo >= 0) {
+				if (oldDate == '' || newDateDaysAgo < oldDateDaysAgo) {
 					arrayEventGroupIDs[index].LastEventDate = newDate;
-				} else {
-					if (newDateUnix < oldDateUnix) {
-						arrayEventGroupIDs[index].LastEventDate = newDate;
-					}
 				}
-
-
-
-
 			}
-
-			//debugger;
-
-			var a = id;
-			var b = oldDate;
-			var c = newDate;
-			var d = index;
-			var e = date;
-			var f = arrayEventGroupIDs[index].LastEventDate;
-			var g = array;
-			debugger;
-
-			
-
-			console.table(arrayEventGroupIDs);
-			//debugger;
-
-
 		});
-
-
-
-		//return output;
 	}
 
 	var displayCards = function() {
@@ -212,43 +157,11 @@ $(function() {
 		arrayEventGroupIDs = getEventGroupIDs();
 		console.warn('arrayEventGroupIDs 45435454');
 		console.table(arrayEventGroupIDs);
-
-
-
-
-
-
-
-
 	}).then(function(result) {
+		// insert last group event and insert into arrayEventGroupIDs
 		getLastEventDatePerGroup(arrayEvents);
 		console.warn('getLastEventDatePerGroup 987054545');
 		console.table(arrayEventGroupIDs);
-
-
-
-
-
-
-
-
-
-
-
-	}).then(function(result) {
-		arrayLastGroupEvent = removeDuplicates(arrayLastGroupEvent, 'GroupID');
-		console.warn('arrayLastGroupEvent - removeDuplicates');
-		console.table(arrayLastGroupEvent);
-
-
-
-
-
-
-
-
-
-
 	}).then(function(result) {
 		// remove past events from events array
 		arrayEvents = removePastDatesFromArrayByProperty(arrayEvents, 'NextMeetupDateTime');
@@ -264,37 +177,24 @@ $(function() {
 
 
 
+	// }).then(function(result) {
+	// 	// var testArray = Object.assign({}, arrayEventGroupIDs, arrayGroups);
+	// 	var testArray = $.extend(true, {}, arrayGroups, arrayEventGroupIDs);
+	// 	console.warn('testArray - merge in Last Group Event');
+	// 	console.table(testArray);
 
 
 
+
+
+	// }).then(function(result) {
+	// 	// merge the groups and events objects together (deep merge)
+	// 	$.extend(true, arrayMerged, arrayGroups, arrayEvents);
 	}).then(function(result) {
-		console.warn('arrayLastGroupEvent - output');
-		console.table(arrayLastGroupEvent);
-
-
-		//var testArray = [];
-		//arrayLastGroupEvent.pop();
-		//testArray = $.extend(true, testArray, arrayLastGroupEvent, arrayGroups);
-		var testArray = $.extend({}, arrayGroups, arrayEventGroupIDs);
-		console.warn('testArray - merge in Last Group Event');
-		console.table(testArray);
-
-
-		console.warn('arrayEventGroupIDs 6227688');
-		console.table(arrayEventGroupIDs);
-
-		console.warn('arrayLastGroupEvent 0254025424');
-		console.table(arrayLastGroupEvent);
-
-
-
-	}).then(function(result) {
-		// merge the groups and events objects together (deep merge)
-		$.extend(true, arrayMerged, arrayGroups, arrayEvents);
-	}).then(function(result) {
-		console.warn('merged array');
-		console.table(arrayMerged);
-		groupsData(arrayMerged); //dump final array into observable to be used in the Knockout loop in the HTML
+		//dump final array into observable to be used in the Knockout loop in the HTML
+		groupsData(arrayGroups);
+		// console.warn('merged array');
+		// console.table(arrayMerged);
 	}).then(function(result) {
 		$('#content .card').css({'opacity': 0});
 		$('body').removeClass('loading');
