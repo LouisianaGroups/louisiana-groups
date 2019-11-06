@@ -173,19 +173,11 @@ $(function() {
 		console.warn('duplicates removed');
 		console.table(arrayEvents);
 
-
-
-
-
 	// }).then(function(result) {
 	// 	// var testArray = Object.assign({}, arrayEventGroupIDs, arrayGroups);
 	// 	var testArray = $.extend(true, {}, arrayGroups, arrayEventGroupIDs);
 	// 	console.warn('testArray - merge in Last Group Event');
 	// 	console.table(testArray);
-
-
-
-
 
 	// }).then(function(result) {
 	// 	// merge the groups and events objects together (deep merge)
