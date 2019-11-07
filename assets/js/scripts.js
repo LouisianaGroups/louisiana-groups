@@ -134,6 +134,22 @@ $(function() {
 		$('#card-count').text(cardCount + ' groups shown');
 	}
 
+	// var getUrlParam = function(name) {
+	// 	var match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.href);
+	// 	return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
+	// }
+
+	// var checkUrlParams = function() {
+	// 	var location = getUrlParam('location');
+		
+	// 	if (location) {
+	// 		$('#location-selector').val(location).trigger('change');
+	// 		return true;
+	// 	} else {
+	// 		return false;
+	// 	}
+	// }
+
 	var displayCards = function() {
 		var cards = $('#content .card');
 		var totalCards = $('#content .card').length;
@@ -160,15 +176,22 @@ $(function() {
 			itemSelector: '.card',
 		});
 
-		$('#content').on( 'arrangeComplete', function() {
+		$('#content').on('arrangeComplete', function() {
 			countCards();
 		});
 
 		$('#location-selector').on('change', function(e) {
 			var selected = $(this).val();
-			$('#content').isotope({ filter: selected });
 
-			//history.pushState({location: selected}, "title 1", '?location=' + selected);
+			if (selected.includes('*')) {
+				selected = '*';
+				//history.pushState({location: 'all'}, "title 1", '?location=all');
+			} else {
+				selected = '.' + selected
+				//history.pushState({location: selected}, "title 1", '?location=' + selected.replace('.', ''));
+			}
+
+			$('#content').isotope({ filter: selected });
 		});
 
 		$('#location-selector').select2({
@@ -231,6 +254,7 @@ $(function() {
 		$('#content .card').css({'opacity': 0});
 		$('body').removeClass('loading');
 		$('header #controls').delay(1000).fadeIn();
+	}).then(function(result) {
 		countCards();
 		displayCards();
 		init();
