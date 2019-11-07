@@ -17,9 +17,9 @@
 
 * [x] Upgrade to FontAwesome5 + brands
 * [x] Add website and social links to cards
-* [x] Add "next meetup" to group cards
-* [ ] Design logo for header, social media, favicon, et al.
-* [ ] Add isotope for toggle and search filtering [Isotope Codepen](https://codepen.io/desandro/pen/wfaGu)
+* [x] Add isotope for toggle and search filtering [Isotope Codepen](https://codepen.io/desandro/pen/wfaGu)
+* [ ] Add "next meetup" to group cards
+* [ ] Sort groups by last meetup, making the more active groups float to the top
 
 ## Development
 
@@ -41,10 +41,11 @@ Happy hacking!
 | Font Icons | [Font Awesome 5](https://fontawesome.com) + [brands](https://fontawesome.com/icons?d=brands)
 | Database | [Google Sheets](https://google.com/sheets)
 | Google Sheets querying | [Sheetrock.js](https://chriszarate.github.io/sheetrock)
+| Templating | [KnockoutJS](https://knockoutjs.com)
+| UI Filtering | [Isotope](https://isotope.metafizzy.co)
 | Analytics Tracking | [Google Analytics](https://google.com/analytics)
 | CRON triggers | [Dead Man's Snitch](https://deadmanssnitch.com/r/b2746d2af7)
 | Content Delivery Network | [KeyCDN](https://www.keycdn.com/?a=62386)
-
 
 ## Contributors
 
