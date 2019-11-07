@@ -23,24 +23,22 @@ a:hover {text-decoration:none;}
 
 /* Bootstrap Resets */
 .card {height:300px; border-radius:0; border:0;}
-.card,
-.card a {color:#333;}
 
 .card .card-body {position:relative; font-weight:900;}
 
-.card .card-body a {padding:10px; background:rgba(255, 255, 255, 0.1);}
-.card .card-body a:hover {background:rgba(255, 255, 255, 0.3); color:#000;}
+.card .card-body a {padding:10px; background:rgba(255, 255, 255, 0.50);}
+.card .card-body a:hover {background:rgba(255, 255, 255, 0.80);}
 .card .card-body a i,
 .card .card-body a.fa {font-size: 14px;}
 
-.card .card-body .icon {position:absolute; bottom:20px; right:20px;}
-.card .card-body .icon i {margin:0 20px; opacity:0.7; font-size:75px;}
+.card .card-body .icon {position:absolute; bottom:20px; right:20px; color:rgba(0, 0, 0, 0.20);}
+.card .card-body .icon i {margin:0 20px; opacity:0.70; font-size:75px;}
 .card .card-body .icon i:first-of-type,
 .card .card-body .icon i:last-of-type {margin:0;}
 .card .card-body .icon i.fa.half {font-size:30px;}
 
 .card .card-body .links {position:absolute; bottom:20px; left:20px;}
-.card .card-body .links a {float:left; font-size:30px; margin-right:5px;}
+.card .card-body .links a {float:left; font-size:30px;}
 .card .card-body .links a:last-of-type {margin-right:0;}
 
 .card .card-body .title {margin-left:10px;}
@@ -49,23 +47,34 @@ a:hover {text-decoration:none;}
 	display:inline;
 	padding:5px 0;
 	font-weight:bold;
-	line-height:48px;
-	background:rgba(255, 255, 255, 0.1);
-	box-shadow: 10px 0 0 rgba(255, 255, 255, 0.1), -10px 0 0 rgba(255, 255, 255, 0.1);
+	line-height:49px;
+	background:rgba(255, 255, 255, 0.50);
+	box-shadow: 10px 0 0 rgba(255, 255, 255, 0.50), -10px 0 0 rgba(255, 255, 255, 0.50);
 }
 
 /* white blocks inside the card */
 .card .card-body .location > span,
-.card .card-body .next-event .event-date {display:inline-block; padding:5px 10px; background:rgba(255, 255, 255, 0.1);}
+.card .card-body .next-event .event-date {display:inline-block; padding:5px 10px; background:rgba(255, 255, 255, 0.50);}
 
 /* ------------------------------ */
 
 /* Content Styles */
-footer {background:#c0f; font-size:25px;}
-footer,
-footer a {color:rgba(0, 0, 0, 0.5);}
+header,
+footer {background:#555; padding:20px;}
+
+header .logo {font-size:30px;}
+header .logo a {color:#ddd; font-weight:bold;}
+header .logo a:hover {color:#fff;}
+
+
+header, header a,
+footer, footer a {color:#ccc;}
+header a,
 footer a {display:inline-block; padding:5px 10px; background:rgba(255, 255, 255, 0.2);}
+header a:hover,
 footer a:hover {color:#222; background:rgba(255, 255, 255, 0.3);}
+
+footer {font-size:25px;}
 footer .row {width:100%;}
 
 /* ------------------------------ */
@@ -92,6 +101,14 @@ footer .row {width:100%;}
 @media (min-width:768px) and (max-width:991px)	{ .hidden-sm {display:none!important;} }
 @media (min-width:992px) and (max-width:1199px)	{ .hidden-md {display:none!important;} }
 @media (min-width:1200px)	{ .hidden-lg {display:none!important;} }
+
+/* ------------------------------ */
+
+/* select2 styles */
+.select2-selection {border-radius:0;}
+.select2-dropdown {border-color:rgba(255, 255, 255, 0.70);}
+.select2-dropdown,
+.select2-container--default .select2-selection--single {background-color:rgba(255, 255, 255, 0.70);}
 
 /* ------------------------------ */
 

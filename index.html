@@ -13,6 +13,7 @@
 		<!-- styles -->
 		<link rel="stylesheet" href="./assets/css/bootstrap.min.css">
 		<link rel="stylesheet" href="./assets/css/fontawesome-all.min.css">
+		<link rel="stylesheet" href="./assets/css/select2.min.css">
 		<link rel="stylesheet" href="./assets/css/styles.css">
 
 		<!-- open graph meta -->
@@ -25,33 +26,40 @@
 	</head>
 	<body class="loading content-loading center-to-window loading-inverted">
 
-		<header class="hidden">
-			<div class="d-flex p-3">
-				<a class="logo mr-5" href="/">Louisiana Groups</a>
-
-				<select id="location-selector">
-					<option value="baton-rouge">Baton Rouge</option>
-					<option value="new-orleans">New Orleans</option>
-					<option value="hammond">Hammond</option>
-					<option value="lafayette">Lafayette</option>
-				</select>
-
+		<header>
+			<div class="d-flex align-items-center">
+				<div class="logo d-inline-block">
+					<a class="mr-5" href="/">Louisiana Groups</a>
+				</div>
+				<div id="controls" class="hidden">
+					<div id="filter-location" class="d-inline-block">
+						<label for="location-selector" class="d-block mb-0 text-light">Locations</label>
+						<select id="location-selector" class="d-block">
+							<option value="*">All</option>
+							<option value=".baton-rouge">Baton Rouge</option>
+							<option value=".new-orleans">New Orleans</option>
+							<option value=".hammond">Hammond</option>
+							<option value=".lafayette">Lafayette</option>
+						</select>
+					</div>
+					<div id="card-count" class="d-inline-block ml-3 font-italic"></div>
+				</div>
 			</div>
 		</header>
 
 		<div id="content" class="row m-0">
 			<!-- ko foreach: groupsData -->
-				<div class="card col-12 col-sm-6 col-lg-4 p-0" data-bind="attr: {'data-background': (Hex != '' ? Hex : '#ddd'), 'data-location': Location}">
+				<div class="card col-22 col-sm-6 col-lg-4 p-0" data-bind="attr: {'data-background': (Hex != '' ? Hex : '#ccc'), 'data-location': Location}">
 					<div class="card-body">
-						<div class="title mb-1">
+						<div class="title mb-2">
 							<span>
 								<h2 data-bind="text: GroupName"></h2>
 							</span>
 						</div>
-						<div class="location mb-1" data-bind="visible:Location != ''">
+						<div class="location mb-2" data-bind="visible:Location != ''">
 							<span>
 								<i class="fas fa-map-marker-alt mr-1"></i>
-								<span data-bind="text: Location"></span>
+								<span data-bind="text: Location + ', LA'"></span>
 							</span>
 						</div>
 						<!-- ko if: $data.NextMeetupDateTime -->
@@ -63,10 +71,10 @@
 						</div>
 						<!-- /ko -->
 						<div class="links">
-							<a target="group" rel="nofollow" class="fa fa-link" data-bind="visible:Website != '', attr: {'href': Website}"></a>
-							<a target="group" rel="nofollow" class="fab fa-facebook" data-bind="visible:Facebook != '', attr: {'href': Facebook}"></a>
-							<a target="group" rel="nofollow" class="fab fa-twitter" data-bind="visible:Twitter != '', attr: {'href': Twitter}"></a>
-							<a target="group" rel="nofollow" class="fab fa-meetup" data-bind="visible:Meetup != '', attr: {'href': Meetup}"></a>
+							<a target="group" rel="nofollow" class="fa fa-link mr-2" data-bind="visible:Website != '', attr: {'href': Website}"></a>
+							<a target="group" rel="nofollow" class="fab fa-facebook mr-2" data-bind="visible:Facebook != '', attr: {'href': Facebook}"></a>
+							<a target="group" rel="nofollow" class="fab fa-twitter mr-2" data-bind="visible:Twitter != '', attr: {'href': Twitter}"></a>
+							<a target="group" rel="nofollow" class="fab fa-meetup mr-2" data-bind="visible:Meetup != '', attr: {'href': Meetup}"></a>
 						</div>
 						<div class="icon d-flex align-items-center" data-bind="html: FontIcon"></div>
 					</div>
@@ -75,15 +83,15 @@
 		</div>
 
 		<footer>
-			<div class="d-flex justify-content-between p-3">
+			<div class="d-flex justify-content-between">
 				<div>
-					<span class="hidden-xs-down"><a href="/">Louisiana Groups</a> is </span><i class="fas fa-code"></i> with <i class="fas fa-heart"></i> by
-					<a class="ml-1" target="_blank" href="http://adamculpepper.net"><img class="rounded-circle" src="https://avatars0.githubusercontent.com/u/3942126?s=30"></a>
-					<a class="ml-1" target="_blank" href="https://nick.scheurich.me"><img class="rounded-circle" src="https://avatars0.githubusercontent.com/u/423798?s=30"></a>
-					<a class="ml-1" target="_blank" href="https://github.com/james-alt"><img class="rounded-circle" src="https://avatars0.githubusercontent.com/u/6201892?s=30"></a>
+					<span class="hidden-xs-down"><a href="/" class="mr-1">Louisiana Groups</a> is </span><i class="fas fa-code"></i> with <i class="fas fa-heart"></i> by
+					<a class="ml-2" target="_blank" href="http://adamculpepper.net"><img class="rounded-circle" src="https://avatars0.githubusercontent.com/u/3942126?s=30"></a>
+					<a class="ml-2" target="_blank" href="https://nick.scheurich.me"><img class="rounded-circle" src="https://avatars0.githubusercontent.com/u/423798?s=30"></a>
+					<a class="ml-2" target="_blank" href="https://github.com/james-alt"><img class="rounded-circle" src="https://avatars0.githubusercontent.com/u/6201892?s=30"></a>
 				</div>
 				<div class="hidden-sm-down">
-					edit this page: <a target="_blank" href="https://github.com/LouisianaGroups"><i class="fab fa-github"></i></a>
+					<a target="_blank" href="https://github.com/LouisianaGroups">edit this page <i class="fab fa-github ml-2"></i></a>
 				</div>
 			</div>
 		</footer>
@@ -92,6 +100,7 @@
 		<script src="./assets/js/knockout.min.js"></script>
 		<script src="./assets/js/sheetrock.min.js"></script>
 		<script src="./assets/js/moment.min.js"></script>
+		<script src="./assets/js/select2.min.js"></script>
 		<script src="./assets/js/isotope.min.js"></script>
 		<script src="./assets/js/scripts.js"></script>
 		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-116383596-1"></script>

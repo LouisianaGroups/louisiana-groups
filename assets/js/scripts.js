@@ -129,6 +129,11 @@ $(function() {
 		});
 	}
 
+	var countCards = function() {
+		var cardCount = $('#content .card:visible').length;
+		$('#card-count').text(cardCount + ' groups shown');
+	}
+
 	var displayCards = function() {
 		var cards = $('#content .card');
 		var totalCards = $('#content .card').length;
@@ -141,7 +146,8 @@ $(function() {
 			var location = sel.data('location');
 			location = location.toLowerCase().replace(/, /g, '|').replace(/ /g , '-').replace(/\|/g, ' ');
 			sel.addClass(location);
-			sel.css({'background-color': background});
+			sel.css({'background-color': background, 'color': background});
+			sel.find('a').css({'color': background});
 		}
 
 		cards.removeAttr('data-bind');
@@ -154,11 +160,21 @@ $(function() {
 			itemSelector: '.card',
 		});
 
-		$('#location-selector').on('change', function(e) {
-			var selected = '.' + $(this).val();
-			$('#content').isotope({ filter: selected })
+		$('#content').on( 'arrangeComplete', function() {
+			countCards();
 		});
 
+		$('#location-selector').on('change', function(e) {
+			var selected = $(this).val();
+			$('#content').isotope({ filter: selected });
+
+			//history.pushState({location: selected}, "title 1", '?location=' + selected);
+		});
+
+		$('#location-selector').select2({
+			width: 150,
+			minimumResultsForSearch: 10
+		});
 	}
 
 	new Promise(function(resolve, reject) {
@@ -214,6 +230,8 @@ $(function() {
 	}).then(function(result) {
 		$('#content .card').css({'opacity': 0});
 		$('body').removeClass('loading');
+		$('header #controls').delay(1000).fadeIn();
+		countCards();
 		displayCards();
 		init();
 	});
