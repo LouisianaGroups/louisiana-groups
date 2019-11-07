@@ -17,10 +17,9 @@
 
 * [x] Upgrade to FontAwesome5 + brands
 * [x] Add website and social links to cards
-* [x] Add "next meetup" to group cards
 * [x] Add header
 * [x] Add isotope for toggle and search filtering [Isotope Codepen](https://codepen.io/desandro/pen/wfaGu)
-* [ ] Add in next meetup date and link
+* [ ] Add "next meetup" to group cards
 * [ ] Sort groups by last meetup, making the more active groups float to the top
 
 ## Development
