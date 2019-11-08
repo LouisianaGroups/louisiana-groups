@@ -65,8 +65,8 @@ $(function() {
 			arrayEvents.push(array);
 		}
 
-		console.warn(type + ' array');
-		console.table(array);
+		//console.warn(type + ' array');
+		//console.table(array);
 	}
 
 	var removeDuplicates = function(array, prop) {
@@ -210,32 +210,31 @@ $(function() {
 		arrayGroups = arrayGroups.pop();
 	}).then(function(result) {
 		// sort events array by next event date (for better data massaging)
-		console.warn('sort - before');
-		console.table(arrayEvents);
+		//console.warn('sort - before');
+		//console.table(arrayEvents);
 		sortArray(arrayEvents, 'NextMeetupDateTime');
-		console.warn('sort - after');
-		console.table(arrayEvents);
+		//console.warn('sort - after');
+		//console.table(arrayEvents);
 	}).then(function(result) {
 		// get all group IDs in arrayEvents
 		arrayEventGroupIDs = getEventGroupIDs();
-		console.warn('arrayEventGroupIDs 45435454');
-		console.table(arrayEventGroupIDs);
+		//console.warn('arrayEventGroupIDs 45435454');
+		//console.table(arrayEventGroupIDs);
 	}).then(function(result) {
 		// insert last group event and insert into arrayEventGroupIDs
 		getLastEventDatePerGroup(arrayEvents);
-		console.warn('getLastEventDatePerGroup 987054545');
-		console.table(arrayEventGroupIDs);
+		//console.warn('getLastEventDatePerGroup 987054545');
+		//console.table(arrayEventGroupIDs);
 	}).then(function(result) {
 		// remove past events from events array
 		arrayEvents = removePastDatesFromArrayByProperty(arrayEvents, 'NextMeetupDateTime');
-		console.warn('remove past events');
-		console.table(arrayEvents);
+		//console.warn('remove past events');
+		//console.table(arrayEvents);
 	}).then(function(result) {
 		// remove duplicates and only show upcoming event per group
 		arrayEvents = removeDuplicates(arrayEvents, 'GroupID');
-		console.warn('duplicates removed');
-		console.table(arrayEvents);
-
+		//console.warn('duplicates removed');
+		//console.table(arrayEvents);
 	// }).then(function(result) {
 	// 	// var testArray = Object.assign({}, arrayEventGroupIDs, arrayGroups);
 	// 	var testArray = $.extend(true, {}, arrayGroups, arrayEventGroupIDs);
