@@ -4,6 +4,8 @@
 html {overflow-y:scroll;}
 html, body {height:100%;}
 body {
+	display:flex;
+	flex-direction:column;
 	font-family: 'Roboto', sans-serif;
 	color:#222;
 	/* grid background, modified version of http://lea.verou.me/css3patterns/#checkerboard */
@@ -13,6 +15,7 @@ body {
 	background-size:20px 20px;
 	background-position:0 0, 10px 10px;
 }
+
 body.loading #content,
 body.loading footer {display:none;}
 a {transition:all 0.50s;}
@@ -59,23 +62,21 @@ a:hover {text-decoration:none;}
 /* ------------------------------ */
 
 /* Content Styles */
-header,
-footer {background:#555; padding:20px;}
+header, footer {background:#555; padding:20px;}
+
+header, header a,
+footer, footer a {color:#ccc;}
+header a, footer a {display:inline-block; padding:5px 10px; background:rgba(255, 255, 255, 0.2);}
+header a:hover, footer a:hover {color:#222; background:rgba(255, 255, 255, 0.3);}
 
 header .logo {font-size:30px;}
 header .logo a {color:#ddd; font-weight:bold;}
 header .logo a:hover {color:#fff;}
 
-
-header, header a,
-footer, footer a {color:#ccc;}
-header a,
-footer a {display:inline-block; padding:5px 10px; background:rgba(255, 255, 255, 0.2);}
-header a:hover,
-footer a:hover {color:#222; background:rgba(255, 255, 255, 0.3);}
-
-footer {font-size:25px;}
+footer {font-size:25px; flex-shrink:0;}
 footer .row {width:100%;}
+
+#content {flex:1 0 auto;}
 
 /* ------------------------------ */
 

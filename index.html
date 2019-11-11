@@ -61,7 +61,8 @@
 						<div class="location mb-2" data-bind="visible:Location != ''">
 							<span>
 								<i class="fas fa-map-marker-alt mr-1"></i>
-								<span data-bind="text: Location + ', LA'"></span>
+								<span class="city" data-bind="text: Location"></span>
+								<span class="state">, LA</span>
 							</span>
 						</div>
 						<!-- ko if: $data.NextMeetupDateTime -->
