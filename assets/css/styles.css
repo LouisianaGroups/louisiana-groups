@@ -76,6 +76,8 @@ header .logo a:hover {color:#fff;}
 footer {font-size:25px; flex-shrink:0;}
 footer .row {width:100%;}
 
+header #controls {opacity:0;}
+
 #content {flex:1 0 auto;}
 
 /* ------------------------------ */
@@ -102,6 +104,28 @@ footer .row {width:100%;}
 @media (min-width:768px) and (max-width:991px)	{ .hidden-sm {display:none!important;} }
 @media (min-width:992px) and (max-width:1199px)	{ .hidden-md {display:none!important;} }
 @media (min-width:1200px)	{ .hidden-lg {display:none!important;} }
+
+/* ------------------------------ */
+
+/* Bootstrap 4 fix for not having .w-{size}-100 */
+@media (min-width: 576px)	{ .w-sm-100 {width:100%;} }
+@media (min-width: 768px)	{ .w-md-100 {width:100%;} }
+@media (min-width: 992px)	{ .w-lg-100 {width:100%;} }
+@media (min-width: 1200px)	{ .w-xl-100 {width:100%;} }
+
+/* ------------------------------ */
+
+/* Bootstrap 4 fix for not having .w-100-{size}-[up/down] */
+.w-100-xs-up {width:100%;}
+@media (max-width:575px)	{ .w-100-xs-down	{width:100%;} }
+@media (min-width:576px)	{ .w-100-sm-up		{width:100%;} }
+@media (max-width:767px)	{ .w-100-sm-down	{width:100%;} }
+@media (min-width:768px)	{ .w-100-md-up		{width:100%;} }
+@media (max-width:991px)	{ .w-100-md-down	{width:100%;} }
+@media (min-width:992px)	{ .w-100-lg-up		{width:100%;} }
+@media (max-width:1199px)	{ .w-100-lg-down	{width:100%;} }
+@media (min-width:1200px)	{ .w-100-xl-up		{width:100%;} }
+.w-100-xl-down {width:100%;}
 
 /* ------------------------------ */
 

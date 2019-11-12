@@ -245,7 +245,7 @@ $(function() {
 		var tempArray = [];
 
 		$('#content .card').css({'opacity': 0});
-		$('header #controls').delay(1000).fadeIn();
+		$('header #controls').delay(1000).animate({'opacity': 1});
 
 		for (var i = 0; i < totalCards; i++) {
 			$('#content .card').delay(50).eq(i).animate({'opacity': 1});
@@ -301,7 +301,7 @@ $(function() {
 		});
 
 		$('#location-selector').select2({
-			width: 150,
+			width: 120,
 			minimumResultsForSearch: 10
 		});
 	}
