@@ -245,7 +245,8 @@ $(function() {
 		var tempArray = [];
 
 		$('#content .card').css({'opacity': 0});
-		$('header #controls').delay(1000).animate({'opacity': 1});
+
+		$('header #controls').delay(1000).hide().removeClass('hidden').fadeIn();
 
 		for (var i = 0; i < totalCards; i++) {
 			$('#content .card').delay(50).eq(i).animate({'opacity': 1});
@@ -274,6 +275,7 @@ $(function() {
 		cards.removeAttr('data-location');
 
 		$('body').removeClass('loading');
+		$('#content').removeClass('loading-spinner');
 		countCards();
 	}
 

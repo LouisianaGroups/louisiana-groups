@@ -16,7 +16,7 @@ body {
 	background-position:0 0, 10px 10px;
 }
 
-body.loading #content,
+body.loading #content .card,
 body.loading footer {display:none;}
 a {transition:all 0.50s;}
 a:hover {text-decoration:none;}
@@ -76,8 +76,6 @@ header .logo a:hover {color:#fff;}
 footer {font-size:25px; flex-shrink:0;}
 footer .row {width:100%;}
 
-header #controls {opacity:0;}
-
 #content {flex:1 0 auto;}
 
 /* ------------------------------ */
@@ -107,28 +105,6 @@ header #controls {opacity:0;}
 
 /* ------------------------------ */
 
-/* Bootstrap 4 fix for not having .w-{size}-100 */
-@media (min-width: 576px)	{ .w-sm-100 {width:100%;} }
-@media (min-width: 768px)	{ .w-md-100 {width:100%;} }
-@media (min-width: 992px)	{ .w-lg-100 {width:100%;} }
-@media (min-width: 1200px)	{ .w-xl-100 {width:100%;} }
-
-/* ------------------------------ */
-
-/* Bootstrap 4 fix for not having .w-100-{size}-[up/down] */
-.w-100-xs-up {width:100%;}
-@media (max-width:575px)	{ .w-100-xs-down	{width:100%;} }
-@media (min-width:576px)	{ .w-100-sm-up		{width:100%;} }
-@media (max-width:767px)	{ .w-100-sm-down	{width:100%;} }
-@media (min-width:768px)	{ .w-100-md-up		{width:100%;} }
-@media (max-width:991px)	{ .w-100-md-down	{width:100%;} }
-@media (min-width:992px)	{ .w-100-lg-up		{width:100%;} }
-@media (max-width:1199px)	{ .w-100-lg-down	{width:100%;} }
-@media (min-width:1200px)	{ .w-100-xl-up		{width:100%;} }
-.w-100-xl-down {width:100%;}
-
-/* ------------------------------ */
-
 /* select2 styles */
 .select2-selection {border-radius:0;}
 .select2-dropdown {border-color:rgba(255, 255, 255, 0.70);}
@@ -138,7 +114,7 @@ header #controls {opacity:0;}
 /* ------------------------------ */
 
 /* Animated Content Loader */
-.loading {
+.loading-spinner {
 	pointer-events:none;
 	position:relative;
 	cursor:default;
@@ -147,14 +123,14 @@ header #controls {opacity:0;}
 			user-select:none;
 }
 
-.loading:after,
-.loading:before {
+.loading-spinner:after,
+.loading-spinner:before {
 	position:absolute;
 	display:block;
 	content:'';
 }
 
-.loading:before {
+.loading-spinner:before {
 	z-index:1000;
 	top:0;
 	right:0;
@@ -163,10 +139,11 @@ header #controls {opacity:0;}
 	background:rgba(255,255,255,.8);
 }
 
-.loading:after {
+.loading-spinner:after {
 	z-index:1001;
-	top:150px;
+	top:50%;
 	left:50%;
+	transform:translate(-50%, -50%);
 	width:100px;
 	height:100px;
 	margin:-50px 0 0 -50px;
@@ -180,18 +157,11 @@ header #controls {opacity:0;}
 	border-radius:999px;
 }
 
-.loading.center-to-window:after {
-	position:fixed;
-	top:50%;
-	left:50%;
-	transform:translate(-50%, -50%);
-}
-
-.loading-inverted:before {
+.loading-spinner-inverted:before {
 	background:rgba(0,0,0,.45);
 }
 
-.loading-inverted:after {
+.loading-spinner-inverted:after {
 	border-color:#ccc rgba(255,255,255,.2) rgba(255,255,255,.2);
 }
 
