@@ -33,6 +33,10 @@ if (!window.Promise){
     alert('old browser, upgrade');
 }
 
+if (!navigator.onLine) {
+	alert('offline');
+}
+
 $(function() {
 	ko.applyBindings(new vm()); // init knockout
 
@@ -52,7 +56,7 @@ $(function() {
 	var getEvents = function() {
 		sheetrock({
 			url: sheetEvents,
-			query: "select B,C,D,E order by D desc",
+			query: "select B,C,D,E order by D asc",
 			callback: callbackEvents
 		});
 	}
@@ -63,6 +67,49 @@ $(function() {
 
 	var callbackEvents = function(error, options, response) {
 		cleanJsonData(response, 'events');
+	}
+
+	var mergeArrays = function(array1, array2, prop) {
+		return array1.map(x => ({...x, ...array2.find(y => x[prop] === y[prop])}) );
+	}
+
+	var sortArray = function(array, prop) {
+		array.sort(function (a, b) {
+			return a[prop] > b[prop] ? 1 : -1 // asc
+		});
+	};
+
+	var sortArrayByDate = function(array, prop, direction = 'desc') {
+		array.sort(function (a, b) {
+			if (direction == 'desc') {
+				return moment(b[prop]).diff(a[prop]);
+			} else {
+				return moment(a[prop]).diff(b[prop]);
+			}
+		});
+	};
+
+	var sortArrayByLastEventDate = function() {
+		var groupsWithPastEvents = [];
+		var groupsWithPastEventsIndexes = []
+
+		arrayMerged.forEach(function(item, index) {
+			if (item.LastEventDate) {
+				groupsWithPastEvents.push(item);
+				groupsWithPastEventsIndexes.push({GroupID: item.GroupID, GroupName: item.GroupName}); // remove GroupName as it's not needed
+			}
+		});
+
+		groupsWithPastEventsIndexes.forEach(function(item, index) {
+			var id = item.GroupID;
+			var index = arrayMerged.map(function(e) { return e.GroupID; }).indexOf(id);
+
+			arrayMerged.splice(index, 1);
+		});
+
+		sortArrayByDate(groupsWithPastEvents, 'LastEventDate');
+		
+		arrayMerged.unshift(...groupsWithPastEvents); // merge in the now sorted groups that have a LastEventDate back into the master list
 	}
 
 	var cleanJsonData = function(data, type) {
@@ -121,28 +168,7 @@ $(function() {
 			newArray.push(lookupObject[i]);
 		}
 
-		var a = array;
-
-		if (prop == 'GroupID') {
-			//stateGetEventGroupIDs(true);
-			//debugger;
-		// } else if (array == arrayEventGroupIDs) {
-		// 	stateRemovePastDatesFromArrayByProperty(true);
-		} else {
-			//debugger;
-		}
-
 		return newArray;
-	}
-
-	var sortArray = function(array, prop) {
-		array.sort(function(a, b) {
-			return new Date(b[prop]) - new Date(a[prop]);
-		});
-	};
-
-	var mergeArrays = function(array1, array2, prop) {
-		return array1.map(x => ({...x, ...array2.find(y => x[prop] === y[prop])}) );
 	}
 
 	var removePastDatesFromArrayByProperty = function(array, prop) {
@@ -290,8 +316,6 @@ $(function() {
 
 		// get all group IDs in arrayEvents
 		getEventGroupIDs();
-
-		//arrayEventGroupIDs = removeDuplicates(arrayEventGroupIDs, 'GroupID');
 	});
 
 	stateGetEventGroupIDs.subscribe(function(v) {
@@ -316,10 +340,13 @@ $(function() {
 
 	stateRemovePastDatesFromArrayByProperty.subscribe(function(v) {
 		arrayMerged = mergeArrays(arrayGroups, arrayEventGroupIDs, 'GroupID');
+
 		groupsData(arrayMerged);
 	});
 
 	stateGroupsData.subscribe(function(v) {
+		sortArrayByLastEventDate();
+
 		console.warn('merged array');
 		console.table(arrayMerged);
 
