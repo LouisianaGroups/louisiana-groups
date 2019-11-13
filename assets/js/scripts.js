@@ -89,27 +89,41 @@ $(function() {
 		});
 	};
 
-	var sortArrayByLastEventDate = function() {
-		var groupsWithPastEvents = [];
-		var groupsWithPastEventsIndexes = []
+	var sortArrayByGroupActivity = function() {
+		function sorty (prop) {
+			var tempArray = [];
+			var tempArrayIndexes = [];
 
-		arrayMerged.forEach(function(item, index) {
-			if (item.LastEventDate) {
-				groupsWithPastEvents.push(item);
-				groupsWithPastEventsIndexes.push({GroupID: item.GroupID, GroupName: item.GroupName}); // remove GroupName as it's not needed
-			}
-		});
+			arrayMerged.forEach(function(item, index) {
+				if (item[prop]) {
+					tempArray.push(item);
+					tempArrayIndexes.push({GroupID: item.GroupID, GroupName: item.GroupName}); // remove GroupName as it's not needed
+				}
+			});
 
-		groupsWithPastEventsIndexes.forEach(function(item, index) {
-			var id = item.GroupID;
-			var index = arrayMerged.map(function(e) { return e.GroupID; }).indexOf(id);
+			tempArrayIndexes.forEach(function(item, index) {
+				var id = item.GroupID;
+				var index = arrayMerged.map(function(e) { return e.GroupID; }).indexOf(id);
 
-			arrayMerged.splice(index, 1);
-		});
+				arrayMerged.splice(index, 1);
+			});
 
-		sortArrayByDate(groupsWithPastEvents, 'LastEventDate');
-		
-		arrayMerged.unshift(...groupsWithPastEvents); // merge in the now sorted groups that have a LastEventDate back into the master list
+			tempArray.sort(function (a, b) {
+				if (prop == 'LastEventDate') {
+					return moment(b.LastEventDate).diff(a.LastEventDate); // sort by LastEventDate
+				} else if (prop == 'NextEventDate') {
+					return moment(a.NextEventDate).diff(b.NextEventDate); // sort by NextEventDate
+				}
+			});
+
+			console.warn(prop + ' | tempArray 455');
+			console.table(tempArray);
+			
+			arrayMerged.unshift(...tempArray); // merge back into the master list
+		}
+
+		sorty('LastEventDate');
+		sorty('NextEventDate');
 	}
 
 	var cleanJsonData = function(data, type) {
@@ -139,22 +153,6 @@ $(function() {
 		//console.warn(type + ' array');
 		//console.table(array);
 	}
-
-	// var getUrlParam = function(name) {
-	// 	var match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.href);
-	// 	return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
-	// }
-
-	// var checkUrlParams = function() {
-	// 	var location = getUrlParam('location');
-		
-	// 	if (location) {
-	// 		$('#location-selector').val(location).trigger('change');
-	// 		return true;
-	// 	} else {
-	// 		return false;
-	// 	}
-	// }
 
 	var removeDuplicates = function(array, prop) {
 		var newArray = [];
@@ -217,13 +215,13 @@ $(function() {
 			var nextOldDateDaysAgo = today.diff(nextOldDateMoment, 'days');
 
 			// Last Event condition to add
-			if (lastNewDateDaysAgo >= 0) {
+			if (lastNewDateDaysAgo > 0) {
 				if (lastOldDate == '' || lastNewDateDaysAgo < lastOldDateDaysAgo) {
 					arrayEventGroupIDs[index].LastEventDate = date;
 				}
 			}
 
-			// Last Event condition to add
+			// Next Event condition to add
 			if (nextNewDateDaysAgo <= 0) {
 				if (nextOldDate == '' || nextNewDateDaysAgo < nextOldDateDaysAgo) {
 					arrayEventGroupIDs[index].NextEventDate = date;
@@ -347,7 +345,7 @@ $(function() {
 	});
 
 	stateGroupsData.subscribe(function(v) {
-		sortArrayByLastEventDate();
+		sortArrayByGroupActivity();
 
 		console.warn('merged array');
 		console.table(arrayMerged);

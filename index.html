@@ -60,11 +60,11 @@
 									<span class="state">, LA</span>
 								</span>
 							</div>
-							<!-- ko if: $data.NextMeetupDateTime -->
+							<!-- ko if: $data.NextEventDate -->
 							<div class="next-event">
-								<span class="event-date" data-bind="text: 'Next meetup: ' + moment(NextMeetupDateTime, 'MM/DD/YYYY @ HH:mm:SS').format('MM/DD @ hh:mma') "></span>
-								<!-- ko if: EventLink -->
-								<a target="group" rel="nofollow" class="fa fa-link" data-bind="attr: {'href': EventLink}"></a>
+								<span class="event-date" data-bind="text: 'Next meetup: ' + moment($data.NextEventDate, 'MM/DD/YYYY @ HH:mm:SS').format('MM/DD @ hh:mma') "></span>
+								<!-- ko if: $data.EventLink -->
+								<a target="group" rel="nofollow" class="fa fa-link" data-bind="attr: {'href': $data.EventLink}"></a>
 								<!-- /ko -->
 							</div>
 							<!-- /ko -->
