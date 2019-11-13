@@ -6,7 +6,7 @@ html, body {height:100%;}
 body {
 	display:flex;
 	flex-direction:column;
-	font-family: 'Roboto', sans-serif;
+	font-family:'Roboto', sans-serif;
 	color:#222;
 	/* grid background, modified version of http://lea.verou.me/css3patterns/#checkerboard */
 	background-color:#f9f9f9;
@@ -18,7 +18,7 @@ body {
 
 body.loading #content .card,
 body.loading footer {display:none;}
-a {transition:all 0.50s;}
+a, button {transition:all 0.50s;}
 a:hover {text-decoration:none;}
 .hidden {display:none;}
 
@@ -31,8 +31,6 @@ a:hover {text-decoration:none;}
 
 .card .card-body a {padding:10px; background:rgba(255, 255, 255, 0.50);}
 .card .card-body a:hover {background:rgba(255, 255, 255, 0.80);}
-.card .card-body a i,
-.card .card-body a.fa {font-size: 14px;}
 
 .card .card-body .icon {position:absolute; bottom:20px; right:20px; color:rgba(0, 0, 0, 0.20);}
 .card .card-body .icon i {margin:0 20px; opacity:0.70; font-size:75px;}
@@ -52,12 +50,14 @@ a:hover {text-decoration:none;}
 	font-weight:bold;
 	line-height:49px;
 	background:rgba(255, 255, 255, 0.50);
-	box-shadow: 10px 0 0 rgba(255, 255, 255, 0.50), -10px 0 0 rgba(255, 255, 255, 0.50);
+	box-shadow:10px 0 0 rgba(255, 255, 255, 0.50), -10px 0 0 rgba(255, 255, 255, 0.50);
 }
 
 /* white blocks inside the card */
 .card .card-body .location > span,
 .card .card-body .next-event .event-date {display:inline-block; padding:5px 10px; background:rgba(255, 255, 255, 0.50);}
+
+.card .card-body .next-event a.fa {font-size:15px;}
 
 /* ------------------------------ */
 
@@ -70,9 +70,15 @@ header a, footer a {display:inline-block; padding:5px 10px; background:rgba(255,
 header a:hover, footer a:hover {color:#222; background:rgba(255, 255, 255, 0.3);}
 
 header .logo {font-size:30px;}
-header .logo a {color:#ddd; font-weight:bold;}
+header .logo a {color:#ddd; font-weight:bold; letter-spacing:1px;}
 header .logo a:hover {color:#fff;}
 
+header #submit-new .dropdown {}
+header #submit-new .dropdown button {font-weight:bold; color:#ddd; font-size:20px; padding:5px 10px; background:rgba(255, 255, 255, 0.2); border:0; letter-spacing:1px; text-transform:uppercase;}
+header #submit-new .dropdown button:hover {color:#fff; background:rgba(255, 255, 255, 0.3); cursor:pointer;}
+header #submit-new .dropdown button:after {display:none;}
+header #submit-new .dropdown .dropdown-menu {padding:0;}
+ 
 footer {font-size:25px; flex-shrink:0;}
 footer .row {width:100%;}
 
@@ -107,9 +113,34 @@ footer .row {width:100%;}
 
 /* select2 styles */
 .select2-selection {border-radius:0;}
-.select2-dropdown {border-color:rgba(255, 255, 255, 0.70);}
+.select2-results__option--highlighted {background-color:rgba(0, 0, 0, 0.20)!important; color:#eee!important;}
+/*
+.select2-container--default .select2-results__option--highlighted[aria-selected]
+*/
+
 .select2-dropdown,
-.select2-container--default .select2-selection--single {background-color:rgba(255, 255, 255, 0.70);}
+.select2-container--default .select2-selection--single,
+.dropdown .dropdown-menu {background-color:rgba(255, 255, 255, 0.60);}
+
+.select2-dropdown,
+.dropdown .dropdown-menu {backdrop-filter:blur(4px); border-radius:0; border:0;}
+
+.select2-dropdown .select2-results__option,
+.dropdown .dropdown-item {line-height:30px; color:#555; padding:5px 10px;}
+
+.select2-dropdown .select2-results__option:hover,
+.dropdown .dropdown-item:hover {background-color:rgba(0, 0, 0, 0.07); color:#000;}
+
+
+
+
+/* ------------------------------ */
+
+/* Scrollbar Styles */
+::-webkit-scrollbar			{background-color:#ddd; width:10px;}
+::-webkit-scrollbar-track	{background-color:#ddd;}
+::-webkit-scrollbar-thumb	{background-color:#aaa;}
+::-webkit-scrollbar-button	{display:none;}
 
 /* ------------------------------ */
 

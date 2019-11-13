@@ -24,7 +24,7 @@
 		<meta property="og:image" content="https://louisianagroups.com/assets/img/preview.png">
 		<meta name="twitter:image" content="https://louisianagroups.com/assets/img/preview.png">
 	</head>
-	<body class="loading">
+	<body class="loading slimscroll">
 
 		<header>
 			<div class="d-md-flex align-items-center">
@@ -39,6 +39,15 @@
 						</select>
 					</div>
 					<div id="card-count" class="d-inline-block ml-2 ml-md-3 mt-2 mt-sm-0 font-italic"></div>
+				</div>
+				<div id="submit-new" class="ml-auto">
+					<div class="dropdown">
+						<button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-plus mr-1"></i> Submit</button>
+						<div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+							<a class="dropdown-item" target="_blank" href="http://new-group.louisianagroups.com">New Group</a>
+							<a class="dropdown-item" target="_blank" href="http://new-event.louisianagroups.com">New Group Meetup</a>
+						</div>
+					</div>
 				</div>
 			</div>
 		</header>
@@ -63,8 +72,8 @@
 							<!-- ko if: $data.NextEventDate -->
 							<div class="next-event">
 								<span class="event-date" data-bind="text: 'Next meetup: ' + moment($data.NextEventDate, 'MM/DD/YYYY @ HH:mm:SS').format('MM/DD @ hh:mma') "></span>
-								<!-- ko if: $data.EventLink -->
-								<a target="group" rel="nofollow" class="fa fa-link" data-bind="attr: {'href': $data.EventLink}"></a>
+								<!-- ko if: $data.NextEventLink -->
+								<a target="group" rel="nofollow" class="fa fa-link ml-1" data-bind="attr: {'href': $data.NextEventLink}"></a>
 								<!-- /ko -->
 							</div>
 							<!-- /ko -->
@@ -106,6 +115,7 @@
 		</footer>
 
 		<script src="./assets/js/jquery.min.js"></script>
+		<script src="./assets/js/bootstrap.min.js"></script>
 		<script src="./assets/js/knockout.min.js"></script>
 		<script src="./assets/js/sheetrock.min.js"></script>
 		<script src="./assets/js/moment.min.js"></script>

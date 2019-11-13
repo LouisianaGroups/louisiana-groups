@@ -20,7 +20,8 @@ var stateGroupsData = ko.computed(function() {
 		return true;
 	}
 });
-var sheetGroups = 'https://docs.google.com/spreadsheets/d/12zkNdCEEyFeUlIj7Lw_v5-krx3YRws1olJ12N0e8XSU/edit#gid=1511071343';
+//var sheetGroups = 'https://docs.google.com/spreadsheets/d/12zkNdCEEyFeUlIj7Lw_v5-krx3YRws1olJ12N0e8XSU/edit#gid=1511071343';
+var sheetGroups = 'https://docs.google.com/spreadsheets/d/12zkNdCEEyFeUlIj7Lw_v5-krx3YRws1olJ12N0e8XSU/edit#gid=442565203';
 var sheetEvents = 'https://docs.google.com/spreadsheets/d/12zkNdCEEyFeUlIj7Lw_v5-krx3YRws1olJ12N0e8XSU/edit#gid=0';
 var today = moment();
 var arrayGroups = [];
@@ -48,7 +49,7 @@ $(function() {
 	var getGroups = function() {
 		sheetrock({
 			url: sheetGroups,
-			query: "select A,B,C,D,E,F,G,H,I,J where K = true",
+			query: "select C,D,E,F,G,H,I,J,K,L where M = true",
 			callback: callbackGroups
 		});
 	}
@@ -186,7 +187,7 @@ $(function() {
 		for (var i = 0; i < arrayEvents.length; i++) {
 			var groupID = arrayEvents[i].GroupID;
 			var groupName = arrayEvents[i].GroupName;
-			arrayEventGroupIDs.push({GroupID: groupID, GroupName: groupName, LastEventDate: ''}); // remove GroupName later - not needed for the merge
+			arrayEventGroupIDs.push({GroupID: groupID, GroupName: groupName, NextEventLink:'', LastEventDate: ''}); // remove GroupName later - not needed for the merge
 		}
 
 		stateGetEventGroupIDs(true);
@@ -225,6 +226,7 @@ $(function() {
 			if (nextNewDateDaysAgo <= 0) {
 				if (nextOldDate == '' || nextNewDateDaysAgo < nextOldDateDaysAgo) {
 					arrayEventGroupIDs[index].NextEventDate = date;
+					arrayEventGroupIDs[index].NextEventLink = item.EventLink;
 				}
 			}
 		});
@@ -301,15 +303,23 @@ $(function() {
 		});
 
 		$('#location-selector').select2({
-			width: 120,
-			minimumResultsForSearch: 10
+			width: 140,
+			minimumResultsForSearch: 10,
+			//dropdownParent: $('#filter-location')
 		});
+
+		// $('#location-selector').on('select2:open', function() {
+		// 	$('.select2-results__options').addClass('slimscroll');
+		// });
 	}
 
 	stateDataLoaded.subscribe(function(v) {
 		// sort events array by next event date (for better data massaging)
 		arrayEvents = arrayEvents.pop();
 		arrayGroups = arrayGroups.pop();
+
+		console.warn('arrayGroups');
+		console.table(arrayGroups);
 
 		console.warn('arrayEvents');
 		console.table(arrayEvents);
