@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto:400,900&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700,900&display=swap');
 
 /* Globals */
 html {overflow-y:scroll;}
@@ -20,7 +20,23 @@ body.loading #content .card,
 body.loading footer {display:none;}
 a, button {transition:all 0.50s;}
 a:hover {text-decoration:none;}
+label {font-weight:700;}
+label,
+input[type='text'],
+input[type='email'] {width:100%;}
 .hidden {display:none;}
+.disabled {cursor:not-allowed!important;}
+.btn[disabled],
+.btn.disabled {cursor:not-allowed!important; opacity:.40;}
+
+body.modal-open header,
+body.modal-open #content,
+body.modal-open footer {filter:blur(4px);}
+
+.modal label {color:#555;}
+.modal label span {font-size:80%;}
+
+.modal .modal-title {font-weight:900;}
 
 /* ------------------------------ */
 
@@ -28,7 +44,6 @@ a:hover {text-decoration:none;}
 .card {height:300px; border-radius:0; border:0;}
 
 .card .card-body {position:relative; font-weight:900;}
-
 .card .card-body a {padding:10px; background:rgba(255, 255, 255, 0.50);}
 .card .card-body a:hover {background:rgba(255, 255, 255, 0.80);}
 
@@ -130,9 +145,6 @@ footer .row {width:100%;}
 
 .select2-dropdown .select2-results__option:hover,
 .dropdown .dropdown-item:hover {background-color:rgba(0, 0, 0, 0.07); color:#000;}
-
-
-
 
 /* ------------------------------ */
 
