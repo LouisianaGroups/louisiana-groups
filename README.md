@@ -5,21 +5,22 @@
 ## Table of Contents
 
 * [Louisiana Groups](#louisiana-groups)
-  * [Roadmap](#roadmap)
-  * [Development](#development)
-  * [Tech Used](#tech-used)
-  * [Contributors](#contributors)
-  * [Notes](#notes)
-  * [Contributing](#contributing)
-  * [License](#license)
+	* [Roadmap](#roadmap)
+	* [Development](#development)
+	* [Tech Used](#tech-used)
+	* [Contributors](#contributors)
+	* [Notes](#notes)
+	* [Contributing](#contributing)
+	* [License](#license)
 
 ## Roadmap
 
 * [x] Upgrade to FontAwesome5 + brands
 * [x] Add website and social links to cards
 * [x] Add isotope for toggle and search filtering [Isotope Codepen](https://codepen.io/desandro/pen/wfaGu)
-* [ ] Add "next meetup" to group cards
-* [ ] Sort groups by last meetup, making the more active groups float to the top
+* [x] Add "next meetup" to group cards
+* [x] Sort groups by last meetup, making the more active groups float to the top
+* [x] Add submit forms for adding new groups and group events
 
 ## Development
 
