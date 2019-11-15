@@ -39,11 +39,14 @@ Happy hacking!
 | Needed | Used |
 | ------ | ------ |
 | CSS Grid System, etc. | [Bootstrap 4](http://getbootstrap.com)
+| JavaScript DOM manipulation | [jQuery](http://jquery.com)
 | Font Icons | [Font Awesome 5](https://fontawesome.com) + [brands](https://fontawesome.com/icons?d=brands)
 | Database | [Google Sheets](https://google.com/sheets)
 | Google Sheets querying | [Sheetrock.js](https://chriszarate.github.io/sheetrock)
 | Templating | [KnockoutJS](https://knockoutjs.com)
 | UI Filtering | [Isotope](https://isotope.metafizzy.co)
+| Select element styling | [Select2](https://select2.org)
+| Date calculations | [Moment.js](https://momentjs.com)
 | Analytics Tracking | [Google Analytics](https://google.com/analytics)
 | CRON triggers | [Dead Man's Snitch](https://deadmanssnitch.com/r/b2746d2af7)
 | Content Delivery Network | [KeyCDN](https://www.keycdn.com/?a=62386)
