@@ -322,7 +322,7 @@ $(function() {
 		});
 
 		$('#new-event-name').select2({
-			width: 140,
+			width: '100%',
 			minimumResultsForSearch: 5,
 			placeholder: '- SELECT -',
 		});
