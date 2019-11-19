@@ -47,6 +47,8 @@ Happy hacking!
 | UI Filtering | [Isotope](https://isotope.metafizzy.co)
 | Select element styling | [Select2](https://select2.org)
 | Date calculations | [Moment.js](https://momentjs.com)
+| Form Validation | [Parsley](https://parsleyjs.org)
+| Datetime Picker | [Bootstrap Datepicker](https://uxsolutions.github.io/bootstrap-datepicker)
 | Analytics Tracking | [Google Analytics](https://google.com/analytics)
 | CRON triggers | [Dead Man's Snitch](https://deadmanssnitch.com/r/b2746d2af7)
 | Content Delivery Network | [KeyCDN](https://www.keycdn.com/?a=62386)
