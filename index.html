@@ -14,6 +14,7 @@
 		<link rel="stylesheet" href="https://cdn.louisianagroups.com/assets/css/bootstrap.min.css">
 		<link rel="stylesheet" href="https://cdn.louisianagroups.com/assets/css/fontawesome-all.min.css">
 		<link rel="stylesheet" href="https://cdn.louisianagroups.com/assets/css/select2.min.css">
+		<link rel="stylesheet" href="https://cdn.louisianagroups.com/assets/css/bootstrap-datetimepicker.css">
 		<link rel="stylesheet" href="https://cdn.louisianagroups.com/assets/css/styles.css">
 
 		<!-- open graph meta -->
@@ -180,6 +181,8 @@
 				<div class="modal-content">
 					<form id="form-new-event" data-type="event" autocomplete="off">
 						<input type="hidden" name="GroupName" id="new-event-groupname">
+						<input type="hidden" name="NextMeetupDateTime" id="new-event-datetime">
+						<input type="hidden" name="Active" value="yes">
 
 						<div class="modal-header">
 							<h5 class="modal-title">Submit New Group Event</h5>
@@ -201,8 +204,20 @@
 										</select>
 									</div>
 									<div class="form-group">
-										<label class="mb-0" for="new-event-datetime">Event Datetime</label>
-										<input required class="form-control" type="text" name="NextMeetupDateTime" id="new-event-datetime">
+										<div class="row">
+											<div class="col-sm-6">
+												<label class="mb-0" for="new-event-datetime">Event Date</label>
+												<div class="icon-wrapper icon-datepicker">
+													<input required class="form-control datepicker" type="text" id="new-event-datepicker">
+												</div>
+											</div>
+											<div class="col-sm-6">
+												<label class="mb-0" for="new-event-datetime">Event Time</label>
+												<div class="icon-wrapper icon-timepicker">
+													<input required class="form-control timepicker" type="text" id="new-event-timepicker">
+												</div>
+											</div>
+										</div>
 									</div>
 									<div class="form-group mb-0">
 										<label class="mb-0" for="new-event-link">Event Link</label>
@@ -226,6 +241,7 @@
 		<script src="https://cdn.louisianagroups.com/assets/js/sheetrock.min.js"></script>
 		<script src="https://cdn.louisianagroups.com/assets/js/moment.min.js"></script>
 		<script src="https://cdn.louisianagroups.com/assets/js/select2.min.js"></script>
+		<script src="https://cdn.louisianagroups.com/assets/js/bootstrap-datetimepicker.js"></script>
 		<script src="https://cdn.louisianagroups.com/assets/js/isotope.min.js"></script>
 		<script src="https://cdn.louisianagroups.com/assets/js/scripts.js"></script>
 		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-116383596-1"></script>

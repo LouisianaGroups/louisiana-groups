@@ -26,6 +26,12 @@ input[type='text'],
 input[type='email'] {width:100%;}
 .hidden {display:none;}
 .disabled {cursor:not-allowed!important;}
+.btn,
+.form-control {border-radius:0;}
+.red {background:lightsalmon!important;}
+.blue {background:lightblue!important;}
+.green {background:lightgreen!important;}
+
 .btn[disabled],
 .btn.disabled {cursor:not-allowed!important; opacity:.40;}
 
@@ -35,7 +41,6 @@ body.modal-open footer {filter:blur(4px);}
 
 .modal label {color:#555;}
 .modal label span {font-size:80%;}
-
 .modal .modal-title {font-weight:900;}
 
 /* ------------------------------ */
@@ -126,12 +131,9 @@ footer .row {width:100%;}
 
 /* ------------------------------ */
 
-/* select2 styles */
+/* Select2 styles */
 .select2-selection {border-radius:0;}
 .select2-results__option--highlighted {background-color:rgba(0, 0, 0, 0.20)!important; color:#eee!important;}
-/*
-.select2-container--default .select2-results__option--highlighted[aria-selected]
-*/
 
 .select2-dropdown,
 .select2-container--default .select2-selection--single,
@@ -145,6 +147,46 @@ footer .row {width:100%;}
 
 .select2-dropdown .select2-results__option:hover,
 .dropdown .dropdown-item:hover {background-color:rgba(0, 0, 0, 0.07); color:#000;}
+
+
+/* Datetime Picker styles */
+/*.bootstrap-datetimepicker-widget {background:rgba(0, 0, 0, 0.02); padding:10px;}*/
+/*.bootstrap-datetimepicker-widget a[data-action] {padding:0;}*/
+/*.bootstrap-datetimepicker-widget .datepicker table thead tr:nth-of-type(1) {background:#ddd;}*/
+.bootstrap-datetimepicker-widget table td span {margin:0;}
+
+
+
+/*.bootstrap-datetimepicker-widget .datepicker table .prev:after {content:"\f053";}
+.bootstrap-datetimepicker-widget .datepicker table .next:after {content:"\f054";}*/
+
+
+.bootstrap-datetimepicker-widget table td.separator {font-size:25px; font-family:'Verdana', 'Tahoma';}
+
+
+.bootstrap-datetimepicker-widget .glyphicon {font-family:'FontAwesome';}
+.bootstrap-datetimepicker-widget .glyphicon-chevron-up:before {content:"\f077"!important;}
+.bootstrap-datetimepicker-widget .glyphicon-chevron-down:before {content:"\f078"!important;}
+.bootstrap-datetimepicker-widget .glyphicon-chevron-left:before {content:"\f053"!important;}
+.bootstrap-datetimepicker-widget .glyphicon-chevron-right:before {content:"\f054"!important;}
+
+
+
+.bootstrap-datetimepicker-widget {background:rgba(255, 255, 255, 0.90); backdrop-filter:blur(4px);}
+/*.bootstrap-datetimepicker-widget .datepicker-days {background:rgba(0, 0, 0, 0.05);}*/
+/*.bootstrap-datetimepicker-widget .datepicker-days .day.active,
+.bootstrap-datetimepicker-widget .timepicker-picker .timepicker-hour,
+.bootstrap-datetimepicker-widget .timepicker-picker .timepicker-minute {background:rgba(0, 0, 0, 0.20); color:#555;}*/
+
+/* ------------------------------ */
+
+/* Icons Inside Inputs */
+
+.icon-wrapper {position:relative;}
+.icon-wrapper.icon-datepicker:before {content:"\f073";}
+.icon-wrapper.icon-timepicker:before {content:"\f017";}
+.icon-wrapper.icon-datepicker:before,
+.icon-wrapper.icon-timepicker:before {position:absolute; top:50%; transform:translateY(-50%); right:10px; font-family:'FontAwesome'; color:#000; opacity:0.3;}
 
 /* ------------------------------ */
 

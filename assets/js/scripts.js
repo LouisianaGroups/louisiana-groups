@@ -7,6 +7,7 @@ var groupsData = ko.observableArray();
 var stateDataGroupsLoaded = ko.observable(false);
 var stateDataEventsLoaded = ko.observable(false);
 var stateGetEventGroupIDs = ko.observable(false);
+var statenewEventDateValid = ko.observable(false);
 var stateEventsArraySortedByNextMeetup = ko.observable(false);
 var stateGetLastAndNextEventsPerGroup = ko.observable(false);
 var stateRemovePastDatesFromArrayByProperty = ko.observable(false);
@@ -53,7 +54,48 @@ $(function() {
 
 	$('.modal').on('hide.bs.modal', function (e) {
 		$(this).find('.modal-body .alert').hide();
-	})
+	});
+
+	$('.datepicker').datetimepicker({
+		format: 'MM/DD/YYYY',
+		//inline: true,
+		format: 'L'
+	});
+
+	$('.timepicker').datetimepicker({
+		format: 'HH:mm A',
+		//inline: true,
+		format: 'LT'
+	});
+
+	$('.datepicker, .timepicker').on('dp.change', function () {
+		eventDatetimeCleaner();
+	});
+
+	var eventDatetimeCleaner = function() {
+		var date = $('#new-event-datepicker').val() || '';
+		var time = $('#new-event-timepicker').val() || '';
+		var datetime = moment(date + ' ' + time, 'MM/DD/YYYY HH:mm A').format('MM/DD/YYYY HH:mm:ss');
+		var dateValid = moment(date + ' ' + time, 'MM/DD/YYYY HH:mm A').isValid();
+
+		$('#new-event-datetime').val(datetime);
+
+		if (dateValid && date != '' & time != '') {
+			statenewEventDateValid(true);
+		} else {
+			statenewEventDateValid(false);
+		}
+	}
+
+	//$('#modal-new-event').show();
+
+
+
+
+
+
+
+
 
 	var loadData = function() {
 		getGroups();
@@ -63,7 +105,7 @@ $(function() {
 	var getGroups = function() {
 		sheetrock({
 			url: sheetGroups,
-			query: "select C,D,E,F,G,H,I,J,K,L where M = true",
+			query: 'select C,D,E,F,G,H,I,J,K,L where M = true',
 			callback: callbackGroups
 		});
 	}
@@ -71,7 +113,7 @@ $(function() {
 	var getEvents = function() {
 		sheetrock({
 			url: sheetEvents,
-			query: "select C,D,E,F where G = true order by E asc",
+			query: 'select B,C,D,E,F,G where F = true', //order by D asc
 			callback: callbackEvents
 		});
 	}
