@@ -43,6 +43,9 @@ body.modal-open footer {filter:blur(4px);}
 .modal label span {font-size:80%;}
 .modal .modal-title {font-weight:900;}
 
+.modal .modal-header,
+.modal .modal-footer {background:rgba(0, 0, 0, 0.03);}
+
 /* ------------------------------ */
 
 /* Bootstrap Resets */
@@ -167,6 +170,27 @@ footer .row {width:100%;}
 .bootstrap-datetimepicker-widget .glyphicon-chevron-down:before {content:"\f078"!important;}
 .bootstrap-datetimepicker-widget .glyphicon-chevron-left:before {content:"\f053"!important;}
 .bootstrap-datetimepicker-widget .glyphicon-chevron-right:before {content:"\f054"!important;}
+
+/* ------------------------------ */
+
+/* Parsley Form Validation */
+[data-parsley-validate] .parsley-errors-list {
+  margin:2px 0 3px;
+  padding:0;
+  list-style-type:none;
+  font-size:0.9em;
+  line-height:0.9em;
+  opacity:0;
+  transition: all .3s ease-in;
+  -o-transition: all .3s ease-in;
+  -moz-transition: all .3s ease-in;
+  -webkit-transition: all .3s ease-in;
+}
+[data-parsley-validate] .parsley-errors-list.filled {opacity:1;}
+[data-parsley-validate] .parsley-error {background-color:rgba(255, 0, 0, 0.03); border:1px solid rgba(255, 0, 0, 0.2); color:#B94A48;}
+[data-parsley-validate] .has-error label {color:#ff3547;}
+[data-parsley-validate] ul.parsley-errors-list {margin-bottom:10px;}
+[data-parsley-validate] ul.parsley-errors-list li {color:#ff3547; font-style:italic; /*font-size:12px;*/ margin-top:5px; line-height:12px;}
 
 /* ------------------------------ */
 

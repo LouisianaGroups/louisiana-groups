@@ -41,53 +41,6 @@ if (!navigator.onLine) {
 $(function() {
 	ko.applyBindings(new vm()); // init knockout
 
-	$('.modal form').on('submit', function(e) {
-		e.preventDefault();
-		var moo = e.target.id;
-		var form = $(this).data('type');
-
-		$(this).find('.modal-body').addClass('loading-spinner loading-spinner-inverted');
-		$(this).find('.modal-footer button[type=submit]').prop({'disabled': true});
-
-		submitNewListing(form);
-	});
-
-	$('.modal').on('hide.bs.modal', function (e) {
-		$(this).find('.modal-body .alert').hide();
-	});
-
-	$('.datepicker').datetimepicker({
-		format: 'MM/DD/YYYY',
-		//inline: true,
-		format: 'L',
-		minDate: 'now'
-	});
-
-	$('.timepicker').datetimepicker({
-		format: 'HH:mm A',
-		//inline: true,
-		format: 'LT'
-	});
-
-	$('.datepicker, .timepicker').on('dp.change', function () {
-		eventDatetimeCleaner();
-	});
-
-	var eventDatetimeCleaner = function() {
-		var date = $('#new-event-datepicker').val() || '';
-		var time = $('#new-event-timepicker').val() || '';
-		var datetime = moment(date + ' ' + time, 'MM/DD/YYYY HH:mm A').format('MM/DD/YYYY HH:mm:ss');
-		var dateValid = moment(date + ' ' + time, 'MM/DD/YYYY HH:mm A').isValid();
-
-		$('#new-event-datetime').val(datetime);
-
-		if (dateValid && date != '' & time != '') {
-			statenewEventDateValid(true);
-		} else {
-			statenewEventDateValid(false);
-		}
-	}
-
 	var loadData = function() {
 		getGroups();
 		getEvents();
@@ -286,14 +239,28 @@ $(function() {
 		$('#card-count').text(cardCount + ' groups shown');
 	}
 
+	var cleanEventDatetime = function() {
+		var date = $('#new-event-datepicker').val() || '';
+		var time = $('#new-event-timepicker').val() || '';
+		var datetime = moment(date + ' ' + time, 'MM/DD/YYYY HH:mm A').format('MM/DD/YYYY HH:mm:ss');
+		var dateValid = moment(date + ' ' + time, 'MM/DD/YYYY HH:mm A').isValid();
+
+		$('#new-event-datetime').val(datetime);
+
+		if (dateValid && date != '' & time != '') {
+			statenewEventDateValid(true);
+		} else {
+			statenewEventDateValid(false);
+		}
+	}
+
 	var uiCleanup = function() {
 		var cards = $('#content .card');
 		var totalCards = $('#content .card').length;
 		var tempArray = [];
 
 		$('#content .card').css({'opacity': 0});
-
-		$('header #controls').delay(1000).hide().removeClass('hidden').fadeIn();
+		$('header #controls, header #submit-new').delay(1000).hide().removeClass('hidden').fadeIn();
 
 		for (var i = 0; i < totalCards; i++) {
 			$('#content .card').delay(50).eq(i).animate({'opacity': 1});
@@ -363,7 +330,50 @@ $(function() {
 		$('#new-event-name').on('change', function (e) {
 			var groupName = $(this).find('option:selected').text();
 			$('#new-event-groupname').val(groupName);
+			$(this).parsley().validate();
 		});
+
+		$('.modal form').on('submit', function(e) {
+			e.preventDefault();
+			var moo = e.target.id;
+			var form = $(this).data('type');
+
+			$(this).find('.modal-body').addClass('loading-spinner loading-spinner-inverted');
+			$(this).find('.modal-footer button[type=submit]').prop({'disabled': true});
+
+			submitNewListing(form);
+		});
+
+		$('.modal').on('hide.bs.modal', function (e) {
+			$(this).find('.modal-body .alert').hide();
+		});
+
+		$('.datepicker').datetimepicker({
+			format: 'MM/DD/YYYY',
+			//inline: true,
+			format: 'L',
+			minDate: 'now',
+			useCurrent: false
+		});
+
+		$('.timepicker').datetimepicker({
+			format: 'HH:mm A',
+			//inline: true,
+			format: 'LT'
+		});
+
+		$('.datepicker, .timepicker').on('dp.change', function () {
+			cleanEventDatetime();
+			$(this).parsley().validate();
+		});
+
+		$('form input[type=url]').on('change', function() {
+			var value = $(this).val();
+			$(this).val(value.replace(/www\./g, ''));
+		});
+
+		//$('#modal-new-group').show();
+		//$('#modal-new-event').show();
 	}
 
 	var submitNewListing = function(formSubmitting) {

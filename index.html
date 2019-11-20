@@ -41,7 +41,7 @@
 					</div>
 					<div id="card-count" class="d-inline-block ml-2 ml-md-3 mt-2 mt-sm-0 font-italic"></div>
 				</div>
-				<div id="submit-new" class="mt-3 mt-md-0 ml-auto">
+				<div id="submit-new" class="mt-3 mt-md-0 ml-auto hidden">
 					<div class="dropdown">
 						<button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-plus mr-2"></i>Submit</button>
 						<div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
@@ -115,10 +115,10 @@
 			</div>
 		</footer>
 
-		<div class="modal fade" id="modal-new-group" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal fade show" id="modal-new-group" tabindex="-1" role="dialog" aria-hidden="true">
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
-					<form id="form-new-group" data-type="group" autocomplete="off">
+					<form id="form-new-group" data-type="group" autocomplete="off" data-parsley-validate="" data-parsley-focus="none">
 						<input type="hidden" name="GroupID">
 						<input type="hidden" name="Hex">
 						<input type="hidden" name="Icon">
@@ -136,7 +136,7 @@
 								<div class="col-sm-6">
 									<div class="form-group">
 										<label class="mb-0" for="new-group-email">Your Email</label>
-										<input required class="form-control" type="text" name="Email" id="new-group-email">
+										<input required class="form-control" type="email" name="Email" id="new-group-email" data-parsley-trigger="change">
 									</div>
 									<div class="form-group">
 										<label class="mb-0" for="new-group-name">Group Name</label>
@@ -150,19 +150,19 @@
 								<div class="col-sm-6">
 									<div class="form-group">
 										<label class="mb-0" for="new-group-website">Website</label>
-										<input class="form-control" type="text" name="Website" id="new-group-website">
+										<input class="form-control" type="url" name="Website" id="new-group-website" data-parsley-trigger="change">
 									</div>
 									<div class="form-group">
 										<label class="mb-0" for="new-group-facebook">Facebook</label>
-										<input class="form-control" type="text" name="Facebook" id="new-group-facebook">
+										<input class="form-control" type="url" name="Facebook" id="new-group-facebook" data-parsley-trigger="change">
 									</div>
 									<div class="form-group">
 										<label class="mb-0" for="new-group-twitter">Twitter</label>
-										<input class="form-control" type="text" name="Twitter" id="new-group-twitter">
+										<input class="form-control" type="url" name="Twitter" id="new-group-twitter" data-parsley-trigger="change">
 									</div>
 									<div class="form-group mb-0">
 										<label class="mb-0" for="new-group-meetup">Meetup</label>
-										<input class="form-control" type="text" name="Meetup" id="new-group-meetup">
+										<input class="form-control" type="url" name="Meetup" id="new-group-meetup" data-parsley-trigger="change">
 									</div>
 								</div>
 							</div>
@@ -176,10 +176,10 @@
 			</div>
 		</div>
 
-		<div class="modal fade" id="modal-new-event" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal fade show" id="modal-new-event" tabindex="-1" role="dialog" aria-hidden="true">
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
-					<form id="form-new-event" data-type="event" autocomplete="off">
+					<form id="form-new-event" data-type="event" autocomplete="off" data-parsley-validate="" data-parsley-focus="none">
 						<input type="hidden" name="GroupName" id="new-event-groupname">
 						<input type="hidden" name="NextMeetupDateTime" id="new-event-datetime">
 						<input type="hidden" name="Active" value="yes">
@@ -196,32 +196,60 @@
 								<div class="col-12">
 									<div class="form-group">
 										<label class="mb-0" for="new-event-name">Group Name</label>
-										<select required name="GroupID" id="new-event-name">
+										<select
+											required
+											name="GroupID"
+											id="new-event-name"
+											data-parsley-min="1"
+											data-parsley-trigger="change"
+											data-parsley-min-message="This value is required."
+											data-parsley-errors-container="#validation-error-new-event-group-name">
 											<option value="-1">- SELECT -</option>
 											<!-- ko foreach: groupsData -->
 											<option data-bind="text: GroupName, value: GroupID"></option>
 											<!-- /ko -->
 										</select>
+										<div id="validation-error-new-event-group-name"></div>
 									</div>
 									<div class="form-group">
 										<div class="row">
 											<div class="col-sm-6">
 												<label class="mb-0" for="new-event-datetime">Event Date</label>
 												<div class="icon-wrapper icon-datepicker">
-													<input required class="form-control datepicker" type="text" id="new-event-datepicker">
+													<input
+														required
+														type="text"
+														class="form-control datepicker"
+														id="new-event-datepicker"
+														data-parsley-trigger="change"
+														data-parsley-errors-container="#validation-error-new-event-date">
 												</div>
+												<div id="validation-error-new-event-date"></div>
 											</div>
 											<div class="col-sm-6">
 												<label class="mb-0" for="new-event-datetime">Event Time</label>
 												<div class="icon-wrapper icon-timepicker">
-													<input required class="form-control timepicker" type="text" id="new-event-timepicker">
+													<input
+														required
+														type="text"
+														class="form-control timepicker"
+														id="new-event-timepicker"
+														data-parsley-trigger="change"
+														data-parsley-errors-container="#validation-error-new-event-time">
 												</div>
+												<div id="validation-error-new-event-time"></div>
 											</div>
 										</div>
 									</div>
 									<div class="form-group mb-0">
 										<label class="mb-0" for="new-event-link">Event Link</label>
-										<input required class="form-control" type="text" name="EventLink" id="new-event-link">
+										<input
+											required
+											type="url"
+											class="form-control"
+											name="EventLink"
+											id="new-event-link"
+											data-parsley-trigger="change">
 									</div>
 								</div>
 							</div>
@@ -241,6 +269,7 @@
 		<script src="https://cdn.louisianagroups.com/assets/js/sheetrock.min.js"></script>
 		<script src="https://cdn.louisianagroups.com/assets/js/moment.min.js"></script>
 		<script src="https://cdn.louisianagroups.com/assets/js/select2.min.js"></script>
+		<script src="https://cdn.louisianagroups.com/assets/js/parsley.min.js"></script>
 		<script src="https://cdn.louisianagroups.com/assets/js/bootstrap-datetimepicker.js"></script>
 		<script src="https://cdn.louisianagroups.com/assets/js/isotope.min.js"></script>
 		<script src="https://cdn.louisianagroups.com/assets/js/scripts.js"></script>
