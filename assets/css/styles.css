@@ -148,21 +148,19 @@ footer .row {width:100%;}
 .select2-dropdown .select2-results__option:hover,
 .dropdown .dropdown-item:hover {background-color:rgba(0, 0, 0, 0.07); color:#000;}
 
+/* ------------------------------ */
 
 /* Datetime Picker styles */
-/*.bootstrap-datetimepicker-widget {background:rgba(0, 0, 0, 0.02); padding:10px;}*/
-/*.bootstrap-datetimepicker-widget a[data-action] {padding:0;}*/
-/*.bootstrap-datetimepicker-widget .datepicker table thead tr:nth-of-type(1) {background:#ddd;}*/
+.bootstrap-datetimepicker-widget {background:rgba(255, 255, 255, 0.90); backdrop-filter:blur(4px);}
+.bootstrap-datetimepicker-widget table td,
+.bootstrap-datetimepicker-widget table th {border-radius:0; padding:7px;}
+.bootstrap-datetimepicker-widget table td:not(.disabled):hover {background:rgba(0, 0, 0, 0.1);}
 .bootstrap-datetimepicker-widget table td span {margin:0;}
-
-
-
-/*.bootstrap-datetimepicker-widget .datepicker table .prev:after {content:"\f053";}
-.bootstrap-datetimepicker-widget .datepicker table .next:after {content:"\f054";}*/
-
-
 .bootstrap-datetimepicker-widget table td.separator {font-size:25px; font-family:'Verdana', 'Tahoma';}
+.bootstrap-datetimepicker-widget table td.today {background:rgba(0, 0, 0, 0.10);}
 
+.bootstrap-datetimepicker-widget table thead tr:nth-of-type(1) {background:#fafafa;}
+.bootstrap-datetimepicker-widget table thead tr:nth-of-type(2) th {padding:10px;}
 
 .bootstrap-datetimepicker-widget .glyphicon {font-family:'FontAwesome';}
 .bootstrap-datetimepicker-widget .glyphicon-chevron-up:before {content:"\f077"!important;}
@@ -170,18 +168,9 @@ footer .row {width:100%;}
 .bootstrap-datetimepicker-widget .glyphicon-chevron-left:before {content:"\f053"!important;}
 .bootstrap-datetimepicker-widget .glyphicon-chevron-right:before {content:"\f054"!important;}
 
-
-
-.bootstrap-datetimepicker-widget {background:rgba(255, 255, 255, 0.90); backdrop-filter:blur(4px);}
-/*.bootstrap-datetimepicker-widget .datepicker-days {background:rgba(0, 0, 0, 0.05);}*/
-/*.bootstrap-datetimepicker-widget .datepicker-days .day.active,
-.bootstrap-datetimepicker-widget .timepicker-picker .timepicker-hour,
-.bootstrap-datetimepicker-widget .timepicker-picker .timepicker-minute {background:rgba(0, 0, 0, 0.20); color:#555;}*/
-
 /* ------------------------------ */
 
 /* Icons Inside Inputs */
-
 .icon-wrapper {position:relative;}
 .icon-wrapper.icon-datepicker:before {content:"\f073";}
 .icon-wrapper.icon-timepicker:before {content:"\f017";}

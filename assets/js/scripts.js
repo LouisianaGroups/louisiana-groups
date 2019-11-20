@@ -31,7 +31,7 @@ var arrayLocations = [];
 var arrayEventGroupIDs = [];
 
 if (!window.Promise){
-    alert('old browser, upgrade');
+	alert('old browser, upgrade');
 }
 
 if (!navigator.onLine) {
@@ -59,7 +59,8 @@ $(function() {
 	$('.datepicker').datetimepicker({
 		format: 'MM/DD/YYYY',
 		//inline: true,
-		format: 'L'
+		format: 'L',
+		minDate: 'now'
 	});
 
 	$('.timepicker').datetimepicker({
@@ -86,16 +87,6 @@ $(function() {
 			statenewEventDateValid(false);
 		}
 	}
-
-	//$('#modal-new-event').show();
-
-
-
-
-
-
-
-
 
 	var loadData = function() {
 		getGroups();
