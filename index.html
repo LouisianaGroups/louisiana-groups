@@ -115,7 +115,7 @@
 			</div>
 		</footer>
 
-		<div class="modal fade show" id="modal-new-group" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal fade" id="modal-new-group" tabindex="-1" role="dialog" aria-hidden="true">
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
 					<form id="form-new-group" data-type="group" autocomplete="off" data-parsley-validate="" data-parsley-focus="none">
@@ -136,33 +136,47 @@
 								<div class="col-sm-6">
 									<div class="form-group">
 										<label class="mb-0" for="new-group-email">Your Email</label>
-										<input required class="form-control" type="email" name="Email" id="new-group-email" data-parsley-trigger="change">
+										<div class="icon-wrapper far fa-envelope">
+											<input required class="form-control" type="email" name="Email" id="new-group-email" data-parsley-trigger="change">
+										</div>
 									</div>
 									<div class="form-group">
 										<label class="mb-0" for="new-group-name">Group Name</label>
-										<input required class="form-control" type="text" name="GroupName" id="new-group-name">
+										<div class="icon-wrapper fas fa-tag">
+											<input required class="form-control" type="text" name="GroupName" id="new-group-name">
+										</div>
 									</div>
 									<div class="form-group">
 										<label class="mb-0" for="new-group-location">Group Location <span>(city)</span></label>
-										<input required class="form-control" type="text" name="Location" id="new-group-location">
+										<div class="icon-wrapper fas fa-map-marker">
+											<input required class="form-control" type="text" name="Location" id="new-group-location">
+										</div>
 									</div>
 								</div>
 								<div class="col-sm-6">
 									<div class="form-group">
 										<label class="mb-0" for="new-group-website">Website</label>
-										<input class="form-control" type="url" name="Website" id="new-group-website" data-parsley-trigger="change">
+										<div class="icon-wrapper fas fa-link">
+											<input class="form-control" type="url" name="Website" id="new-group-website" data-parsley-trigger="change">
+										</div>
 									</div>
 									<div class="form-group">
 										<label class="mb-0" for="new-group-facebook">Facebook</label>
-										<input class="form-control" type="url" name="Facebook" id="new-group-facebook" data-parsley-trigger="change">
+										<div class="icon-wrapper fab fa-facebook-square">
+											<input class="form-control" type="url" name="Facebook" id="new-group-facebook" data-parsley-trigger="change">
+										</div>
 									</div>
 									<div class="form-group">
 										<label class="mb-0" for="new-group-twitter">Twitter</label>
-										<input class="form-control" type="url" name="Twitter" id="new-group-twitter" data-parsley-trigger="change">
+										<div class="icon-wrapper fab fa-twitter-square">
+											<input class="form-control" type="url" name="Twitter" id="new-group-twitter" data-parsley-trigger="change">
+										</div>
 									</div>
 									<div class="form-group mb-0">
 										<label class="mb-0" for="new-group-meetup">Meetup</label>
-										<input class="form-control" type="url" name="Meetup" id="new-group-meetup" data-parsley-trigger="change">
+										<div class="icon-wrapper fab fa-meetup">
+											<input class="form-control" type="url" name="Meetup" id="new-group-meetup" data-parsley-trigger="change">
+										</div>
 									</div>
 								</div>
 							</div>
@@ -176,7 +190,7 @@
 			</div>
 		</div>
 
-		<div class="modal fade show" id="modal-new-event" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal fade" id="modal-new-event" tabindex="-1" role="dialog" aria-hidden="true">
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
 					<form id="form-new-event" data-type="event" autocomplete="off" data-parsley-validate="" data-parsley-focus="none">
@@ -215,7 +229,7 @@
 										<div class="row">
 											<div class="col-sm-6">
 												<label class="mb-0" for="new-event-datetime">Event Date</label>
-												<div class="icon-wrapper icon-datepicker">
+												<div class="icon-wrapper fa fa-calendar-alt">
 													<input
 														required
 														type="text"
@@ -228,7 +242,7 @@
 											</div>
 											<div class="col-sm-6">
 												<label class="mb-0" for="new-event-datetime">Event Time</label>
-												<div class="icon-wrapper icon-timepicker">
+												<div class="icon-wrapper fa fa-clock">
 													<input
 														required
 														type="text"
@@ -243,13 +257,15 @@
 									</div>
 									<div class="form-group mb-0">
 										<label class="mb-0" for="new-event-link">Event Link</label>
-										<input
-											required
-											type="url"
-											class="form-control"
-											name="EventLink"
-											id="new-event-link"
-											data-parsley-trigger="change">
+										<div class="icon-wrapper fa fa-link">
+											<input
+												required
+												type="url"
+												class="form-control"
+												name="EventLink"
+												id="new-event-link"
+												data-parsley-trigger="change">
+										</div>
 									</div>
 								</div>
 							</div>

@@ -195,11 +195,8 @@ footer .row {width:100%;}
 /* ------------------------------ */
 
 /* Icons Inside Inputs */
-.icon-wrapper {position:relative;}
-.icon-wrapper.icon-datepicker:before {content:"\f073";}
-.icon-wrapper.icon-timepicker:before {content:"\f017";}
-.icon-wrapper.icon-datepicker:before,
-.icon-wrapper.icon-timepicker:before {position:absolute; top:50%; transform:translateY(-50%); right:10px; font-family:'FontAwesome'; color:#000; opacity:0.3;}
+.icon-wrapper {position:relative; width:100%;}
+.icon-wrapper:before {position:absolute; top:50%; transform:translateY(-50%); right:10px; font-family:'FontAwesome'; color:#000; opacity:0.3;}
 
 /* ------------------------------ */
 
