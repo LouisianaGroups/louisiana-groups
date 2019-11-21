@@ -49,7 +49,7 @@ Happy hacking!
 | Date calculations | [Moment.js](https://momentjs.com)
 | Form to Google Sheets API | [Google Scripts](https://script.google.com)
 | Form Validation | [Parsley](https://parsleyjs.org)
-| Datetime Picker | [Bootstrap Datepicker](https://eonasdan.github.io/bootstrap-datetimepicker)
+| Datetime Picker | [Bootstrap Datetimepicker](https://eonasdan.github.io/bootstrap-datetimepicker)
 | Analytics Tracking | [Google Analytics](https://google.com/analytics)
 | CRON triggers | [Dead Man's Snitch](https://deadmanssnitch.com/r/b2746d2af7)
 | Content Delivery Network | [KeyCDN](https://www.keycdn.com/?a=62386)
