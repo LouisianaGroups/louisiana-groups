@@ -47,6 +47,7 @@ Happy hacking!
 | UI Filtering | [Isotope](https://isotope.metafizzy.co)
 | Select element styling | [Select2](https://select2.org)
 | Date calculations | [Moment.js](https://momentjs.com)
+| Form to Google Sheets API | [Google Scripts](https://script.google.com)
 | Form Validation | [Parsley](https://parsleyjs.org)
 | Datetime Picker | [Bootstrap Datepicker](https://eonasdan.github.io/bootstrap-datetimepicker)
 | Analytics Tracking | [Google Analytics](https://google.com/analytics)
