@@ -10,7 +10,7 @@ body {
 	color:#222;
 	/* grid background, modified version of http://lea.verou.me/css3patterns/#checkerboard */
 	background-color:#f9f9f9;
-	background-image:linear-gradient(45deg, #fff 25%, transparent 25%, transparent 75%, #fff 75%, #fff), 
+	background-image:linear-gradient(45deg, #fff 25%, transparent 25%, transparent 75%, #fff 75%, #fff),
 	linear-gradient(45deg, #fff 25%, transparent 25%, transparent 75%, #fff 75%, #fff);
 	background-size:20px 20px;
 	background-position:0 0, 10px 10px;
@@ -101,7 +101,7 @@ header #submit-new .dropdown button {font-weight:bold; color:#ddd; font-size:20p
 header #submit-new .dropdown button:hover {color:#fff; background:rgba(255, 255, 255, 0.3); cursor:pointer;}
 header #submit-new .dropdown button:after {display:none;}
 header #submit-new .dropdown .dropdown-menu {padding:0;}
- 
+
 footer {font-size:25px; flex-shrink:0;}
 footer .row {width:100%;}
 
@@ -280,4 +280,16 @@ footer .row {width:100%;}
 		-webkit-transform:rotate(360deg);
 		transform:rotate(360deg)
 	}
+}
+
+/* ------------------------------ */
+
+/* Custom styles */
+
+h1.brand {
+  margin-top: inherit;
+  margin-bottom: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
 }

@@ -79,10 +79,10 @@
 							</div>
 							<!-- /ko -->
 							<div class="links">
-								<a target="group" rel="noreferrer nofollow" class="fa fa-link mr-2" data-bind="visible:Website != '', attr: {'href': Website}"></a>
-								<a target="group" rel="noreferrer nofollow" class="fab fa-facebook mr-2" data-bind="visible:Facebook != '', attr: {'href': Facebook}"></a>
-								<a target="group" rel="noreferrer nofollow" class="fab fa-twitter mr-2" data-bind="visible:Twitter != '', attr: {'href': Twitter}"></a>
-								<a target="group" rel="noreferrer nofollow" class="fab fa-meetup mr-2" data-bind="visible:Meetup != '', attr: {'href': Meetup}"></a>
+								<a target="group" rel="noreferrer nofollow" class="fa fa-link mr-2" data-bind="visible:Website != '', attr: {'href': Website}"><span class="sr-only">Link to website</span></a>
+								<a target="group" rel="noreferrer nofollow" class="fab fa-facebook mr-2" data-bind="visible:Facebook != '', attr: {'href': Facebook}"><span class="sr-only">Link to Facebook page</span></a>
+								<a target="group" rel="noreferrer nofollow" class="fab fa-twitter mr-2" data-bind="visible:Twitter != '', attr: {'href': Twitter}"><span class="sr-only">Link to Twitter page</span></a>
+								<a target="group" rel="noreferrer nofollow" class="fab fa-meetup mr-2" data-bind="visible:Meetup != '', attr: {'href': Meetup}"><span class="sr-only">Link to Meetup page</span></a>
 							</div>
 							<div class="icon d-flex align-items-center" data-bind="html: FontIcon"></div>
 						</div>
@@ -228,7 +228,7 @@
 									<div class="form-group">
 										<div class="row">
 											<div class="col-sm-6">
-												<label class="mb-0" for="new-event-datetime">Event Date</label>
+												<label class="mb-0" for="new-event-datepicker">Event Date</label>
 												<div class="icon-wrapper fa fa-calendar-alt">
 													<input
 														required
@@ -241,7 +241,7 @@
 												<div id="validation-error-new-event-date"></div>
 											</div>
 											<div class="col-sm-6">
-												<label class="mb-0" for="new-event-datetime">Event Time</label>
+												<label class="mb-0" for="new-event-timepicker">Event Time</label>
 												<div class="icon-wrapper fa fa-clock">
 													<input
 														required
