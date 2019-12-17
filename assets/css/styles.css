@@ -93,8 +93,16 @@ header a, footer a {display:inline-block; padding:5px 10px; background:rgba(255,
 header a:hover, footer a:hover {color:#222; background:rgba(255, 255, 255, 0.3);}
 
 header .logo {font-size:30px;}
-header .logo a {color:#ddd; font-weight:bold; letter-spacing:1px;}
+header .logo a {color:#ddd; font-weight:bold; letter-spacing:1px; margin-top:inherit; margin-bottom:inherit; font-size:inherit; font-weight:inherit; line-height:inherit;}
 header .logo a:hover {color:#fff;}
+
+header .logo a  {
+  margin-top: inherit;
+  margin-bottom: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+}
 
 header #submit-new .dropdown {}
 header #submit-new .dropdown button {font-weight:bold; color:#ddd; font-size:20px; padding:5px 10px; background:rgba(255, 255, 255, 0.2); border:0; letter-spacing:1px; text-transform:uppercase;}
@@ -286,10 +294,4 @@ footer .row {width:100%;}
 
 /* Custom styles */
 
-h1.brand {
-  margin-top: inherit;
-  margin-bottom: inherit;
-  font-size: inherit;
-  font-weight: inherit;
-  line-height: inherit;
-}
+
