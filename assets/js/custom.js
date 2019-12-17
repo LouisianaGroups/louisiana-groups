@@ -578,11 +578,19 @@ $(function() {
 	});
 
 	var getUserLocation = function() {
-		$.getJSON('http://ip-api.com/json', function(data) {
-			//console.log(JSON.stringify(data, null, 2));
+		// $.getJSON('http://ip-api.com/json', function(data) {
+		// 	//console.log(JSON.stringify(data, null, 2));
+		// 	//data.city = 'New Orleans';
+		// 	userLocationCity(data.city.toLowerCase().replace(/ /g , '-'));
+		// 	userLocationState(data.regionName.toLowerCase());
+		// });
+
+		$.getJSON('https://extreme-ip-lookup.com/json', function(data) {
+			console.log(JSON.stringify(data, null, 2));
+			//alert(data.city);
 			//data.city = 'New Orleans';
 			userLocationCity(data.city.toLowerCase().replace(/ /g , '-'));
-			userLocationState(data.regionName.toLowerCase());
+			userLocationState(data.region.toLowerCase());
 		});
 	}
 
