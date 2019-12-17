@@ -13,8 +13,9 @@
 		<!-- styles -->
 		<link rel="stylesheet" href="https://cdn.louisianagroups.com/assets/css/bootstrap.min.css">
 		<link rel="stylesheet" href="https://cdn.louisianagroups.com/assets/css/fontawesome-all.min.css">
-		<link rel="stylesheet" href="https://cdn.louisianagroups.com/assets/css/select2.min.css">
 		<link rel="stylesheet" href="https://cdn.louisianagroups.com/assets/css/bootstrap-datetimepicker.css">
+		<link rel="stylesheet" href="https://cdn.louisianagroups.com/assets/css/select2.min.css">
+		<link rel="stylesheet" href="https://cdn.louisianagroups.com/assets/css/stylish-select.css">
 		<link rel="stylesheet" href="https://cdn.louisianagroups.com/assets/css/styles.css">
 
 		<!-- open graph meta -->
@@ -32,16 +33,16 @@
 				<div class="logo d-md-inline-block">
 					<a class="mr-0 mr-md-4" href="/">Louisiana Groups</a>
 				</div>
-				<div id="controls" class="hidden mt-3 mt-md-0">
+				<div id="controls" class="hidden-soft mt-3 mt-md-0 d-flex align-items-center">
+					<div id="card-count-left" class="d-inline-block mr-2 mr-md-2 mt-2 mt-sm-0"></div>
 					<div id="filter-location" class="d-inline-block">
-						<label for="location-selector" class="d-block mb-0 text-light">Locations</label>
-						<select id="location-selector" class="d-block">
+						<select id="location-selector" data-select-width="auto" data-select-dropdown-width="auto" data-select-theme="modern">
 							<option value="*">All</option>
 						</select>
 					</div>
-					<div id="card-count" class="d-inline-block ml-2 ml-md-3 mt-2 mt-sm-0 font-italic"></div>
+					<div id="card-count-right" class="d-inline-block ml-2 ml-md-2 mt-2 mt-sm-0"></div>
 				</div>
-				<div id="submit-new" class="mt-3 mt-md-0 ml-auto hidden">
+				<div id="submit-new" class="hidden-soft mt-3 mt-md-0 ml-auto">
 					<div class="dropdown">
 						<button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-plus mr-2"></i>Submit</button>
 						<div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
@@ -214,6 +215,9 @@
 											required
 											name="GroupID"
 											id="new-event-name"
+											data-select-theme="modern"
+											data-select-width="auto"
+											data-select-dropdown-width="auto"
 											data-parsley-min="1"
 											data-parsley-trigger="change"
 											data-parsley-min-message="This value is required."
@@ -288,7 +292,8 @@
 		<script src="https://cdn.louisianagroups.com/assets/js/parsley.min.js"></script>
 		<script src="https://cdn.louisianagroups.com/assets/js/bootstrap-datetimepicker.js"></script>
 		<script src="https://cdn.louisianagroups.com/assets/js/isotope.min.js"></script>
-		<script src="https://cdn.louisianagroups.com/assets/js/scripts.js"></script>
+		<script src="https://cdn.louisianagroups.com/assets/js/stylish-select.js"></script>
+		<script src="https://cdn.louisianagroups.com/assets/js/custom.js"></script>
 		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-116383596-1"></script>
 		<script>
 			window.dataLayer = window.dataLayer || [];
