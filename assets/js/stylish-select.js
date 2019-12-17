@@ -72,7 +72,7 @@ $.fn.stylishSelect = function() {
 			}
 
 			$(this).hide();
-			console.table(selectOptions);
+			//console.table(selectOptions);
 		});
 	}
 

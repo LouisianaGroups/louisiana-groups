@@ -120,8 +120,8 @@ $(function() {
 				}
 			});
 
-			console.warn(prop + ' | tempArray 455');
-			console.table(tempArray);
+			//console.warn(prop + ' | tempArray 455');
+			//console.table(tempArray);
 			
 			arrayMerged.unshift(...tempArray); // merge back into the master list
 		}
@@ -253,7 +253,6 @@ $(function() {
 
 		$('#card-count-left').text(countTextLeft);
 		$('#card-count-right').text(countTextRight);
-		//$('#location-display-text').text(selectedValueText);
 	}
 
 	var cleanEventDatetime = function() {
@@ -332,46 +331,6 @@ $(function() {
 			$('#content').isotope({ filter: selectedValue });
 		});
 
-		// $('#location-selector').select2({
-		// 	width: 50,
-		// 	minimumResultsForSearch: 10,
-		// 	dropdownParent: $('#location-display-text'),
-		// 	//dropdownParent: $(this).parent().parent(),
-		// 	dropdownAutoWidth : true,
-		// 	theme: 'moo',
-		// 	containerCssClass: 'custom-container',
-		// 	dropdownCssClass: 'custom-dropdown',
-		// });
-
-		//$select2.data('select2').$container.addClass("wrap")
-
-		// $('#location-selector').on('select2:opening', function() {
-		// 	var pos = $('#location-display-text').position();
-		// 	var topMoo = pos.top + 'px';
-		// 	var leftMoo = pos.left + 'px';
-
-		// 	// var topMoo = '30px';
-		// 	// var leftMoo = 0;
-
-		// 	setTimeout(function() {
-		// 		$('#location-display-text').css({'position': 'relative'});
-		// 		$('#location-display-text .select2-container').css({'top': topMoo, 'left': 0});
-
-		// 		console.warn('top: ' + topMoo + ' | left: ' + leftMoo);
-		// 	}, 0);
-		// });
-
-		// $('#location-selector').on('select2:open', function() {
-		// 	setTimeout(function() {
-		// 		$('#location-display-text .select2-container').addClass('show');
-		// 	}, 1000);
-		// });
-
-
-		// $('#location-selector').on('select2:closed', function() {
-		// 	$('.select2-container .select2-dropdown').addClass('custom-dropdown');
-		// });
-
 		$('#new-event-name').select2({
 			width: '100%',
 			minimumResultsForSearch: 5,
@@ -422,19 +381,6 @@ $(function() {
 			var value = $(this).val();
 			$(this).val(value.replace(/www\./g, ''));
 		});
-
-		// $('#location-display-text').on('click', function() {
-		// 	var open = $(this).data('open');
-
-		// 	if (open) {
-		// 		$(this).attr('data-open', false);
-		// 		$('#location-selector').select2('close');
-		// 	} else if (!open) {
-		// 		$(this).attr('data-open', true);
-		// 		$('#location-selector').select2('open');
-		// 	}
-			
-		// });
 
 		//$('#modal-new-group').addClass('show').show();
 		//$('#modal-new-event').addClass('show').show();
@@ -489,11 +435,11 @@ $(function() {
 		arrayEvents = arrayEvents.pop();
 		arrayGroups = arrayGroups.pop();
 
-		console.warn('arrayGroups');
-		console.table(arrayGroups);
+		//console.warn('arrayGroups');
+		//console.table(arrayGroups);
 
-		console.warn('arrayEvents');
-		console.table(arrayEvents);
+		//console.warn('arrayEvents');
+		//console.table(arrayEvents);
 
 		// get all group IDs in arrayEvents
 		getEventGroupIDs();
@@ -501,20 +447,20 @@ $(function() {
 
 	stateGetEventGroupIDs.subscribe(function() {
 		// get all group IDs in arrayEvents
-		console.warn('arrayEventGroupIDs 691');
-		console.table(arrayEventGroupIDs);
+		//console.warn('arrayEventGroupIDs 691');
+		//console.table(arrayEventGroupIDs);
 
 		arrayEventGroupIDs = removeDuplicates(arrayEventGroupIDs, 'GroupID');
-		console.warn('remove duplicates from arrayEventGroupIDs');
-		console.table(arrayEventGroupIDs);
+		//console.warn('remove duplicates from arrayEventGroupIDs');
+		//console.table(arrayEventGroupIDs);
 
 		// insert last group event and insert into arrayEventGroupIDs
 		getLastAndNextEventsPerGroup(arrayEvents);
 	});
 
 	stateGetLastAndNextEventsPerGroup.subscribe(function() {
-		console.warn('getLastAndNextEventsPerGroup 914');
-		console.table(arrayEventGroupIDs);
+		//console.warn('getLastAndNextEventsPerGroup 914');
+		//console.table(arrayEventGroupIDs);
 
 		arrayEvents = removePastDatesFromArrayByProperty(arrayEvents, 'NextMeetupDateTime');
 	});
@@ -528,8 +474,8 @@ $(function() {
 	stateGroupsData.subscribe(function() {
 		sortArrayByGroupActivity();
 
-		console.warn('merged array');
-		console.table(arrayMerged);
+		//console.warn('merged array');
+		//console.table(arrayMerged);
 
 		var countDataGroups = 0;
 		var countDomGroups = 0;
@@ -537,7 +483,7 @@ $(function() {
 		var waitForElement = function() {
 			countDataGroups = groupsData().length;
 			countDomGroups = $('#content .card').length;
-			console.warn('waitForElement triggered | data:' + countDataGroups + ' | dom:' + countDomGroups);
+			//console.warn('waitForElement triggered | data:' + countDataGroups + ' | dom:' + countDomGroups);
 
 			if (countDataGroups === countDomGroups) {
 				// SPLIT THESE UP WITH WAITS
@@ -574,7 +520,6 @@ $(function() {
 		});
 
 		$('#location-selector').val(userLocationCity()).trigger('change');
-		//debugger;
 	});
 
 	var getUserLocation = function() {
@@ -586,11 +531,14 @@ $(function() {
 		// });
 
 		$.getJSON('https://extreme-ip-lookup.com/json', function(data) {
-			console.log(JSON.stringify(data, null, 2));
-			//alert(data.city);
-			//data.city = 'New Orleans';
-			userLocationCity(data.city.toLowerCase().replace(/ /g , '-'));
-			userLocationState(data.region.toLowerCase());
+			if (data.status == 'success') {
+				//console.log(JSON.stringify(data, null, 2));
+				//data.city = 'New Orleans';
+				userLocationCity(data.city.toLowerCase().replace(/ /g , '-'));
+				userLocationState(data.region.toLowerCase());
+			} else {
+				console.error('user location detection failed');
+			}
 		});
 	}
 
