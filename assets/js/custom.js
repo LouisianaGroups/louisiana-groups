@@ -7,20 +7,20 @@ var groupsData = ko.observableArray();
 var stateDataGroupsLoaded = ko.observable(false);
 var stateDataEventsLoaded = ko.observable(false);
 var stateGetEventGroupIDs = ko.observable(false);
-var statenewEventDateValid = ko.observable(false);
+var stateNewEventDateValid = ko.observable(false);
+var stateUserLocationDetection = ko.observable(false);
 var stateEventsArraySortedByNextMeetup = ko.observable(false);
 var stateGetLastAndNextEventsPerGroup = ko.observable(false);
 var stateRemovePastDatesFromArrayByProperty = ko.observable(false);
-var userLocationCity = ko.observable('');
-var userLocationState = ko.observable('');
-var userLocationMatch = ko.observable(false);
 var stateDataLoaded = ko.computed(function() {
 	if (stateDataGroupsLoaded() == true && stateDataEventsLoaded() == true) {
+		console.log('5 | group + event data loaded and cleaned');
 		return true;
 	}
 });
 var stateGroupsData = ko.computed(function() {
 	if (groupsData().length > 0) {
+		console.log('10 | all data loaded, cleaned and merged');
 		return true;
 	}
 });
@@ -32,6 +32,9 @@ var arrayEvents = [];
 var arrayMerged = [];
 var arrayLocations = [];
 var arrayEventGroupIDs = [];
+var userLocationCity = ko.observable('');
+var userLocationState = ko.observable('');
+var userLocationMatch = ko.observable(false);
 
 if (!window.Promise){
 	alert('old browser, upgrade');
@@ -41,8 +44,15 @@ if (!navigator.onLine) {
 	alert('offline');
 }
 
+if (!window.localStorage) {
+	console.error('localStorage not supported');
+}
+
 $(function() {
 	ko.applyBindings(new vm()); // init knockout
+
+	userLocationCity(sessionStorage.getItem('userCity') || '');
+	userLocationState(sessionStorage.getItem('userState') || '');
 
 	var loadData = function() {
 		getGroups();
@@ -66,10 +76,12 @@ $(function() {
 	}
 
 	var callbackGroups = function(error, options, response) {
+		console.log('1 | group data received');
 		cleanJsonData(response, 'groups');
 	}
 
 	var callbackEvents = function(error, options, response) {
+		console.log('2 | group data received');
 		cleanJsonData(response, 'events');
 	}
 
@@ -149,9 +161,11 @@ $(function() {
 		if (type == 'groups') {
 			arrayGroups.push(array);
 			stateDataGroupsLoaded(true);
+			console.log('3 | group data cleaned');
 		} else if (type == 'events') {
 			arrayEvents.push(array);
 			stateDataEventsLoaded(true);
+			console.log('4 | group data cleaned');
 		}
 
 		//console.warn(type + ' array');
@@ -175,6 +189,7 @@ $(function() {
 
 	var removePastDatesFromArrayByProperty = function(array, prop) {
 		stateRemovePastDatesFromArrayByProperty(true);
+		console.log('8 | remove past dates from Events array');
 
 		return $.grep(array, function (item) {
 			var value = moment(item[prop], 'MM/DD/YYYY HH:mm:ss');
@@ -235,6 +250,7 @@ $(function() {
 		});
 
 		stateGetLastAndNextEventsPerGroup(true);
+		console.log('7 | get next and last events per group');
 	}
 
 	var countCards = function() {
@@ -264,9 +280,9 @@ $(function() {
 		$('#new-event-datetime').val(datetime);
 
 		if (dateValid && date != '' & time != '') {
-			statenewEventDateValid(true);
+			stateNewEventDateValid(true);
 		} else {
-			statenewEventDateValid(false);
+			stateNewEventDateValid(false);
 		}
 	}
 
@@ -300,7 +316,6 @@ $(function() {
 			$('#location-selector').append(optionHTML);
 		});
 
-		getUserLocation();
 		$('#location-selector').stylishSelect();
 
 		cards.removeAttr('data-bind');
@@ -451,6 +466,7 @@ $(function() {
 		//console.table(arrayEventGroupIDs);
 
 		arrayEventGroupIDs = removeDuplicates(arrayEventGroupIDs, 'GroupID');
+		console.log('6 | removed duplicates from arrayEventGroupIDs array');
 		//console.warn('remove duplicates from arrayEventGroupIDs');
 		//console.table(arrayEventGroupIDs);
 
@@ -467,6 +483,7 @@ $(function() {
 
 	stateRemovePastDatesFromArrayByProperty.subscribe(function() {
 		arrayMerged = mergeArrays(arrayGroups, arrayEventGroupIDs, 'GroupID');
+		console.log('9 | merge Groups and Events arrays');
 
 		groupsData(arrayMerged);
 	});
@@ -488,8 +505,8 @@ $(function() {
 			if (countDataGroups === countDomGroups) {
 				// SPLIT THESE UP WITH WAITS
 				countCards();
-				uiCleanup();
-				init();
+				getUserLocation();
+				console.log('11 | group DOM elements finished loading');
 			} else {
 				setTimeout(waitForElement, 1000);
 			}
@@ -497,7 +514,13 @@ $(function() {
 		waitForElement();
 	});
 
-	userLocationState.subscribe(function() {
+	stateUserLocationDetection.subscribe(function() {
+		uiCleanup();
+		init();
+		updateUserLocation();
+	});
+
+	var updateUserLocation = function() {
 		if (userLocationState() == 'louisiana') {
 			var checkCityMatch = $.grep(arrayLocations, function (e) {
 				return e.value == userLocationCity();
@@ -505,6 +528,7 @@ $(function() {
 
 			if (checkCityMatch.length > 0) {
 				userLocationMatch(true);
+				console.log('user location city match');
 			}
 		}
 
@@ -513,14 +537,14 @@ $(function() {
 		} else {
 			var startLocation = '*';
 		}
-		
+
 		$('#content').isotope({
 			itemSelector: '.card',
 			filter: startLocation
 		});
 
 		$('#location-selector').val(userLocationCity()).trigger('change');
-	});
+	}
 
 	var getUserLocation = function() {
 		// $.getJSON('http://ip-api.com/json', function(data) {
@@ -530,16 +554,26 @@ $(function() {
 		// 	userLocationState(data.regionName.toLowerCase());
 		// });
 
-		$.getJSON('https://extreme-ip-lookup.com/json', function(data) {
-			if (data.status == 'success') {
-				//console.log(JSON.stringify(data, null, 2));
-				//data.city = 'New Orleans';
-				userLocationCity(data.city.toLowerCase().replace(/ /g , '-'));
-				userLocationState(data.region.toLowerCase());
-			} else {
-				console.error('user location detection failed');
-			}
-		});
+		if (userLocationCity() == '' || userLocationState() == '') {
+			$.getJSON('https://extreme-ip-lookup.com/json', function(data) {
+				if (data.status == 'success') {
+					console.log('location detection: pulled');
+					//console.log(JSON.stringify(data, null, 2));
+					//data.city = 'New Orleans';
+					userLocationCity(data.city.toLowerCase().replace(/ /g , '-'));
+					userLocationState(data.region.toLowerCase());
+
+					sessionStorage.setItem('userCity', userLocationCity());
+					sessionStorage.setItem('userState', userLocationState());
+				} else {
+					console.error('location detection: failed');
+				}
+				stateUserLocationDetection(true);
+			});
+		} else {
+			console.log('location detection: skipped');
+			stateUserLocationDetection(true);
+		}
 	}
 
 	loadData();
