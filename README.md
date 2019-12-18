@@ -45,7 +45,8 @@ Happy hacking!
 | Google Sheets querying | [Sheetrock.js](https://chriszarate.github.io/sheetrock)
 | Templating | [KnockoutJS](https://knockoutjs.com)
 | UI Filtering | [Isotope](https://isotope.metafizzy.co)
-| Select element styling | [Select2](https://select2.org)
+| Select element styling (for location select) | [Stylish Select](https://github.com/adamculpepper/stylish-select)
+| Select element styling (for modal select) | [Select2](https://select2.org)
 | Date calculations | [Moment.js](https://momentjs.com)
 | Form to Google Sheets API | [Google Scripts](https://script.google.com)
 | Form Validation | [Parsley](https://parsleyjs.org)
@@ -62,7 +63,7 @@ Happy hacking!
 
 ## Notes
 
-Since this is a personal project, I'm not screwing with browser compatibility. Use a real browser. :smiley:
+Since this is a volunteer project, we're not putting high priority on old browser compatibility support. Use a real browser. :smiley:
 
 ## Contributing
 
