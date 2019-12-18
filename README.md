@@ -63,7 +63,7 @@ Happy hacking!
 
 ## Notes
 
-Since this is a volunteer project, we're not putting high priority on old browser compatibility support. Use a real browser. :smiley:
+This is a volunteer project, so we're not putting high priority on old browser compatibility support. Use a real browser. :smiley:
 
 ## Contributing
 
