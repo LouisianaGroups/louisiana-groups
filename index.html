@@ -31,7 +31,9 @@
 		<header>
 			<div class="d-md-flex align-items-center">
 				<div class="logo d-md-inline-block">
-					<a class="mr-0 mr-md-4" href="/">Louisiana Groups</a>
+					<a class="mr-0 mr-md-4" href="/">
+						<h1>Louisiana Groups</h1>
+					</a>
 				</div>
 				<div id="controls" class="hidden-soft mt-3 mt-md-0 d-flex align-items-center">
 					<div id="card-count-left" class="d-inline-block mr-2 mr-md-2 mt-2 mt-sm-0"></div>
@@ -75,15 +77,15 @@
 							<div class="next-event">
 								<span class="event-date" data-bind="text: 'Next meetup: ' + moment($data.NextEventDate, 'MM/DD/YYYY @ HH:mm:SS').format('MM/DD @ hh:mma') "></span>
 								<!-- ko if: $data.NextEventLink -->
-								<a target="group" rel="nofollow" class="fa fa-link ml-1" data-bind="attr: {'href': $data.NextEventLink}"></a>
+								<a target="group" rel="noreferrer nofollow" class="fa fa-link ml-1" data-bind="attr: {'href': $data.NextEventLink}"></a>
 								<!-- /ko -->
 							</div>
 							<!-- /ko -->
 							<div class="links">
-								<a target="group" rel="nofollow" class="fa fa-link mr-2" data-bind="visible:Website != '', attr: {'href': Website}"></a>
-								<a target="group" rel="nofollow" class="fab fa-facebook mr-2" data-bind="visible:Facebook != '', attr: {'href': Facebook}"></a>
-								<a target="group" rel="nofollow" class="fab fa-twitter mr-2" data-bind="visible:Twitter != '', attr: {'href': Twitter}"></a>
-								<a target="group" rel="nofollow" class="fab fa-meetup mr-2" data-bind="visible:Meetup != '', attr: {'href': Meetup}"></a>
+								<a target="group" rel="noreferrer nofollow" class="fa fa-link mr-2" data-bind="visible:Website != '', attr: {'href': Website}"><span class="sr-only">Link to <span data-bind="text: GroupName"></span> website</span></a>
+								<a target="group" rel="noreferrer nofollow" class="fab fa-facebook mr-2" data-bind="visible:Facebook != '', attr: {'href': Facebook}"><span class="sr-only">Link to <span data-bind="text: GroupName"></span> Facebook page</span></a>
+								<a target="group" rel="noreferrer nofollow" class="fab fa-twitter mr-2" data-bind="visible:Twitter != '', attr: {'href': Twitter}"><span class="sr-only">Link to <span data-bind="text: GroupName"></span> Twitter page</span></a>
+								<a target="group" rel="noreferrer nofollow" class="fab fa-meetup mr-2" data-bind="visible:Meetup != '', attr: {'href': Meetup}"><span class="sr-only">Link to <span data-bind="text: GroupName"></span> Meetup page</span></a>
 							</div>
 							<div class="icon d-flex align-items-center" data-bind="html: FontIcon"></div>
 						</div>
@@ -99,13 +101,13 @@
 						<a href="/">Louisiana Groups</a>
 					</div>
 					<span class="ml-1 hidden-sm-down">is</span>
-					<span class="ml-1"><i class="fas fa-code"></i></span>
+					<span class="ml-1"><i class="fas fa-code"></i><span class="sr-only">built</span></span>
 					<span class="ml-1">with</span>
-					<span class="ml-1"><i class="fas fa-heart"></i></span>
+					<span class="ml-1"><i class="fas fa-heart"></i><span class="sr-only">love</span></span>
 					<span class="ml-1">by</span>
-					<a class="ml-1" target="_blank" href="http://adamculpepper.net"><img class="rounded-circle" src="https://cdn.louisianagroups.com/assets/img/adam.jpg"></a>
-					<a class="ml-1 hidden-xs" target="_blank" href="https://nick.scheurich.me"><img class="rounded-circle" src="https://cdn.louisianagroups.com/assets/img/nick.jpg"></a>
-					<a class="ml-1 hidden-xs" target="_blank" href="https://github.com/james-alt"><img class="rounded-circle" src="https://cdn.louisianagroups.com/assets/img/jimmy.jpg"></a>
+					<a class="ml-1" target="_blank" rel="referrer nofollow" href="http://adamculpepper.net"><img class="rounded-circle" src="https://cdn.louisianagroups.com/assets/img/adam.jpg" alt=""></a>
+					<a class="ml-1 hidden-xs" target="_blank" rel="referrer nofollow" href="https://nick.scheurich.me"><img class="rounded-circle" src="https://cdn.louisianagroups.com/assets/img/nick.jpg" alt=""></a>
+					<a class="ml-1 hidden-xs" target="_blank" rel="referrer nofollow" href="https://github.com/james-alt"><img class="rounded-circle" src="https://cdn.louisianagroups.com/assets/img/jimmy.jpg" alt=""></a>
 				</div>
 				<div class="d-block d-lg-inline-block mt-3 mt-lg-0 ml-auto">
 					<a target="_blank" href="https://github.com/LouisianaGroups">
@@ -232,7 +234,7 @@
 									<div class="form-group">
 										<div class="row">
 											<div class="col-sm-6">
-												<label class="mb-0" for="new-event-datetime">Event Date</label>
+												<label class="mb-0" for="new-event-datepicker">Event Date</label>
 												<div class="icon-wrapper fa fa-calendar-alt">
 													<input
 														required
@@ -245,7 +247,7 @@
 												<div id="validation-error-new-event-date"></div>
 											</div>
 											<div class="col-sm-6">
-												<label class="mb-0" for="new-event-datetime">Event Time</label>
+												<label class="mb-0" for="new-event-timepicker">Event Time</label>
 												<div class="icon-wrapper fa fa-clock">
 													<input
 														required
