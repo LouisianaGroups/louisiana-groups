@@ -51,9 +51,6 @@ if (!window.localStorage) {
 $(function() {
 	ko.applyBindings(new vm()); // init knockout
 
-	userLocationCity(sessionStorage.getItem('userCity') || '');
-	userLocationState(sessionStorage.getItem('userState') || '');
-
 	var loadData = function() {
 		getGroups();
 		getEvents();
@@ -84,6 +81,10 @@ $(function() {
 		console.log('2 | group data received');
 		cleanJsonData(response, 'events');
 	}
+
+	var getUrlParam = function(param) {
+		return new URLSearchParams(window.location.search).get(param);
+	}	
 
 	var mergeArrays = function(array1, array2, prop) {
 		return array1.map(x => ({...x, ...array2.find(y => x[prop] === y[prop])}) );
@@ -336,14 +337,18 @@ $(function() {
 			var selectedValue = $(this).val();
 			
 			if (selectedValue.includes('*')) {
-				selectedValue = '*';
-				//history.pushState({location: 'all'}, 'title 1', '?location=all');
+				selectedValueIsotope = '*';
+				selectedPushState = 'all';
 			} else {
-				selectedValue = '.' + selectedValue;
-				//history.pushState({location: selectedValue}, 'title 1', '?location=' + selectedValue.replace('.', ''));
+				selectedValueIsotope = '.' + selectedValue;
+				selectedPushState = selectedValue;
 			}
 
-			$('#content').isotope({ filter: selectedValue });
+			// if (!$('body').hasClass('loading')) {
+			// 	history.pushState({location: selectedPushState}, '', '?location=' + selectedPushState);
+			// }
+
+			$('#content').isotope({ filter: selectedValueIsotope });
 		});
 
 		$('#new-event-name').select2({
@@ -375,7 +380,6 @@ $(function() {
 
 		$('.datepicker').datetimepicker({
 			format: 'MM/DD/YYYY',
-			//inline: true,
 			format: 'L',
 			minDate: 'now',
 			useCurrent: false
@@ -383,7 +387,6 @@ $(function() {
 
 		$('.timepicker').datetimepicker({
 			format: 'HH:mm A',
-			//inline: true,
 			format: 'LT'
 		});
 
@@ -395,6 +398,10 @@ $(function() {
 		$('form input[type=url]').on('change', function() {
 			var value = $(this).val();
 			$(this).val(value.replace(/www\./g, ''));
+		});
+
+		$('#content').one('arrangeComplete', function() {
+			$(this).addClass('isotope-loaded');
 		});
 
 		//$('#modal-new-group').addClass('show').show();
@@ -575,6 +582,9 @@ $(function() {
 			stateUserLocationDetection(true);
 		}
 	}
+
+	userLocationCity(getUrlParam('location') || sessionStorage.getItem('userCity') || '');
+	userLocationState(sessionStorage.getItem('userState') || '');
 
 	loadData();
 });
