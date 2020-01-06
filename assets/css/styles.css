@@ -110,8 +110,34 @@ header #submit-new .dropdown button:after {display:none;}
 header #submit-new .dropdown .dropdown-menu {padding:0;}
 header #submit-new .dropdown .dropdown-menu:hover {cursor:pointer;}
 
-footer {font-size:25px;;}
+footer {font-size:25px;}
 footer .row {width:100%;}
+
+/* ------------------------------ */
+
+/* Sticky Footer */
+body {display:flex; flex-direction:column;}
+#content {flex:1 0 auto;}
+footer {flex-shrink:0;}
+
+/* ------------------------------ */
+
+/* Stylish Select */
+
+.stylish-select-container[data-select-theme='modern'] {display:inline-block;}
+.stylish-select-container[data-select-theme='modern'] > .stylish-select-selected {
+	background-color:rgba(255, 255, 255, 0.1);
+	background-image:none; border:0;
+	border-bottom:5px solid rgba(255, 255, 255, 0.5);
+	color:#ccc;
+	border-radius:0;
+	transition:all 0.50s;
+	padding:0 10px;
+	margin-top:5px;
+	overflow:visible; /* spacing fix */
+}
+.stylish-select-container[data-select-theme='modern'] > .stylish-select-selected:hover {background:rgba(255, 255, 255, 0.2);}
+.stylish-select-container[data-select-theme='modern'] > .stylish-select-list {background-color:rgba(255, 255, 255, 0.60);}
 
 /* ------------------------------ */
 
