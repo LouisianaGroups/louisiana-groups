@@ -7,17 +7,20 @@ var groupsData = ko.observableArray();
 var stateDataGroupsLoaded = ko.observable(false);
 var stateDataEventsLoaded = ko.observable(false);
 var stateGetEventGroupIDs = ko.observable(false);
-var statenewEventDateValid = ko.observable(false);
+var stateNewEventDateValid = ko.observable(false);
+var stateUserLocationDetection = ko.observable(false);
 var stateEventsArraySortedByNextMeetup = ko.observable(false);
 var stateGetLastAndNextEventsPerGroup = ko.observable(false);
 var stateRemovePastDatesFromArrayByProperty = ko.observable(false);
 var stateDataLoaded = ko.computed(function() {
 	if (stateDataGroupsLoaded() == true && stateDataEventsLoaded() == true) {
+		console.log('5 | group + event data loaded and cleaned');
 		return true;
 	}
 });
 var stateGroupsData = ko.computed(function() {
 	if (groupsData().length > 0) {
+		console.log('10 | all data loaded, cleaned and merged');
 		return true;
 	}
 });
@@ -29,6 +32,9 @@ var arrayEvents = [];
 var arrayMerged = [];
 var arrayLocations = [];
 var arrayEventGroupIDs = [];
+var userLocationCity = ko.observable('');
+var userLocationState = ko.observable('');
+var userLocationMatch = ko.observable(false);
 
 if (!window.Promise){
 	alert('old browser, upgrade');
@@ -36,6 +42,10 @@ if (!window.Promise){
 
 if (!navigator.onLine) {
 	alert('offline');
+}
+
+if (!window.localStorage) {
+	console.error('localStorage not supported');
 }
 
 $(function() {
@@ -63,12 +73,18 @@ $(function() {
 	}
 
 	var callbackGroups = function(error, options, response) {
+		console.log('1 | group data received');
 		cleanJsonData(response, 'groups');
 	}
 
 	var callbackEvents = function(error, options, response) {
+		console.log('2 | group data received');
 		cleanJsonData(response, 'events');
 	}
+
+	var getUrlParam = function(param) {
+		return new URLSearchParams(window.location.search).get(param);
+	}	
 
 	var mergeArrays = function(array1, array2, prop) {
 		return array1.map(x => ({...x, ...array2.find(y => x[prop] === y[prop])}) );
@@ -117,8 +133,8 @@ $(function() {
 				}
 			});
 
-			console.warn(prop + ' | tempArray 455');
-			console.table(tempArray);
+			//console.warn(prop + ' | tempArray 455');
+			//console.table(tempArray);
 			
 			arrayMerged.unshift(...tempArray); // merge back into the master list
 		}
@@ -146,9 +162,11 @@ $(function() {
 		if (type == 'groups') {
 			arrayGroups.push(array);
 			stateDataGroupsLoaded(true);
+			console.log('3 | group data cleaned');
 		} else if (type == 'events') {
 			arrayEvents.push(array);
 			stateDataEventsLoaded(true);
+			console.log('4 | group data cleaned');
 		}
 
 		//console.warn(type + ' array');
@@ -172,6 +190,7 @@ $(function() {
 
 	var removePastDatesFromArrayByProperty = function(array, prop) {
 		stateRemovePastDatesFromArrayByProperty(true);
+		console.log('8 | remove past dates from Events array');
 
 		return $.grep(array, function (item) {
 			var value = moment(item[prop], 'MM/DD/YYYY HH:mm:ss');
@@ -232,11 +251,25 @@ $(function() {
 		});
 
 		stateGetLastAndNextEventsPerGroup(true);
+		console.log('7 | get next and last events per group');
 	}
 
 	var countCards = function() {
 		var cardCount = $('#content .card:visible').length;
-		$('#card-count').text(cardCount + ' groups shown');
+		var sel = $('#location-selector');
+		var selectedValue = sel.val();
+		var selectedValueText = sel.find(':selected').text();
+
+		if (selectedValue == '*') {
+			var countTextLeft = '';
+			var countTextRight = cardCount + (cardCount > 1 ? ' groups' : ' group') + ' shown';
+		} else {
+			var countTextLeft = cardCount + (cardCount > 1 ? ' groups' : ' group') + ' shown in ';
+			var countTextRight = '';
+		}
+
+		$('#card-count-left').text(countTextLeft);
+		$('#card-count-right').text(countTextRight);
 	}
 
 	var cleanEventDatetime = function() {
@@ -248,9 +281,9 @@ $(function() {
 		$('#new-event-datetime').val(datetime);
 
 		if (dateValid && date != '' & time != '') {
-			statenewEventDateValid(true);
+			stateNewEventDateValid(true);
 		} else {
-			statenewEventDateValid(false);
+			stateNewEventDateValid(false);
 		}
 	}
 
@@ -260,7 +293,7 @@ $(function() {
 		var tempArray = [];
 
 		$('#content .card').css({'opacity': 0});
-		$('header #controls, header #submit-new').delay(1000).hide().removeClass('hidden').fadeIn();
+		$('header #controls, header #submit-new').delay(1000).css({'opacity': 0}).removeClass('hidden-soft').animate({'opacity': 1});
 
 		for (var i = 0; i < totalCards; i++) {
 			$('#content .card').delay(50).eq(i).animate({'opacity': 1});
@@ -284,6 +317,8 @@ $(function() {
 			$('#location-selector').append(optionHTML);
 		});
 
+		$('#location-selector').stylishSelect();
+
 		cards.removeAttr('data-bind');
 		cards.removeAttr('data-background');
 		cards.removeAttr('data-location');
@@ -294,31 +329,26 @@ $(function() {
 	}
 
 	var init = function() {
-		$('#content').isotope({
-			itemSelector: '.card',
-		});
-
 		$('#content').on('arrangeComplete', function() {
 			countCards();
 		});
 
 		$('#location-selector').on('change', function(e) {
-			var selected = $(this).val();
-
-			if (selected.includes('*')) {
-				selected = '*';
-				//history.pushState({location: 'all'}, "title 1", '?location=all');
+			var selectedValue = $(this).val();
+			
+			if (selectedValue.includes('*')) {
+				selectedValueIsotope = '*';
+				selectedPushState = 'all';
 			} else {
-				selected = '.' + selected
-				//history.pushState({location: selected}, "title 1", '?location=' + selected.replace('.', ''));
+				selectedValueIsotope = '.' + selectedValue;
+				selectedPushState = selectedValue;
 			}
 
-			$('#content').isotope({ filter: selected });
-		});
+			// if (!$('body').hasClass('loading')) {
+			// 	history.pushState({location: selectedPushState}, '', '?location=' + selectedPushState);
+			// }
 
-		$('#location-selector').select2({
-			width: 140,
-			minimumResultsForSearch: 10,
+			$('#content').isotope({ filter: selectedValueIsotope });
 		});
 
 		$('#new-event-name').select2({
@@ -350,7 +380,6 @@ $(function() {
 
 		$('.datepicker').datetimepicker({
 			format: 'MM/DD/YYYY',
-			//inline: true,
 			format: 'L',
 			minDate: 'now',
 			useCurrent: false
@@ -358,7 +387,6 @@ $(function() {
 
 		$('.timepicker').datetimepicker({
 			format: 'HH:mm A',
-			//inline: true,
 			format: 'LT'
 		});
 
@@ -372,8 +400,12 @@ $(function() {
 			$(this).val(value.replace(/www\./g, ''));
 		});
 
-		//$('#modal-new-group').show();
-		//$('#modal-new-event').show();
+		$('#content').one('arrangeComplete', function() {
+			$(this).addClass('isotope-loaded');
+		});
+
+		//$('#modal-new-group').addClass('show').show();
+		//$('#modal-new-event').addClass('show').show();
 	}
 
 	var submitNewListing = function(formSubmitting) {
@@ -407,7 +439,7 @@ $(function() {
 						formElement.find('.modal-body .alert').fadeIn();
 						formElement.find('.modal-footer button[type=submit]').prop({'disabled': false});
 						formElement.find('input').val('');
-						$("#new-event-name").val('').trigger('change');
+						$('#new-event-name').val('').trigger('change');
 					},
 					error: function() {
 						console.log('POST error');
@@ -420,52 +452,54 @@ $(function() {
 		});
 	}
 
-	stateDataLoaded.subscribe(function(v) {
+	stateDataLoaded.subscribe(function() {
 		// sort events array by next event date (for better data massaging)
 		arrayEvents = arrayEvents.pop();
 		arrayGroups = arrayGroups.pop();
 
-		console.warn('arrayGroups');
-		console.table(arrayGroups);
+		//console.warn('arrayGroups');
+		//console.table(arrayGroups);
 
-		console.warn('arrayEvents');
-		console.table(arrayEvents);
+		//console.warn('arrayEvents');
+		//console.table(arrayEvents);
 
 		// get all group IDs in arrayEvents
 		getEventGroupIDs();
 	});
 
-	stateGetEventGroupIDs.subscribe(function(v) {
+	stateGetEventGroupIDs.subscribe(function() {
 		// get all group IDs in arrayEvents
-		console.warn('arrayEventGroupIDs 691');
-		console.table(arrayEventGroupIDs);
+		//console.warn('arrayEventGroupIDs 691');
+		//console.table(arrayEventGroupIDs);
 
 		arrayEventGroupIDs = removeDuplicates(arrayEventGroupIDs, 'GroupID');
-		console.warn('remove duplicates from arrayEventGroupIDs');
-		console.table(arrayEventGroupIDs);
+		console.log('6 | removed duplicates from arrayEventGroupIDs array');
+		//console.warn('remove duplicates from arrayEventGroupIDs');
+		//console.table(arrayEventGroupIDs);
 
 		// insert last group event and insert into arrayEventGroupIDs
 		getLastAndNextEventsPerGroup(arrayEvents);
 	});
 
-	stateGetLastAndNextEventsPerGroup.subscribe(function(v) {
-		console.warn('getLastAndNextEventsPerGroup 914');
-		console.table(arrayEventGroupIDs);
+	stateGetLastAndNextEventsPerGroup.subscribe(function() {
+		//console.warn('getLastAndNextEventsPerGroup 914');
+		//console.table(arrayEventGroupIDs);
 
 		arrayEvents = removePastDatesFromArrayByProperty(arrayEvents, 'NextMeetupDateTime');
 	});
 
-	stateRemovePastDatesFromArrayByProperty.subscribe(function(v) {
+	stateRemovePastDatesFromArrayByProperty.subscribe(function() {
 		arrayMerged = mergeArrays(arrayGroups, arrayEventGroupIDs, 'GroupID');
+		console.log('9 | merge Groups and Events arrays');
 
 		groupsData(arrayMerged);
 	});
 
-	stateGroupsData.subscribe(function(v) {
+	stateGroupsData.subscribe(function() {
 		sortArrayByGroupActivity();
 
-		console.warn('merged array');
-		console.table(arrayMerged);
+		//console.warn('merged array');
+		//console.table(arrayMerged);
 
 		var countDataGroups = 0;
 		var countDomGroups = 0;
@@ -473,19 +507,84 @@ $(function() {
 		var waitForElement = function() {
 			countDataGroups = groupsData().length;
 			countDomGroups = $('#content .card').length;
-			console.warn('waitForElement triggered | data:' + countDataGroups + ' | dom:' + countDomGroups);
+			//console.warn('waitForElement triggered | data:' + countDataGroups + ' | dom:' + countDomGroups);
 
 			if (countDataGroups === countDomGroups) {
 				// SPLIT THESE UP WITH WAITS
 				countCards();
-				uiCleanup();
-				init();
+				getUserLocation();
+				console.log('11 | group DOM elements finished loading');
 			} else {
 				setTimeout(waitForElement, 1000);
 			}
 		}
 		waitForElement();
 	});
+
+	stateUserLocationDetection.subscribe(function() {
+		uiCleanup();
+		init();
+		updateUserLocation();
+	});
+
+	var updateUserLocation = function() {
+		if (userLocationState() == 'louisiana') {
+			var checkCityMatch = $.grep(arrayLocations, function (e) {
+				return e.value == userLocationCity();
+			});
+
+			if (checkCityMatch.length > 0) {
+				userLocationMatch(true);
+				console.log('user location city match');
+			}
+		}
+
+		if (userLocationMatch()) {
+			var startLocation = '.' + userLocationCity();
+		} else {
+			var startLocation = '*';
+		}
+
+		$('#content').isotope({
+			itemSelector: '.card',
+			filter: startLocation
+		});
+
+		$('#location-selector').val(userLocationCity()).trigger('change');
+	}
+
+	var getUserLocation = function() {
+		// $.getJSON('http://ip-api.com/json', function(data) {
+		// 	//console.log(JSON.stringify(data, null, 2));
+		// 	//data.city = 'New Orleans';
+		// 	userLocationCity(data.city.toLowerCase().replace(/ /g , '-'));
+		// 	userLocationState(data.regionName.toLowerCase());
+		// });
+
+		if (userLocationCity() == '' || userLocationState() == '') {
+			$.getJSON('https://extreme-ip-lookup.com/json', function(data) {
+				if (data.status == 'success') {
+					console.log('location detection: pulled');
+					//console.log(JSON.stringify(data, null, 2));
+					//data.city = 'New Orleans';
+					userLocationCity(data.city.toLowerCase().replace(/ /g , '-'));
+					userLocationState(data.region.toLowerCase());
+
+					sessionStorage.setItem('userCity', userLocationCity());
+					sessionStorage.setItem('userState', userLocationState());
+				} else {
+					console.error('location detection: failed');
+				}
+				stateUserLocationDetection(true);
+			});
+		} else {
+			console.log('location detection: skipped');
+			stateUserLocationDetection(true);
+		}
+	}
+
+	userLocationCity(getUrlParam('location') || sessionStorage.getItem('userCity') || '');
+	userLocationState(sessionStorage.getItem('userState') || '');
 
 	loadData();
 });
