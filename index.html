@@ -3,83 +3,297 @@
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-		<meta name="description" content="">
-		<meta name="author" content="">
-		<title></title>
-		<!-- <link href="/favicon.ico" rel="shortcut icon"> -->
-		<!-- <link href="/favicon.png" rel="apple-touch-icon-precomposed"> -->
-		<link rel="stylesheet" href="./assets/css/bootstrap.min.css">
-		<link rel="stylesheet" href="./assets/css/fontawesome-all.min.css">
-		<!-- <link rel="stylesheet" href="./assets/css/colofilter.css"> -->
-		<!-- <link rel="stylesheet" href="./assets/css/jpushmenu.css"> -->
-		<link rel="stylesheet" href="./assets/css/styles.css">
-	</head>
-	<body class="loading content-loading center-to-window loading-inverted">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<title>Louisiana Groups - Public list of Louisiana tech and creative groups.</title>
+		<meta name="author" content="Louisiana Groups">
+		<meta name="description" content="A public list of tech, dev and creative groups in Louisiana">
+		<link href="https://cdn.louisianagroups.com/favicon.ico" rel="shortcut icon">
+		<link href="https://cdn.louisianagroups.com/favicon.png" rel="apple-touch-icon-precomposed">
 
-		<div id="content" class="row m-0">
-			<!-- ko foreach: groupsData -->
-			<div class="col-12 col-sm-6 col-lg-4 p-0">
-				<div class="card" data-bind="
-					style: {
-						background: Hex != '' ? Hex : '#ddd'
-					}
-				">
-					<div class="card-body">
-						<div class="title mb-1">
-							<span>
-								<h2 data-bind="text: GroupName"></h2>
-							</span>
+		<!-- styles -->
+		<link rel="stylesheet" href="https://cdn.louisianagroups.com/assets/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://cdn.louisianagroups.com/assets/css/fontawesome-all.min.css">
+		<link rel="stylesheet" href="https://cdn.louisianagroups.com/assets/css/bootstrap-datetimepicker.css">
+		<link rel="stylesheet" href="https://cdn.louisianagroups.com/assets/css/select2.min.css">
+		<link rel="stylesheet" href="https://cdn.louisianagroups.com/assets/css/stylish-select.css">
+		<link rel="stylesheet" href="https://cdn.louisianagroups.com/assets/css/styles.css">
+
+		<!-- open graph meta -->
+		<meta property="og:title" content="Louisiana Groups">
+		<meta property="og:site_name" content="Louisiana Groups">
+		<meta property="og:description" content="A public list of tech, dev and creative groups in Louisiana">
+		<meta property="og:url" content="https://louisianagroups.com">
+		<meta property="og:image" content="https://cdn.louisianagroups.com/assets/img/preview.png">
+		<meta name="twitter:image" content="https://cdn.louisianagroups.com/assets/img/preview.png">
+	</head>
+	<body class="loading slimscroll">
+
+		<header>
+			<div class="d-md-flex align-items-center">
+				<div class="logo d-md-inline-block">
+					<a class="mr-0 mr-md-4" href="/">Louisiana Groups</a>
+				</div>
+				<div id="controls" class="hidden-soft mt-3 mt-md-0 d-flex align-items-center">
+					<div id="card-count-left" class="d-inline-block mr-2 mr-md-2 mt-2 mt-sm-0"></div>
+					<div id="filter-location" class="d-inline-block">
+						<select id="location-selector" data-select-width="auto" data-select-dropdown-width="auto" data-select-theme="modern">
+							<option value="*">All</option>
+						</select>
+					</div>
+					<div id="card-count-right" class="d-inline-block ml-2 ml-md-2 mt-2 mt-sm-0"></div>
+				</div>
+				<div id="submit-new" class="hidden-soft mt-3 mt-md-0 ml-auto">
+					<div class="dropdown">
+						<button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-plus mr-2"></i>Submit</button>
+						<div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+							<a class="dropdown-item" data-toggle="modal" data-target="#modal-new-group">New Group</a>
+							<a class="dropdown-item" data-toggle="modal" data-target="#modal-new-event">New Group Meetup</a>
 						</div>
-						<div class="location mb-1" data-bind="visible:Location != ''">
-							<span>
-								<i class="fas fa-map-marker-alt mr-1"></i>
-								<span data-bind="text: Location"></span>
-							</span>
-						</div>
-						<!-- ko if: $data.NextMeetupDateTime -->
-						<div class="next-event">
-							<span class="event-date" data-bind="text: 'Next meetup: ' + moment(NextMeetupDateTime, 'MM/DD/YYYY @ HH:mm:SS').format('MM/DD @ hh:mma') "></span>
-							<!-- ko if: EventLink -->
-							<a target="group" rel="nofollow" class="fa fa-link" data-bind="attr: {'href': EventLink}"></a>
-							<!-- /ko -->
-						</div>
-						<!-- /ko -->
-						<div class="links">
-							<a target="group" rel="nofollow" class="fa fa-link" data-bind="visible:Website != '', attr: {'href': Website}"></a>
-							<a target="group" rel="nofollow" class="fab fa-facebook" data-bind="visible:Facebook != '', attr: {'href': Facebook}"></a>
-							<a target="group" rel="nofollow" class="fab fa-twitter" data-bind="visible:Twitter != '', attr: {'href': Twitter}"></a>
-							<a target="group" rel="nofollow" class="fab fa-meetup" data-bind="visible:Meetup != '', attr: {'href': Meetup}"></a>
-						</div>
-						<div class="icon d-flex align-items-center" data-bind="html: FontIcon"></div>
 					</div>
 				</div>
 			</div>
-			<!-- /ko -->
+		</header>
+
+		<div id="content" class="loading-spinner loading-spinner-inverted center-to-window">
+			<div class="row m-0">
+				<!-- ko foreach: groupsData -->
+					<div class="card col-22 col-sm-6 col-lg-4 p-0" data-bind="attr: {'data-background': (Hex != '' ? Hex : '#ccc'), 'data-location': Location}">
+						<div class="card-body">
+							<div class="title mb-2">
+								<span>
+									<h2 data-bind="text: GroupName"></h2>
+								</span>
+							</div>
+							<div class="location mb-2" data-bind="visible:Location != ''">
+								<span>
+									<i class="fas fa-map-marker-alt mr-1"></i>
+									<span class="city" data-bind="text: Location"></span>
+									<span class="state">, LA</span>
+								</span>
+							</div>
+							<!-- ko if: $data.NextEventDate -->
+							<div class="next-event">
+								<span class="event-date" data-bind="text: 'Next meetup: ' + moment($data.NextEventDate, 'MM/DD/YYYY @ HH:mm:SS').format('MM/DD @ hh:mma') "></span>
+								<!-- ko if: $data.NextEventLink -->
+								<a target="group" rel="nofollow" class="fa fa-link ml-1" data-bind="attr: {'href': $data.NextEventLink}"></a>
+								<!-- /ko -->
+							</div>
+							<!-- /ko -->
+							<div class="links">
+								<a target="group" rel="nofollow" class="fa fa-link mr-2" data-bind="visible:Website != '', attr: {'href': Website}"></a>
+								<a target="group" rel="nofollow" class="fab fa-facebook mr-2" data-bind="visible:Facebook != '', attr: {'href': Facebook}"></a>
+								<a target="group" rel="nofollow" class="fab fa-twitter mr-2" data-bind="visible:Twitter != '', attr: {'href': Twitter}"></a>
+								<a target="group" rel="nofollow" class="fab fa-meetup mr-2" data-bind="visible:Meetup != '', attr: {'href': Meetup}"></a>
+							</div>
+							<div class="icon d-flex align-items-center" data-bind="html: FontIcon"></div>
+						</div>
+					</div>
+				<!-- /ko -->
+			</div>
 		</div>
 
 		<footer>
-			<div class="d-flex justify-content-between p-3">
+			<div class="d-lg-flex">
 				<div>
-					<span class="hidden-xs-down"><a href="/">Louisiana Groups</a> is </span><i class="fas fa-code"></i> with <i class="fas fa-heart"></i> by
-					<a class="ml-1" target="_blank" href="http://adamculpepper.net"><img class="rounded-circle" src="https://avatars0.githubusercontent.com/u/3942126?s=30"></a>
-					<a class="ml-1" target="_blank" href="https://nick.scheurich.me"><img class="rounded-circle" src="https://avatars0.githubusercontent.com/u/423798?s=30"></a>
-					<a class="ml-1" target="_blank" href="https://github.com/james-alt"><img class="rounded-circle" src="https://avatars0.githubusercontent.com/u/6201892?s=30"></a>
+					<div class="d-block d-md-inline-block mb-3 mb-md-0">
+						<a href="/">Louisiana Groups</a>
+					</div>
+					<span class="ml-1 hidden-sm-down">is</span>
+					<span class="ml-1"><i class="fas fa-code"></i></span>
+					<span class="ml-1">with</span>
+					<span class="ml-1"><i class="fas fa-heart"></i></span>
+					<span class="ml-1">by</span>
+					<a class="ml-1" target="_blank" href="http://adamculpepper.net"><img class="rounded-circle" src="https://cdn.louisianagroups.com/assets/img/adam.jpg"></a>
+					<a class="ml-1 hidden-xs" target="_blank" href="https://nick.scheurich.me"><img class="rounded-circle" src="https://cdn.louisianagroups.com/assets/img/nick.jpg"></a>
+					<a class="ml-1 hidden-xs" target="_blank" href="https://github.com/james-alt"><img class="rounded-circle" src="https://cdn.louisianagroups.com/assets/img/jimmy.jpg"></a>
 				</div>
-				<div class="hidden-sm-down">
-					edit this page: <a target="_blank" href="https://github.com/LouisianaGroups"><i class="fab fa-github"></i></a>
+				<div class="d-block d-lg-inline-block mt-3 mt-lg-0 ml-auto">
+					<a target="_blank" href="https://github.com/LouisianaGroups">
+						<span class="">edit this page</span>
+						<i class="fab fa-github ml-2"></i>
+					</a>
 				</div>
 			</div>
 		</footer>
 
-		<script src="./assets/js/jquery.min.js"></script>
-		<script src="./assets/js/knockout.min.js"></script>
-		<!-- <script src="./assets/js/bootstrap.min.js"></script> -->
-		<!-- <script src="./assets/js/jpushmenu.js"></script> -->
-		<!-- <script src="./assets/js/handlebars.min.js"></script> -->
-		<script src="./assets/js/sheetrock.min.js"></script>
-		<script src="./assets/js/moment.min.js"></script>
-		<script src="./assets/js/scripts.js"></script>
+		<div class="modal fade" id="modal-new-group" tabindex="-1" role="dialog" aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<form id="form-new-group" data-type="group" autocomplete="off" data-parsley-validate="" data-parsley-focus="none">
+						<input type="hidden" name="GroupID">
+						<input type="hidden" name="Hex">
+						<input type="hidden" name="Icon">
+						<input type="hidden" name="FontIcon">
+
+						<div class="modal-header">
+							<h5 class="modal-title">Submit New Group</h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<i class="fas fa-times"></i>
+							</button>
+						</div>
+						<div class="modal-body">
+							<div class="alert alert-success hidden">Thanks! We'll review the group and get it up soon.</div>
+							<div class="row">
+								<div class="col-sm-6">
+									<div class="form-group">
+										<label class="mb-0" for="new-group-email">Your Email</label>
+										<div class="icon-wrapper far fa-envelope">
+											<input required class="form-control" type="email" name="Email" id="new-group-email" data-parsley-trigger="change">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="mb-0" for="new-group-name">Group Name</label>
+										<div class="icon-wrapper fas fa-tag">
+											<input required class="form-control" type="text" name="GroupName" id="new-group-name">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="mb-0" for="new-group-location">Group Location <span>(city)</span></label>
+										<div class="icon-wrapper fas fa-map-marker">
+											<input required class="form-control" type="text" name="Location" id="new-group-location">
+										</div>
+									</div>
+								</div>
+								<div class="col-sm-6">
+									<div class="form-group">
+										<label class="mb-0" for="new-group-website">Website</label>
+										<div class="icon-wrapper fas fa-link">
+											<input class="form-control" type="url" name="Website" id="new-group-website" data-parsley-trigger="change">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="mb-0" for="new-group-facebook">Facebook</label>
+										<div class="icon-wrapper fab fa-facebook-square">
+											<input class="form-control" type="url" name="Facebook" id="new-group-facebook" data-parsley-trigger="change">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="mb-0" for="new-group-twitter">Twitter</label>
+										<div class="icon-wrapper fab fa-twitter-square">
+											<input class="form-control" type="url" name="Twitter" id="new-group-twitter" data-parsley-trigger="change">
+										</div>
+									</div>
+									<div class="form-group mb-0">
+										<label class="mb-0" for="new-group-meetup">Meetup</label>
+										<div class="icon-wrapper fab fa-meetup">
+											<input class="form-control" type="url" name="Meetup" id="new-group-meetup" data-parsley-trigger="change">
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+							<button type="submit" class="btn btn-primary">Submit</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+
+		<div class="modal fade" id="modal-new-event" tabindex="-1" role="dialog" aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<form id="form-new-event" data-type="event" autocomplete="off" data-parsley-validate="" data-parsley-focus="none">
+						<input type="hidden" name="GroupName" id="new-event-groupname">
+						<input type="hidden" name="NextMeetupDateTime" id="new-event-datetime">
+						<input type="hidden" name="Active" value="yes">
+
+						<div class="modal-header">
+							<h5 class="modal-title">Submit New Group Event</h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<i class="fas fa-times"></i>
+							</button>
+						</div>
+						<div class="modal-body">
+							<div class="alert alert-success hidden">Thanks! We'll review the event and get it up soon.</div>
+							<div class="row">
+								<div class="col-12">
+									<div class="form-group">
+										<label class="mb-0" for="new-event-name">Group Name</label>
+										<select
+											required
+											name="GroupID"
+											id="new-event-name"
+											data-select-theme="modern"
+											data-select-width="auto"
+											data-select-dropdown-width="auto"
+											data-parsley-min="1"
+											data-parsley-trigger="change"
+											data-parsley-min-message="This value is required."
+											data-parsley-errors-container="#validation-error-new-event-group-name">
+											<option value="-1">- SELECT -</option>
+											<!-- ko foreach: groupsData -->
+											<option data-bind="text: GroupName, value: GroupID"></option>
+											<!-- /ko -->
+										</select>
+										<div id="validation-error-new-event-group-name"></div>
+									</div>
+									<div class="form-group">
+										<div class="row">
+											<div class="col-sm-6">
+												<label class="mb-0" for="new-event-datetime">Event Date</label>
+												<div class="icon-wrapper fa fa-calendar-alt">
+													<input
+														required
+														type="text"
+														class="form-control datepicker"
+														id="new-event-datepicker"
+														data-parsley-trigger="change"
+														data-parsley-errors-container="#validation-error-new-event-date">
+												</div>
+												<div id="validation-error-new-event-date"></div>
+											</div>
+											<div class="col-sm-6">
+												<label class="mb-0" for="new-event-datetime">Event Time</label>
+												<div class="icon-wrapper fa fa-clock">
+													<input
+														required
+														type="text"
+														class="form-control timepicker"
+														id="new-event-timepicker"
+														data-parsley-trigger="change"
+														data-parsley-errors-container="#validation-error-new-event-time">
+												</div>
+												<div id="validation-error-new-event-time"></div>
+											</div>
+										</div>
+									</div>
+									<div class="form-group mb-0">
+										<label class="mb-0" for="new-event-link">Event Link</label>
+										<div class="icon-wrapper fa fa-link">
+											<input
+												required
+												type="url"
+												class="form-control"
+												name="EventLink"
+												id="new-event-link"
+												data-parsley-trigger="change">
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+							<button type="submit" class="btn btn-primary">Submit</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+
+		<script src="https://cdn.louisianagroups.com/assets/js/jquery.min.js"></script>
+		<script src="https://cdn.louisianagroups.com/assets/js/bootstrap.min.js"></script>
+		<script src="https://cdn.louisianagroups.com/assets/js/knockout.min.js"></script>
+		<script src="https://cdn.louisianagroups.com/assets/js/sheetrock.min.js"></script>
+		<script src="https://cdn.louisianagroups.com/assets/js/moment.min.js"></script>
+		<script src="https://cdn.louisianagroups.com/assets/js/select2.min.js"></script>
+		<script src="https://cdn.louisianagroups.com/assets/js/parsley.min.js"></script>
+		<script src="https://cdn.louisianagroups.com/assets/js/bootstrap-datetimepicker.js"></script>
+		<script src="https://cdn.louisianagroups.com/assets/js/isotope.min.js"></script>
+		<script src="https://cdn.louisianagroups.com/assets/js/stylish-select.js"></script>
+		<script src="https://cdn.louisianagroups.com/assets/js/custom.js"></script>
 		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-116383596-1"></script>
 		<script>
 			window.dataLayer = window.dataLayer || [];
