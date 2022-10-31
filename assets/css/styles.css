@@ -262,6 +262,7 @@ footer {flex-shrink:0;}
 .icon-wrapper {position:relative; width:100%;}
 .icon-wrapper:before {position:absolute; top:50%; transform:translateY(-50%); right:10px; font-family:'Font Awesome 5 Free'; color:#000; opacity:0.3;}
 .icon-wrapper.fab:before {font-family:'Font Awesome 5 Brands';}
+.icon-wrapper input {padding-right:30px;}
 
 /* ------------------------------ */
 
