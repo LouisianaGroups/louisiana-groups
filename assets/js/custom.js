@@ -379,6 +379,7 @@ $(function() {
 		});
 
 		$('.datepicker').datetimepicker({
+			//inline: true,
 			format: 'MM/DD/YYYY',
 			format: 'L',
 			minDate: 'now',
@@ -386,6 +387,7 @@ $(function() {
 		});
 
 		$('.timepicker').datetimepicker({
+			//inline: true,
 			format: 'HH:mm A',
 			format: 'LT'
 		});
