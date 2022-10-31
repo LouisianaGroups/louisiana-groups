@@ -258,7 +258,7 @@ footer {flex-shrink:0;}
 
 /* Icons Inside Inputs */
 .icon-wrapper {position:relative; width:100%;}
-.icon-wrapper:before {position:absolute; top:50%; transform:translateY(-50%); right:10px; font-family:'FontAwesome'; color:#000; opacity:0.3;}
+.icon-wrapper:before {position:absolute; top:50%; transform:translateY(-50%); right:10px; font-family:'Font Awesome 5 Free'; color:#000; opacity:0.3;}
 
 /* ------------------------------ */
 
