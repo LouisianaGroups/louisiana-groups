@@ -142,8 +142,9 @@
 									<div class="form-group">
 										<label class="mb-0" for="new-group-email">Your Email</label>
 										<div class="icon-wrapper far fa-envelope">
-											<input required class="form-control" type="email" name="Email" id="new-group-email" data-parsley-trigger="change">
+											<input required class="form-control" type="email" name="Email" id="new-group-email" data-parsley-trigger="change" data-parsley-errors-container="#error-email">
 										</div>
+										<div id="error-email"></div>
 									</div>
 									<div class="form-group">
 										<label class="mb-0" for="new-group-name">Group Name</label>
@@ -162,26 +163,30 @@
 									<div class="form-group">
 										<label class="mb-0" for="new-group-website">Website</label>
 										<div class="icon-wrapper fas fa-link">
-											<input class="form-control" type="url" name="Website" id="new-group-website" data-parsley-trigger="change">
+											<input class="form-control" type="url" name="Website" id="new-group-website" data-parsley-trigger="change" data-parsley-errors-container="#error-website">
 										</div>
+										<div id="error-website"></div>
 									</div>
 									<div class="form-group">
 										<label class="mb-0" for="new-group-facebook">Facebook</label>
 										<div class="icon-wrapper fab fa-facebook-square">
-											<input class="form-control" type="url" name="Facebook" id="new-group-facebook" data-parsley-trigger="change">
+											<input class="form-control" type="url" name="Facebook" id="new-group-facebook" data-parsley-trigger="change" data-parsley-errors-container="#error-facebook">
 										</div>
+										<div id="error-facebook"></div>
 									</div>
 									<div class="form-group">
 										<label class="mb-0" for="new-group-twitter">Twitter</label>
 										<div class="icon-wrapper fab fa-twitter-square">
-											<input class="form-control" type="url" name="Twitter" id="new-group-twitter" data-parsley-trigger="change">
+											<input class="form-control" type="url" name="Twitter" id="new-group-twitter" data-parsley-trigger="change" data-parsley-errors-container="#error-twitter">
 										</div>
+										<div id="error-twitter"></div>
 									</div>
 									<div class="form-group mb-0">
 										<label class="mb-0" for="new-group-meetup">Meetup</label>
 										<div class="icon-wrapper fab fa-meetup">
-											<input class="form-control" type="url" name="Meetup" id="new-group-meetup" data-parsley-trigger="change">
+											<input class="form-control" type="url" name="Meetup" id="new-group-meetup" data-parsley-trigger="change" data-parsley-errors-container="#error-meetup">
 										</div>
+										<div id="error-meetup"></div>
 									</div>
 								</div>
 							</div>
